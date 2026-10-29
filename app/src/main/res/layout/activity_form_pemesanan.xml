@@ -74,6 +74,9 @@
         </FrameLayout>
     </LinearLayout>
 
+    <!-- Dual-Role Indicator Banner -->
+    <include layout="@layout/include_role_banner" />
+
     <!-- Scrollable Content -->
     <ScrollView
         android:layout_width="match_parent"
@@ -131,11 +134,11 @@
                         style="@style/TextAppearance.MonoDataMD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_badge_ready"
+                        android:background="@drawable/bg_badge_plate"
                         android:paddingHorizontal="10dp"
                         android:paddingVertical="4dp"
                         android:text="B 1842 KZR"
-                        android:textColor="@color/status_ready_text" />
+                        android:textColor="@color/text_slate_900" />
                 </LinearLayout>
 
                 <!-- Well Inside Banner -->
@@ -230,6 +233,18 @@
                     android:inputType="textPersonName|textCapWords"
                     android:paddingHorizontal="12dp" />
 
+                <TextView
+                    android:id="@+id/tvErrorRenterName"
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Nama penyewa wajib diisi sesuai KTP"
+                    android:textColor="@color/status_workshop_text"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
                 <!-- WhatsApp Aktif -->
                 <TextView
                     style="@style/TextAppearance.LabelCaps"
@@ -285,6 +300,18 @@
                     android:hint="NIK / No. SIM A"
                     android:inputType="text"
                     android:paddingHorizontal="12dp" />
+
+                <TextView
+                    android:id="@+id/tvErrorRenterId"
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Nomor SIM A &amp; NIK KTP wajib diisi untuk verifikasi"
+                    android:textColor="@color/status_workshop_text"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <TextView
                     style="@style/TextAppearance.BodySM"
@@ -612,6 +639,9 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- Bottom Navigation Bar matching Stitch -->
+    <include layout="@layout/include_bottom_nav" />
 
 </LinearLayout>
 

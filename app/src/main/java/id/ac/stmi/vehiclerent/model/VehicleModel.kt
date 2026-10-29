@@ -16,8 +16,8 @@ data class VehicleModel(
     var status: VehicleStatus = VehicleStatus.READY,
     var workshopEstimateHours: Double = 0.0,
     var workshopTargetTime: String = "-",
-    val lastCheckNotes: String = "Rem, Oli Sintetik & Ban Baru (Tekanan 33 PSI)",
-    val imageDrawableName: String = "img_car_zenix"
+    var lastCheckNotes: String = "Rem, Oli Sintetik & Ban Baru (Tekanan 33 PSI)",
+    val imageDrawableName: String = "photo_car_zenix"
 ) : Serializable {
 
     fun toJsonObject(): JSONObject {

@@ -1,0 +1,233 @@
+[
+  {
+    "code": "P0300",
+    "system": "Powertrain",
+    "category": "Ignition & Misfire",
+    "description": "Random/Multiple Cylinder Misfire Detected",
+    "recommended_action": "Ignition Coil Pack & Spark Plug Set",
+    "flat_rate_hours": 2.0,
+    "part_cost": 450000,
+    "severity": "CRITICAL"
+  },
+  {
+    "code": "P0304",
+    "system": "Powertrain",
+    "category": "Ignition & Misfire",
+    "description": "Cylinder 4 Misfire Detected",
+    "recommended_action": "Ignition Coil Cylinder #4 & Injector Cleaning",
+    "flat_rate_hours": 1.5,
+    "part_cost": 320000,
+    "severity": "WARNING"
+  },
+  {
+    "code": "P0171",
+    "system": "Powertrain",
+    "category": "Fuel & Air Metering",
+    "description": "System Too Lean (Bank 1)",
+    "recommended_action": "Mass Air Flow (MAF) Sensor & Vacuum Hose",
+    "flat_rate_hours": 1.5,
+    "part_cost": 380000,
+    "severity": "WARNING"
+  },
+  {
+    "code": "P0420",
+    "system": "Powertrain",
+    "category": "Emission Controls",
+    "description": "Catalyst System Efficiency Below Threshold",
+    "recommended_action": "Oxygen (O2) Sensor Downstream & Catalytic Cleaning",
+    "flat_rate_hours": 2.5,
+    "part_cost": 650000,
+    "severity": "WARNING"
+  },
+  {
+    "code": "P0115",
+    "system": "Powertrain",
+    "category": "Cooling System",
+    "description": "Engine Coolant Temperature Circuit Malfunction",
+    "recommended_action": "Thermostat & ECT Sensor Replacement",
+    "flat_rate_hours": 1.8,
+    "part_cost": 290000,
+    "severity": "CRITICAL"
+  },
+  {
+    "code": "P0700",
+    "system": "Powertrain",
+    "category": "Transmission Controls",
+    "description": "Transmission Control System Malfunction",
+    "recommended_action": "CVT/AT Solenoid Valve & Fluid Flush",
+    "flat_rate_hours": 4.0,
+    "part_cost": 1250000,
+    "severity": "CRITICAL"
+  },
+  {
+    "code": "P0505",
+    "system": "Powertrain",
+    "category": "Idle Speed Control",
+    "description": "Idle Air Control System Malfunction",
+    "recommended_action": "Idle Air Control Valve Cleaning & Throttle Service",
+    "flat_rate_hours": 1.5,
+    "part_cost": 220000,
+    "severity": "NORMAL"
+  },
+  {
+    "code": "P0102",
+    "system": "Powertrain",
+    "category": "Fuel & Air Metering",
+    "description": "Mass Air Flow Circuit Low Input",
+    "recommended_action": "Air Filter Box Seal & MAF Sensor Replacement",
+    "flat_rate_hours": 1.2,
+    "part_cost": 340000,
+    "severity": "WARNING"
+  },
+  {
+    "code": "P0128",
+    "system": "Powertrain",
+    "category": "Cooling System",
+    "description": "Coolant Temp Below Thermostat Regulating Temp",
+    "recommended_action": "High-Flow OEM Thermostat & Coolant Flush",
+    "flat_rate_hours": 1.6,
+    "part_cost": 270000,
+    "severity": "WARNING"
+  },
+  {
+    "code": "P0135",
+    "system": "Powertrain",
+    "category": "Exhaust & Emissions",
+    "description": "O2 Sensor Heater Circuit Malfunction (Bank 1)",
+    "recommended_action": "Upstream Heated O2 Sensor Harness & Probe",
+    "flat_rate_hours": 1.4,
+    "part_cost": 310000,
+    "severity": "NORMAL"
+  },
+  {
+    "code": "C0035",
+    "system": "Chassis",
+    "category": "Brake & ABS Control",
+    "description": "Left Front Wheel Speed Sensor Circuit",
+    "recommended_action": "Front ABS Wheel Speed Sensor Module",
+    "flat_rate_hours": 1.2,
+    "part_cost": 350000,
+    "severity": "WARNING"
+  },
+  {
+    "code": "C0040",
+    "system": "Chassis",
+    "category": "Brake & ABS Control",
+    "description": "Right Front Wheel Speed Sensor Circuit",
+    "recommended_action": "Right ABS Sensor & Rotor Ring Cleaning",
+    "flat_rate_hours": 1.2,
+    "part_cost": 350000,
+    "severity": "WARNING"
+  },
+  {
+    "code": "C1201",
+    "system": "Chassis",
+    "category": "Traction & Stability",
+    "description": "Engine/EV Control System Malfunction (VSC/TRC Off)",
+    "recommended_action": "Throttle Body Calibration & Brake Switch",
+    "flat_rate_hours": 1.5,
+    "part_cost": 250000,
+    "severity": "CRITICAL"
+  },
+  {
+    "code": "C0200",
+    "system": "Chassis",
+    "category": "Rear Axle Dynamics",
+    "description": "Right Rear Wheel Speed Sensor Circuit",
+    "recommended_action": "Rear ABS Sensor Cable & Hub Inspection",
+    "flat_rate_hours": 1.3,
+    "part_cost": 320000,
+    "severity": "WARNING"
+  },
+  {
+    "code": "C0205",
+    "system": "Chassis",
+    "category": "Rear Axle Dynamics",
+    "description": "Left Rear Wheel Speed Sensor Signal Fault",
+    "recommended_action": "Rear Axle Speed Reluctor Ring Alignment",
+    "flat_rate_hours": 1.4,
+    "part_cost": 290000,
+    "severity": "WARNING"
+  },
+  {
+    "code": "B1201",
+    "system": "Body",
+    "category": "Climate & Comfort",
+    "description": "A/C Evaporator Temperature Sensor Circuit",
+    "recommended_action": "Evaporator Thermistor & Cabin Filter",
+    "flat_rate_hours": 1.5,
+    "part_cost": 280000,
+    "severity": "NORMAL"
+  },
+  {
+    "code": "B0001",
+    "system": "Body",
+    "category": "Restraints & SRS",
+    "description": "Driver Frontal Stage 1 Deployment Control",
+    "recommended_action": "SRS Clockspring & Airbag Harness Inspection",
+    "flat_rate_hours": 2.0,
+    "part_cost": 550000,
+    "severity": "CRITICAL"
+  },
+  {
+    "code": "B1000",
+    "system": "Body",
+    "category": "Central Body Electronics",
+    "description": "ECU Body Control Module Internal Fault",
+    "recommended_action": "BCM Firmware Flash & Fuse Link Reset",
+    "flat_rate_hours": 2.2,
+    "part_cost": 480000,
+    "severity": "CRITICAL"
+  },
+  {
+    "code": "B1318",
+    "system": "Body",
+    "category": "Electrical & Battery",
+    "description": "Battery Voltage Below 11.2V Threshold",
+    "recommended_action": "Heavy Duty 65Ah AGM Battery & Terminal Clamp",
+    "flat_rate_hours": 0.8,
+    "part_cost": 850000,
+    "severity": "WARNING"
+  },
+  {
+    "code": "U0100",
+    "system": "Network",
+    "category": "CAN Bus Communications",
+    "description": "Lost Communication With ECM/PCM \"A\"",
+    "recommended_action": "CAN-Bus Main Relay & Grounding Terminal Repair",
+    "flat_rate_hours": 2.5,
+    "part_cost": 400000,
+    "severity": "CRITICAL"
+  },
+  {
+    "code": "U0101",
+    "system": "Network",
+    "category": "CAN Bus Communications",
+    "description": "Lost Communication with TCM (Transmission Control)",
+    "recommended_action": "TCM Wiring Harness Interconnect & Terminating Resistor",
+    "flat_rate_hours": 2.0,
+    "part_cost": 360000,
+    "severity": "CRITICAL"
+  },
+  {
+    "code": "U0121",
+    "system": "Network",
+    "category": "Safety Network",
+    "description": "Lost Communication with ABS Control Module",
+    "recommended_action": "ABS Controller Gateway Check & Connector Re-pin",
+    "flat_rate_hours": 2.0,
+    "part_cost": 380000,
+    "severity": "CRITICAL"
+  },
+  {
+    "code": "U0001",
+    "system": "Network",
+    "category": "High Speed Bus",
+    "description": "High Speed CAN Communication Bus Off",
+    "recommended_action": "Twisted Pair CAN Line Isolation & Protocol Test",
+    "flat_rate_hours": 3.0,
+    "part_cost": 450000,
+    "severity": "CRITICAL"
+  }
+]
+

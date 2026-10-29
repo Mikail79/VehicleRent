@@ -1,174 +1,289 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/bg_card_surface"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:layout_height="wrap_content">
 
-    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:background="@drawable/bg_card_surface"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_badge_rented"
-            android:padding="8dp"
-            android:src="@drawable/ic_person"
-            app:tint="@color/primary_navy" />
-
+        <!-- Header -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <TextView
-                style="@style/TextAppearance.HeadingLG"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_badge_rented"
+                android:padding="8dp"
+                android:src="@drawable/ic_person"
+                app:tint="@color/primary_navy" />
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Profil Petugas Fleet" />
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                style="@style/TextAppearance.BodySM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SharedPreferences (Pertemuan 7)" />
-        </LinearLayout>
-    </LinearLayout>
+                <TextView
+                    style="@style/TextAppearance.HeadingLG"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Autentikasi &amp; Sudut Pandang" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginVertical="16dp"
-        android:background="@color/card_border" />
-
-    <!-- Staff Name Input -->
-    <TextView
-        style="@style/TextAppearance.LabelCaps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NAMA PETUGAS OPERASIONAL" />
-
-    <EditText
-        android:id="@+id/etProfileStaffName"
-        style="@style/TextAppearance.HeadingMD"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/bg_input_field"
-        android:hint="Contoh: Hendra Wijaya"
-        android:inputType="textCapWords"
-        android:paddingHorizontal="12dp" />
-
-    <!-- Staff ID Input -->
-    <TextView
-        style="@style/TextAppearance.LabelCaps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="ID REGISTRASI PETUGAS" />
-
-    <EditText
-        android:id="@+id/etProfileStaffId"
-        style="@style/TextAppearance.MonoDataMD"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/bg_input_field"
-        android:hint="Contoh: AFD-88219"
-        android:inputType="textCapCharacters"
-        android:paddingHorizontal="12dp" />
-
-    <!-- Staging Bay Input -->
-    <TextView
-        style="@style/TextAppearance.LabelCaps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="LOKASI STAGING BAY OPERASIONAL" />
-
-    <EditText
-        android:id="@+id/etProfileStagingBay"
-        style="@style/TextAppearance.HeadingMD"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/bg_input_field"
-        android:hint="Contoh: Staging Bay Area B"
-        android:inputType="textCapWords"
-        android:paddingHorizontal="12dp" />
-
-    <!-- Dark Mode Toggle Switch -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_card_container_low"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="12dp">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_dark_mode"
-            app:tint="@color/text_slate_900" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/TextAppearance.HeadingMD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mode Tampilan Gelap (Dark Mode)" />
-
-            <TextView
-                style="@style/TextAppearance.BodySM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Disimpan di KEY_DARK_MODE" />
+                <TextView
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dual-Role Switcher via SharedPreferences (P1-P7)" />
+            </LinearLayout>
         </LinearLayout>
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/switchDarkMode"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="14dp"
+            android:background="@color/card_border" />
+
+        <!-- Role Selection Heading -->
+        <TextView
+            style="@style/TextAppearance.LabelCaps"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="PILIH SUDUT PANDANG PERAN (DUAL-ROLE)" />
+
+        <!-- Role 1: Mode Pelanggan / Penyewa -->
+        <LinearLayout
+            android:id="@+id/cardRoleRenter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_card_selectable"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <RadioButton
+                android:id="@+id/rbRoleRenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/control_tint_selector"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.HeadingMD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mode Pelanggan (Penyewa)"
+                    android:textColor="@color/primary_navy"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Login: Budi Santoso, S.T. • Akses katalog sewa, paket bundling, booking, dan serah-terima unit."
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Role 2: Mode Pemangku Usaha & Bengkel -->
+        <LinearLayout
+            android:id="@+id/cardRoleWorkshop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_card_selectable"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <RadioButton
+                android:id="@+id/rbRoleWorkshop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/control_tint_selector"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.HeadingMD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mode Pemangku Usaha &amp; Bengkel"
+                    android:textColor="@color/workshop_amber_dark"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Login: Hendra Wijaya (Kepala Bengkel) • Monitoring 25 armada, inspeksi return bodi, engine OBD-II &amp; stall."
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="14dp"
+            android:background="@color/card_border" />
+
+        <!-- Staff / User Name Input -->
+        <TextView
+            style="@style/TextAppearance.LabelCaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NAMA PETUGAS / PENGGUNA AKTIF" />
+
+        <EditText
+            android:id="@+id/etProfileStaffName"
+            style="@style/TextAppearance.HeadingMD"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="Contoh: Hendra Wijaya"
+            android:inputType="textCapWords"
+            android:paddingHorizontal="12dp" />
+
+        <!-- Staff ID Input -->
+        <TextView
+            style="@style/TextAppearance.LabelCaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="ID REGISTRASI FLEET / PETUGAS" />
+
+        <EditText
+            android:id="@+id/etProfileStaffId"
+            style="@style/TextAppearance.MonoDataMD"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="AFD-88219"
+            android:inputType="textCapCharacters"
+            android:paddingHorizontal="12dp" />
+
+        <!-- Staging Bay Input -->
+        <TextView
+            style="@style/TextAppearance.LabelCaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="LOKASI POOL / STAGING BAY" />
+
+        <EditText
+            android:id="@+id/etProfileStagingBay"
+            style="@style/TextAppearance.BodyMD"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="Staging Bay Area B"
+            android:paddingHorizontal="12dp" />
+
+        <!-- Dark Mode Toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card_container_low"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_dark_mode"
+                app:tint="@color/text_slate_900" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.HeadingMD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mode Tampilan Gelap"
+                    android:textSize="13sp" />
+
+                <TextView
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simpan preferensi tema ke SharedPreferences"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchDarkMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Buttons Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnResetSharedPreferences"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:text="Reset Sesi"
+                android:textColor="@color/status_workshop_text"
+                app:strokeColor="@color/status_workshop_text" />
+
+            <Button
+                android:id="@+id/btnSaveProfile"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_primary"
+                android:text="Terapkan"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
     </LinearLayout>
-
-    <!-- Reset Data Button -->
-    <Button
-        android:id="@+id/btnResetSharedPreferences"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:drawableStart="@drawable/ic_refresh"
-        android:drawableTint="@color/status_workshop_text"
-        android:text="Reset Data &amp; Sesi (Clear SharedPreferences)"
-        android:textColor="@color/status_workshop_text"
-        app:strokeColor="@color/status_workshop_text" />
-
-    <!-- Save / Apply Button -->
-    <Button
-        android:id="@+id/btnSaveProfile"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/bg_button_primary"
-        android:text="Simpan Perubahan ke SharedPreferences"
-        android:textColor="@color/white" />
-
-</LinearLayout>
-
+</ScrollView>

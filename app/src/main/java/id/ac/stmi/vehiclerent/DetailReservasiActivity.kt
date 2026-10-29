@@ -15,6 +15,8 @@ import androidx.appcompat.widget.PopupMenu
 import id.ac.stmi.vehiclerent.model.ReservationModel
 import id.ac.stmi.vehiclerent.model.VehicleModel
 import id.ac.stmi.vehiclerent.model.VehicleStatus
+import id.ac.stmi.vehiclerent.util.BottomNavHelper
+import id.ac.stmi.vehiclerent.util.MotionUtils
 import id.ac.stmi.vehiclerent.util.ProfileDialogHelper
 import id.ac.stmi.vehiclerent.util.VehicleRentPrefs
 import java.text.NumberFormat
@@ -76,6 +78,14 @@ class DetailReservasiActivity : AppCompatActivity() {
         initViews()
         bindData()
         setupListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ProfileDialogHelper.setupRoleBanner(this) {
+            BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_RESERVASI)
+        }
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_RESERVASI)
     }
 
     private fun loadReservationData() {
@@ -174,6 +184,14 @@ class DetailReservasiActivity : AppCompatActivity() {
         btnIntentDialer = findViewById(R.id.btnIntentDialer)
         tvIntentDialerPhone = findViewById(R.id.tvIntentDialerPhone)
         btnIntentMaps = findViewById(R.id.btnIntentMaps)
+
+        // Setup Bottom Nav and Tactile Feedback
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.RESERVASI)
+        MotionUtils.applyTactilePressFeedback(btnStartPickupInspection)
+        MotionUtils.applyTactilePressFeedback(btnToggleIntentSheet)
+        MotionUtils.applyTactilePressFeedback(btnIntentWhatsApp)
+        MotionUtils.applyTactilePressFeedback(btnIntentDialer)
+        MotionUtils.applyTactilePressFeedback(btnIntentMaps)
     }
 
     private fun bindData() {

@@ -24,6 +24,8 @@
     <color name="surface_container_high">#CBD5E1</color>
     <color name="card_border">#E2E8F0</color>
     <color name="card_border_focused">#94A3B8</color>
+    <color name="border_slate_200">#E2E8F0</color>
+    <color name="border_slate_300">#CBD5E1</color>
 
     <!-- Text & Ink Hierarchy -->
     <color name="text_slate_900">#0F172A</color>
@@ -49,6 +51,10 @@
     <!-- Pending / Warning (Amber) -->
     <color name="status_warning_bg">#FEF3C7</color>
     <color name="status_warning_text">#92400E</color>
+
+    <!-- Active / Checked State -->
+    <color name="surface_selected_bg">#EFF6FF</color>
+    <color name="surface_selected_border">#1E3A8A</color>
 
     <!-- Functional Utilities -->
     <color name="black">#FF000000</color>

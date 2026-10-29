@@ -22,6 +22,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import id.ac.stmi.vehiclerent.model.ReservationModel
 import id.ac.stmi.vehiclerent.model.VehicleModel
 import id.ac.stmi.vehiclerent.model.VehicleStatus
+import id.ac.stmi.vehiclerent.util.BottomNavHelper
+import id.ac.stmi.vehiclerent.util.MotionUtils
 import id.ac.stmi.vehiclerent.util.ProfileDialogHelper
 import id.ac.stmi.vehiclerent.util.VehicleRentPrefs
 import java.text.NumberFormat
@@ -52,8 +54,10 @@ class FormPemesananActivity : AppCompatActivity() {
     private lateinit var tvOrderDailyRate: TextView
 
     private lateinit var etRenterName: EditText
+    private lateinit var tvErrorRenterName: TextView
     private lateinit var etRenterPhone: EditText
     private lateinit var etRenterId: EditText
+    private lateinit var tvErrorRenterId: TextView
 
     private lateinit var btnDecrement: ImageButton
     private lateinit var btnIncrement: ImageButton
@@ -74,6 +78,8 @@ class FormPemesananActivity : AppCompatActivity() {
     private lateinit var tvGrandTotal: TextView
     private lateinit var btnConfirmReservation: Button
 
+    private var previousGrandTotal: Long = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         prefs = VehicleRentPrefs.getInstance(this)
         super.onCreate(savedInstanceState)
@@ -84,6 +90,14 @@ class FormPemesananActivity : AppCompatActivity() {
         loadDraftFromPrefs()
         setupListeners()
         calculateAndRenderCosts()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ProfileDialogHelper.setupRoleBanner(this) {
+            BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_BOOKING)
+        }
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_BOOKING)
     }
 
     private fun extractIntentExtras() {
@@ -125,8 +139,10 @@ class FormPemesananActivity : AppCompatActivity() {
         tvOrderDailyRate = findViewById(R.id.tvOrderDailyRate)
 
         etRenterName = findViewById(R.id.etRenterName)
+        tvErrorRenterName = findViewById(R.id.tvErrorRenterName)
         etRenterPhone = findViewById(R.id.etRenterPhone)
         etRenterId = findViewById(R.id.etRenterId)
+        tvErrorRenterId = findViewById(R.id.tvErrorRenterId)
 
         btnDecrement = findViewById(R.id.btnDecrementDuration)
         btnIncrement = findViewById(R.id.btnIncrementDuration)
@@ -146,6 +162,13 @@ class FormPemesananActivity : AppCompatActivity() {
         tvPaymentMethodSummary = findViewById(R.id.tvPaymentMethodSummary)
         tvGrandTotal = findViewById(R.id.tvGrandTotal)
         btnConfirmReservation = findViewById(R.id.btnConfirmReservation)
+
+        // Setup Bottom Nav and Tactile Feedback
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.BERANDA)
+        MotionUtils.applyTactilePressFeedback(btnDecrement)
+        MotionUtils.applyTactilePressFeedback(btnIncrement)
+        MotionUtils.applyTactilePressFeedback(btnPickDate)
+        MotionUtils.applyTactilePressFeedback(btnConfirmReservation)
 
         val v = selectedVehicle!!
         tvOrderVehicleName.text = v.name
@@ -189,15 +212,34 @@ class FormPemesananActivity : AppCompatActivity() {
                 prefs.draftSim = etRenterId.text.toString().trim()
             }
         }
-        etRenterName.addTextChangedListener(autoSaveWatcher)
+        etRenterName.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                if (!s.isNullOrBlank()) tvErrorRenterName.visibility = View.GONE
+            }
+            override fun afterTextChanged(s: Editable?) {
+                prefs.draftRenterName = s.toString().trim()
+            }
+        })
+
         etRenterPhone.addTextChangedListener(autoSaveWatcher)
-        etRenterId.addTextChangedListener(autoSaveWatcher)
+
+        etRenterId.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                if (!s.isNullOrBlank()) tvErrorRenterId.visibility = View.GONE
+            }
+            override fun afterTextChanged(s: Editable?) {
+                prefs.draftSim = s.toString().trim()
+            }
+        })
 
         // Stepper duration
         btnDecrement.setOnClickListener {
             if (durationDays > 1) {
                 durationDays--
                 tvDurationDisplay.text = "$durationDays Hari"
+                MotionUtils.pulseHighlight(tvDurationDisplay)
                 calculateAndRenderCosts()
             }
         }
@@ -205,6 +247,7 @@ class FormPemesananActivity : AppCompatActivity() {
         btnIncrement.setOnClickListener {
             durationDays++
             tvDurationDisplay.text = "$durationDays Hari"
+            MotionUtils.pulseHighlight(tvDurationDisplay)
             calculateAndRenderCosts()
         }
 
@@ -271,7 +314,9 @@ class FormPemesananActivity : AppCompatActivity() {
             llRowBundle.visibility = View.GONE
         }
 
-        tvGrandTotal.text = "Rp ${currencyFormat.format(grandTotal)}"
+        // Numeric rolling counter (450ms ease-out)
+        MotionUtils.animateNumberRolling(tvGrandTotal, previousGrandTotal, grandTotal)
+        previousGrandTotal = grandTotal
     }
 
     private fun validateAndSubmit() {
@@ -279,23 +324,31 @@ class FormPemesananActivity : AppCompatActivity() {
         val phone = etRenterPhone.text.toString().trim()
         val idSim = etRenterId.text.toString().trim()
 
+        var hasError = false
+
         if (name.isEmpty()) {
-            etRenterName.error = "Nama penyewa tidak boleh kosong"
+            tvErrorRenterName.visibility = View.VISIBLE
             etRenterName.requestFocus()
-            return
+            hasError = true
+        } else {
+            tvErrorRenterName.visibility = View.GONE
         }
 
         if (phone.isEmpty()) {
             etRenterPhone.error = "Nomor WhatsApp tidak boleh kosong"
-            etRenterPhone.requestFocus()
-            return
+            if (!hasError) etRenterPhone.requestFocus()
+            hasError = true
         }
 
         if (idSim.isEmpty()) {
-            etRenterId.error = "Nomor SIM A & NIK KTP wajib diisi"
-            etRenterId.requestFocus()
-            return
+            tvErrorRenterId.visibility = View.VISIBLE
+            if (!hasError) etRenterId.requestFocus()
+            hasError = true
+        } else {
+            tvErrorRenterId.visibility = View.GONE
         }
+
+        if (hasError) return
 
         val v = selectedVehicle!!
         val baseRate = v.baseRatePerDay
