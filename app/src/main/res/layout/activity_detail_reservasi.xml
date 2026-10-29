@@ -255,11 +255,13 @@
                         android:text="B 1842 KZR" />
                 </LinearLayout>
 
+                <!-- Manifest Airline Ticket Perforation (Dashed Divider) -->
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/card_border" />
+                    android:layout_height="4dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/bg_divider_dashed"
+                    android:layerType="software" />
 
                 <!-- Renter Profile & License -->
                 <TextView
@@ -328,11 +330,13 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <!-- Manifest Airline Ticket Perforation (Dashed Divider) -->
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/card_border" />
+                    android:layout_height="4dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/bg_divider_dashed"
+                    android:layerType="software" />
 
                 <!-- Package & Addons Specs -->
                 <TextView
@@ -361,11 +365,13 @@
                     android:paddingVertical="4dp"
                     android:text="Roof Box 400L • Child Seat Isofix • E-Toll Card Fleet" />
 
+                <!-- Manifest Airline Ticket Perforation (Dashed Divider) -->
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/card_border" />
+                    android:layout_height="4dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/bg_divider_dashed"
+                    android:layerType="software" />
 
                 <!-- Duration & Schedule -->
                 <TextView
@@ -444,11 +450,13 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <!-- Manifest Airline Ticket Perforation (Dashed Divider) -->
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/card_border" />
+                    android:layout_height="4dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/bg_divider_dashed"
+                    android:layerType="software" />
 
                 <!-- Payment Breakdown -->
                 <TextView
@@ -543,11 +551,13 @@
                         android:text="Rp 500.000" />
                 </LinearLayout>
 
+                <!-- Manifest Airline Ticket Perforation (Dashed Divider) -->
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/card_border" />
+                    android:layout_height="4dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/bg_divider_dashed"
+                    android:layerType="software" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -819,6 +829,9 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- Bottom Navigation Bar matching Stitch -->
+    <include layout="@layout/include_bottom_nav" />
 
 </LinearLayout>
 

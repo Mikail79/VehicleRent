@@ -400,6 +400,21 @@
                             android:textColor="@color/workshop_amber_dark" />
                     </LinearLayout>
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvErrorSlotPhoto"
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_badge_workshop"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:text="Wajib lengkapi foto Sisi Kanan (Slot 4) sebelum serah-terima fisik"
+                    android:textColor="@color/status_workshop_text"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <!-- Section 2: Telemetri & Odometer -->
@@ -428,7 +443,7 @@
                         style="@style/TextAppearance.LabelCaps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="OBD-II SYNC"
+                        android:text="Input Kode DTC Scanner"
                         android:textColor="@color/primary_navy" />
                 </LinearLayout>
 
@@ -638,7 +653,7 @@
                         style="@style/TextAppearance.LabelCaps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="E-MATERAI READY"
+                        android:text="Wajib Tanda Tangan Kedua Pihak"
                         android:textColor="@color/status_ready_text" />
                 </LinearLayout>
 
@@ -742,11 +757,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
-                android:text="Audit Hash SHA-256 Terenkripsi di FleetCloud"
+                android:text="Data Serah-Terima Tersimpan di SharedPreferences Lokal"
                 android:textSize="11sp" />
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- Bottom Navigation Bar matching Stitch -->
+    <include layout="@layout/include_bottom_nav" />
 
 </LinearLayout>
 

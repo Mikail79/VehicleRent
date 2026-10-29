@@ -25,6 +25,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import id.ac.stmi.vehiclerent.adapter.VehicleAdapter
 import id.ac.stmi.vehiclerent.model.VehicleModel
 import id.ac.stmi.vehiclerent.model.VehicleStatus
+import id.ac.stmi.vehiclerent.util.BottomNavHelper
+import id.ac.stmi.vehiclerent.util.MotionUtils
 import id.ac.stmi.vehiclerent.util.ProfileDialogHelper
 import id.ac.stmi.vehiclerent.util.VehicleRentPrefs
 import java.text.NumberFormat
@@ -64,6 +66,10 @@ class BerandaFleetActivity : AppCompatActivity() {
     private var isBundlingMode = true
     private var selectedCategory = "Semua Kategori"
     private var activeStatusFilter: VehicleStatus? = null
+
+    private var previousReadyCount: Int = -1
+    private var previousRentedCount: Int = -1
+    private var previousWorkshopCount: Int = -1
 
     private var contextMenuVehicle: VehicleModel? = null
 
@@ -110,6 +116,12 @@ class BerandaFleetActivity : AppCompatActivity() {
         cbCoolerBox = findViewById(R.id.cbCoolerBox)
 
         llVehicleContainer = findViewById(R.id.llVehicleContainer)
+
+        MotionUtils.applyTactilePressFeedback(cardFilterReady)
+        MotionUtils.applyTactilePressFeedback(cardFilterRented)
+        MotionUtils.applyTactilePressFeedback(cardFilterWorkshop)
+        MotionUtils.applyTactilePressFeedback(btnToggleBundling)
+        MotionUtils.applyTactilePressFeedback(btnToggleSingleCar)
 
         findViewById<FrameLayout>(R.id.btnToolbarProfile).setOnClickListener {
             ProfileDialogHelper.showProfileDialog(this) {
@@ -186,9 +198,20 @@ class BerandaFleetActivity : AppCompatActivity() {
         val workshopCount = fleet.count { it.status == VehicleStatus.IN_WORKSHOP }
 
         tvTotalFleetCount.text = "Total: ${fleet.size} Unit"
-        tvMetricReadyCount.text = readyCount.toString()
-        tvMetricRentedCount.text = rentedCount.toString()
-        tvMetricWorkshopCount.text = workshopCount.toString()
+
+        // Numeric rolling counter (300ms ease-out)
+        if (previousReadyCount < 0) {
+            tvMetricReadyCount.text = readyCount.toString()
+            tvMetricRentedCount.text = rentedCount.toString()
+            tvMetricWorkshopCount.text = workshopCount.toString()
+        } else {
+            MotionUtils.animateIntRolling(tvMetricReadyCount, previousReadyCount, readyCount)
+            MotionUtils.animateIntRolling(tvMetricRentedCount, previousRentedCount, rentedCount)
+            MotionUtils.animateIntRolling(tvMetricWorkshopCount, previousWorkshopCount, workshopCount)
+        }
+        previousReadyCount = readyCount
+        previousRentedCount = rentedCount
+        previousWorkshopCount = workshopCount
 
         val workshopBays = fleet.filter { it.status == VehicleStatus.IN_WORKSHOP }
             .map { it.stagingBay.replace("Bay ", "") }
@@ -210,13 +233,66 @@ class BerandaFleetActivity : AppCompatActivity() {
         }
 
         if (filteredList.isEmpty()) {
-            val emptyTv = TextView(this).apply {
-                text = "Tidak ada unit armada yang cocok dengan filter."
-                setTextColor(ContextCompat.getColor(context, R.color.text_slate_400))
-                textSize = 14f
-                setPadding(16, 32, 16, 32)
+            val emptyCard = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+                gravity = android.view.Gravity.CENTER
+                setBackgroundResource(R.drawable.bg_card_surface)
+                setPadding(40, 56, 40, 56)
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply {
+                    setMargins(0, 16, 0, 32)
+                }
             }
-            llVehicleContainer.addView(emptyTv)
+
+            val icon = android.widget.ImageView(this).apply {
+                setImageResource(R.drawable.ic_directions_car)
+                setColorFilter(ContextCompat.getColor(context, R.color.text_slate_400))
+                layoutParams = LinearLayout.LayoutParams(64, 64)
+            }
+
+            val title = TextView(this).apply {
+                text = "Tidak Ada Unit Armada Sesuai Filter"
+                setTextAppearance(R.style.TextAppearance_HeadingMD)
+                gravity = android.view.Gravity.CENTER
+                setPadding(0, 16, 0, 4)
+            }
+
+            val subtitle = TextView(this).apply {
+                text = "Tidak ditemukan armada untuk kategori \"$selectedCategory\" atau filter status yang dipilih."
+                setTextAppearance(R.style.TextAppearance_BodySM)
+                gravity = android.view.Gravity.CENTER
+                setTextColor(ContextCompat.getColor(context, R.color.text_slate_600))
+            }
+
+            val btnReset = Button(this).apply {
+                text = "Reset Filter"
+                setBackgroundResource(R.drawable.bg_button_primary)
+                setTextColor(ContextCompat.getColor(context, R.color.white))
+                textSize = 13f
+                isAllCaps = false
+                val btnLp = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    100
+                ).apply {
+                    setMargins(0, 24, 0, 0)
+                }
+                layoutParams = btnLp
+                MotionUtils.applyTactilePressFeedback(this)
+                setOnClickListener {
+                    selectedCategory = "Semua Kategori"
+                    activeStatusFilter = null
+                    spinnerCategory.setSelection(0)
+                    refreshFleetData()
+                }
+            }
+
+            emptyCard.addView(icon)
+            emptyCard.addView(title)
+            emptyCard.addView(subtitle)
+            emptyCard.addView(btnReset)
+            llVehicleContainer.addView(emptyCard)
             return
         }
 
@@ -369,18 +445,7 @@ class BerandaFleetActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNav() {
-        findViewById<LinearLayout>(R.id.navBeranda).setOnClickListener {
-            // Already here
-        }
-        findViewById<LinearLayout>(R.id.navReservasi).setOnClickListener {
-            startActivity(Intent(this, DetailReservasiActivity::class.java))
-        }
-        findViewById<LinearLayout>(R.id.navInspeksi).setOnClickListener {
-            startActivity(Intent(this, InspeksiPickUpActivity::class.java))
-        }
-        findViewById<LinearLayout>(R.id.navBengkel).setOnClickListener {
-            startActivity(Intent(this, InspeksiReturnActivity::class.java))
-        }
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.BERANDA)
     }
 
     companion object {

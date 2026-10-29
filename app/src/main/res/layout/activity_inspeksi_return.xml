@@ -140,7 +140,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Sisi Depan (Deteksi AI Bumper)"
+                            android:text="Sisi Depan (Inspeksi Visual Petugas)"
                             android:textSize="13sp" />
 
                         <TextView
@@ -365,6 +365,18 @@
                             android:text="Trip: 730 km (Auto)"
                             android:textColor="@color/workshop_amber_dark"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvErrorOdometer"
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Odometer akhir tidak boleh lebih rendah dari odometer awal"
+                            android:textColor="@color/status_workshop_text"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
                     </LinearLayout>
 
                     <!-- Return Fuel Level & Penalty -->
@@ -548,6 +560,7 @@
 
             <!-- Section 3: Amber Real-Time Two-Way Estimation Card -->
             <LinearLayout
+                android:id="@+id/cardWorkshopEstimates"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -762,6 +775,9 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- Bottom Navigation Bar matching Stitch -->
+    <include layout="@layout/include_bottom_nav" />
 
 </LinearLayout>
 

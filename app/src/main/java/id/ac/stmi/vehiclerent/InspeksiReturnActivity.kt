@@ -12,6 +12,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
@@ -21,6 +22,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import id.ac.stmi.vehiclerent.model.ReservationModel
 import id.ac.stmi.vehiclerent.model.VehicleModel
 import id.ac.stmi.vehiclerent.model.VehicleStatus
+import id.ac.stmi.vehiclerent.util.BottomNavHelper
+import id.ac.stmi.vehiclerent.util.MotionUtils
 import id.ac.stmi.vehiclerent.util.ProfileDialogHelper
 import id.ac.stmi.vehiclerent.util.VehicleRentPrefs
 import java.text.NumberFormat
@@ -38,6 +41,7 @@ class InspeksiReturnActivity : AppCompatActivity() {
     private lateinit var tvReturnCarPlate: TextView
     private lateinit var etReturnOdometer: EditText
     private lateinit var tvAutoTripCalculated: TextView
+    private lateinit var tvErrorOdometer: TextView
     private lateinit var spinnerReturnFuel: Spinner
     private lateinit var tvFuelPenaltyCalculated: TextView
 
@@ -50,6 +54,7 @@ class InspeksiReturnActivity : AppCompatActivity() {
     private lateinit var cbFindingEngine: CheckBox
     private lateinit var cbFindingOilService: CheckBox
 
+    private lateinit var cardWorkshopEstimates: LinearLayout
     private lateinit var tvWorkshopAutoStatusTitle: TextView
     private lateinit var tvWorkshopAutoStatusSubtitle: TextView
     private lateinit var tvWorkshopEstHours: TextView
@@ -63,6 +68,9 @@ class InspeksiReturnActivity : AppCompatActivity() {
     private var currentFuelPenalty = 180000L
     private var totalEstHours = 5.5
     private var totalEstCost = 1130000L
+    private var previousEstCost: Long = 0L
+    private var previousEstHours: Double = 0.0
+    private var isWorkshopBranchingActive: Boolean? = null
     private var isUserManuallyToggledOil = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,6 +110,7 @@ class InspeksiReturnActivity : AppCompatActivity() {
         tvReturnCarPlate = findViewById(R.id.tvReturnCarPlate)
         etReturnOdometer = findViewById(R.id.etReturnOdometer)
         tvAutoTripCalculated = findViewById(R.id.tvAutoTripCalculated)
+        tvErrorOdometer = findViewById(R.id.tvErrorOdometer)
         spinnerReturnFuel = findViewById(R.id.spinnerReturnFuel)
         tvFuelPenaltyCalculated = findViewById(R.id.tvFuelPenaltyCalculated)
 
@@ -114,6 +123,7 @@ class InspeksiReturnActivity : AppCompatActivity() {
         cbFindingEngine = findViewById(R.id.cbFindingEngine)
         cbFindingOilService = findViewById(R.id.cbFindingOilService)
 
+        cardWorkshopEstimates = findViewById(R.id.cardWorkshopEstimates)
         tvWorkshopAutoStatusTitle = findViewById(R.id.tvWorkshopAutoStatusTitle)
         tvWorkshopAutoStatusSubtitle = findViewById(R.id.tvWorkshopAutoStatusSubtitle)
         tvWorkshopEstHours = findViewById(R.id.tvWorkshopEstHours)
@@ -123,6 +133,11 @@ class InspeksiReturnActivity : AppCompatActivity() {
 
         btnSubmitToWorkshop = findViewById(R.id.btnSubmitToWorkshop)
         btnShareClaimReport = findViewById(R.id.btnShareClaimReport)
+
+        // Setup Bottom Nav and Tactile Feedback
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.BENGKEL)
+        MotionUtils.applyTactilePressFeedback(btnSubmitToWorkshop)
+        MotionUtils.applyTactilePressFeedback(btnShareClaimReport)
 
         val v = activeVehicle!!
         tvReturnCarPlate.text = "${v.name} • ${v.plateNumber}"
@@ -179,7 +194,14 @@ class InspeksiReturnActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable?) {
                 val returnOdo = s.toString().toIntOrNull() ?: initialOdo
-                val trip = returnOdo - initialOdo
+                if (returnOdo < initialOdo) {
+                    tvErrorOdometer.visibility = View.VISIBLE
+                    tvErrorOdometer.text = "Odometer akhir ($returnOdo km) tidak boleh lebih rendah dari awal ($initialOdo km)"
+                } else {
+                    tvErrorOdometer.visibility = View.GONE
+                }
+
+                val trip = if (returnOdo >= initialOdo) returnOdo - initialOdo else 0
                 tvAutoTripCalculated.text = "Trip: $trip km (Auto)"
 
                 // Auto check oil change if trip > 500 km or returnOdo >= 24800 km
@@ -296,16 +318,34 @@ class InspeksiReturnActivity : AppCompatActivity() {
         totalEstHours = hours
         totalEstCost = repairCost + currentFuelPenalty
 
-        tvWorkshopEstHours.text = "$totalEstHours Jam Pengerjaan"
-        tvWorkshopTotalClaimCost.text = "Rp ${currencyFormat.format(totalEstCost)}"
+        // Numeric rolling counter (300ms ease-out)
+        if (previousEstCost == 0L && totalEstCost == 0L) {
+            tvWorkshopTotalClaimCost.text = "Rp ${currencyFormat.format(totalEstCost)}"
+        } else {
+            MotionUtils.animateNumberRolling(tvWorkshopTotalClaimCost, previousEstCost, totalEstCost)
+        }
+        previousEstCost = totalEstCost
+
+        MotionUtils.animateDoubleRolling(tvWorkshopEstHours, previousEstHours, totalEstHours)
+        previousEstHours = totalEstHours
+
         tvClaimItemsSummary.text = if (activeItems.isNotEmpty()) {
             activeItems.joinToString(" + ")
         } else {
             "Kondisi Normal (Bebas Biaya Perbaikan)"
         }
 
-        // Two-way status branching
-        if (activeItems.isNotEmpty() && (hours > 0 || totalEstCost > 0)) {
+        // Two-way status branching & Pulse Animation
+        val isCurrentlyWorkshop = (activeItems.isNotEmpty() && (hours > 0 || totalEstCost > 0))
+        if (isWorkshopBranchingActive != isCurrentlyWorkshop) {
+            val fromColor = if (isCurrentlyWorkshop) ContextCompat.getColor(this, R.color.status_ready_text) else ContextCompat.getColor(this, R.color.workshop_amber)
+            val toColor = if (isCurrentlyWorkshop) ContextCompat.getColor(this, R.color.workshop_amber) else ContextCompat.getColor(this, R.color.status_ready_text)
+            val fillColor = ContextCompat.getColor(this, R.color.workshop_amber_surface)
+            MotionUtils.animateBorderColor(cardWorkshopEstimates, fromColor, toColor, fillColor, strokeWidthPx = 3, cornerRadiusPx = 32f, duration = 250L)
+            isWorkshopBranchingActive = isCurrentlyWorkshop
+        }
+
+        if (isCurrentlyWorkshop) {
             tvWorkshopAutoStatusTitle.text = "MASUK ANTREAN BENGKEL INTERNAL"
             tvWorkshopAutoStatusTitle.setTextColor(ContextCompat.getColor(this, R.color.status_workshop_text))
             tvWorkshopAutoStatusSubtitle.text = "Unit otomatis DIKUNCI dari katalog sewa publik hingga selesai inspeksi akhir."
@@ -324,6 +364,13 @@ class InspeksiReturnActivity : AppCompatActivity() {
 
     private fun showConfirmationDialog() {
         val returnOdo = etReturnOdometer.text.toString().toIntOrNull() ?: (initialOdo + 730)
+        if (returnOdo < initialOdo) {
+            tvErrorOdometer.visibility = View.VISIBLE
+            tvErrorOdometer.text = "Odometer akhir ($returnOdo km) tidak boleh lebih rendah dari awal ($initialOdo km)"
+            etReturnOdometer.requestFocus()
+            Toast.makeText(this, "Validasi gagal: Odometer akhir tidak boleh lebih rendah dari odometer awal!", Toast.LENGTH_SHORT).show()
+            return
+        }
         val v = activeVehicle!!
         val isGoingToWorkshop = totalEstHours > 0
 

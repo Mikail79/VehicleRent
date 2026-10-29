@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import id.ac.stmi.vehiclerent.R
 import id.ac.stmi.vehiclerent.model.VehicleModel
 import id.ac.stmi.vehiclerent.model.VehicleStatus
+import id.ac.stmi.vehiclerent.util.MotionUtils
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -122,6 +123,7 @@ class VehicleAdapter(
             }
         }
 
+        MotionUtils.applyTactilePressFeedback(btnBook)
         btnBook.setOnClickListener {
             onBookClicked(vehicle)
         }

@@ -230,6 +230,18 @@
                     android:inputType="textPersonName|textCapWords"
                     android:paddingHorizontal="12dp" />
 
+                <TextView
+                    android:id="@+id/tvErrorRenterName"
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Nama penyewa wajib diisi sesuai KTP"
+                    android:textColor="@color/status_workshop_text"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
                 <!-- WhatsApp Aktif -->
                 <TextView
                     style="@style/TextAppearance.LabelCaps"
@@ -285,6 +297,18 @@
                     android:hint="NIK / No. SIM A"
                     android:inputType="text"
                     android:paddingHorizontal="12dp" />
+
+                <TextView
+                    android:id="@+id/tvErrorRenterId"
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Nomor SIM A &amp; NIK KTP wajib diisi untuk verifikasi"
+                    android:textColor="@color/status_workshop_text"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <TextView
                     style="@style/TextAppearance.BodySM"
@@ -612,6 +636,9 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- Bottom Navigation Bar matching Stitch -->
+    <include layout="@layout/include_bottom_nav" />
 
 </LinearLayout>
 

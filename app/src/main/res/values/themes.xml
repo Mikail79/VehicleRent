@@ -55,12 +55,13 @@
         <item name="android:letterSpacing">0.05</item>
     </style>
 
-    <!-- JetBrains Mono Technical Telemetry Styles -->
+    <!-- JetBrains Mono Technical Telemetry Styles (Tabular Numerals for Fixed-Width Metrics) -->
     <style name="TextAppearance.MonoDataLG" parent="android:TextAppearance">
         <item name="fontFamily">@font/font_jetbrains_mono</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/text_slate_900</item>
+        <item name="android:fontFeatureSettings">tnum</item>
     </style>
 
     <style name="TextAppearance.MonoDataMD" parent="android:TextAppearance">
@@ -68,11 +69,13 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/text_slate_900</item>
+        <item name="android:fontFeatureSettings">tnum</item>
     </style>
 
     <style name="TextAppearance.MonoDataSM" parent="android:TextAppearance">
         <item name="fontFamily">@font/font_jetbrains_mono</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/text_slate_600</item>
+        <item name="android:fontFeatureSettings">tnum</item>
     </style>
 </resources>
