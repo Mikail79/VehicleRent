@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="180dp"
+    android:viewportWidth="360"
+    android:viewportHeight="180">
+  <path
+      android:fillColor="#E2E8F0"
+      android:pathData="M0,0h360v180H0z"/>
+  <!-- Ground Shadow -->
+  <path
+      android:fillColor="#CBD5E1"
+      android:pathData="M30,150h300v12H30z"/>
+  <!-- Car Silhouette / Body -->
+  <path
+      android:fillColor="#1E3A8A"
+      android:pathData="M45,125L75,70h110l60,40 50,5c10,2 15,10 15,18v12H45v-20z"/>
+  <!-- Cabin Windows -->
+  <path
+      android:fillColor="#93C5FD"
+      android:pathData="M85,76h95l45,34H85V76z"/>
+  <!-- Window Dividers -->
+  <path
+      android:fillColor="#1E293B"
+      android:pathData="M140,76h6v34h-6zM185,76h6v34h-6z"/>
+  <!-- Front Headlight -->
+  <path
+      android:fillColor="#FEF08A"
+      android:pathData="M285,122l20,2 -5,10h-18l3,-12z"/>
+  <!-- Tail Light -->
+  <path
+      android:fillColor="#EF4444"
+      android:pathData="M45,124l10,-2v10H45v-8z"/>
+  <!-- Front Wheel Arch & Wheel -->
+  <path
+      android:fillColor="#0F172A"
+      android:pathData="M245,145m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0"/>
+  <path
+      android:fillColor="#94A3B8"
+      android:pathData="M245,145m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0"/>
+  <!-- Rear Wheel Arch & Wheel -->
+  <path
+      android:fillColor="#0F172A"
+      android:pathData="M95,145m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0"/>
+  <path
+      android:fillColor="#94A3B8"
+      android:pathData="M95,145m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0"/>
+</vector>
+

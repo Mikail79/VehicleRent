@@ -1,0 +1,39 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="180dp"
+    android:viewportWidth="360"
+    android:viewportHeight="180">
+  <path
+      android:fillColor="#E2E8F0"
+      android:pathData="M0,0h360v180H0z"/>
+  <path
+      android:fillColor="#CBD5E1"
+      android:pathData="M30,152h300v12H30z"/>
+  <!-- Tougher SUV Silhouette -->
+  <path
+      android:fillColor="#0F172A"
+      android:pathData="M40,120L65,60h125l55,42 60,6c8,2 14,9 14,17v20H40v-25z"/>
+  <path
+      android:fillColor="#64748B"
+      android:pathData="M75,68h110l45,34H75V68z"/>
+  <path
+      android:fillColor="#FEF08A"
+      android:pathData="M290,120l18,2 -4,12h-16l2,-14z"/>
+  <path
+      android:fillColor="#EF4444"
+      android:pathData="M40,118l10,-2v12H40v-10z"/>
+  <!-- Higher ground clearance wheels -->
+  <path
+      android:fillColor="#020617"
+      android:pathData="M250,145m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0"/>
+  <path
+      android:fillColor="#D97706"
+      android:pathData="M250,145m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0"/>
+  <path
+      android:fillColor="#020617"
+      android:pathData="M95,145m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0"/>
+  <path
+      android:fillColor="#D97706"
+      android:pathData="M95,145m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0"/>
+</vector>
+

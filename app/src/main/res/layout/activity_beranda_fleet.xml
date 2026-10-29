@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_slate_50"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- Top App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/surface_white"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_badge_rented"
+            android:padding="6dp"
+            android:src="@drawable/ic_directions_car"
+            app:tint="@color/primary_navy" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.HeadingLG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AutoFleet Direct"
+                android:textColor="@color/primary_navy" />
+
+            <TextView
+                style="@style/TextAppearance.LabelCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BERANDA FLEET &amp; SMART BUNDLE" />
+        </LinearLayout>
+
+        <!-- More Options Menu Button -->
+        <ImageButton
+            android:id="@+id/btnToolbarMore"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Menu opsi"
+            android:src="@drawable/ic_more_vert"
+            app:tint="@color/text_slate_900" />
+
+        <!-- Profile Icon (Linked to SharedPreferences) -->
+        <FrameLayout
+            android:id="@+id/btnToolbarProfile"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_card_navy"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_person"
+                app:tint="@color/white" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Main Scrollable Area -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="24dp">
+
+            <!-- Real-time Staging Bay & Staff Live Strip -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_container_low"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp">
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_badge_warning" />
+
+                <TextView
+                    android:id="@+id/tvLiveBayStatus"
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="Update armada langsung • Staging Bay Area B | Hendra W."
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/TextAppearance.MonoDataSM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ONLINE"
+                    android:textColor="@color/status_ready_text"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Fleet Operational Status 3-Cards Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="STATUS ARMADA OPERASIONAL" />
+
+                <TextView
+                    android:id="@+id/tvTotalFleetCount"
+                    style="@style/TextAppearance.MonoDataSM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total: 8 Unit" />
+            </LinearLayout>
+
+            <!-- 3 Dynamic Metric Cards (Siap Sewa, Disewa, Bengkel) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <!-- Metric 1: Siap Sewa -->
+                <LinearLayout
+                    android:id="@+id/cardFilterReady"
+                    android:layout_width="0dp"
+                    android:layout_height="88dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_card_surface"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Siap Sewa" />
+
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="@color/status_ready_dot" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvMetricReadyCount"
+                        style="@style/TextAppearance.MonoDataLG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="4"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_badge_ready"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="2dp"
+                        android:text="QC OK"
+                        android:textColor="@color/status_ready_text" />
+                </LinearLayout>
+
+                <!-- Metric 2: Disewa -->
+                <LinearLayout
+                    android:id="@+id/cardFilterRented"
+                    android:layout_width="0dp"
+                    android:layout_height="88dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_card_surface"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Disewa" />
+
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="@color/status_rented_dot" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvMetricRentedCount"
+                        style="@style/TextAppearance.MonoDataLG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="2"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_badge_rented"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="2dp"
+                        android:text="Jalan"
+                        android:textColor="@color/status_rented_text" />
+                </LinearLayout>
+
+                <!-- Metric 3: Di Bengkel Internal -->
+                <LinearLayout
+                    android:id="@+id/cardFilterWorkshop"
+                    android:layout_width="0dp"
+                    android:layout_height="88dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_card_surface"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Bengkel" />
+
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="@color/status_workshop_dot" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvMetricWorkshopCount"
+                        style="@style/TextAppearance.MonoDataLG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="2"
+                        android:textColor="@color/status_workshop_text"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tvMetricWorkshopSub"
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_badge_workshop"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="2dp"
+                        android:text="Bay 02,04"
+                        android:textColor="@color/status_workshop_text" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Section 2: Smart Car Bundle & Service Selector Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <!-- Service Mode Toggle: Paket Bundling vs Mobil Satuan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_card_container_low"
+                    android:orientation="horizontal"
+                    android:padding="3dp">
+
+                    <Button
+                        android:id="@+id/btnToggleBundling"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_primary"
+                        android:text="Paket Bundling"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnToggleSingleCar"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:text="Unit Mobil Satuan"
+                        android:textColor="@color/text_slate_600" />
+                </LinearLayout>
+
+                <!-- Category Spinner Filter -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="KATEGORI &amp; KELAS UNIT FLEET" />
+
+                <Spinner
+                    android:id="@+id/spinnerCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingHorizontal="10dp" />
+
+                <!-- Driver Method RadioGroup -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="METODE PENGEMUDI" />
+
+                <RadioGroup
+                    android:id="@+id/rgDriverMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbSelfDrive"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Lepas Kunci\n(Self-Drive Rp 0)"
+                        android:textSize="12sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbWithDriver"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="Dengan Sopir\n(+Rp 250.000/hr)"
+                        android:textSize="12sp" />
+                </RadioGroup>
+
+                <!-- Smart Fleet Bundle Add-ons CheckBox Group -->
+                <LinearLayout
+                    android:id="@+id/llBundleContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SMART FLEET BUNDLE &amp; ADD-ONS" />
+
+                    <!-- Add-on 1: Family Touring -->
+                    <CheckBox
+                        android:id="@+id/cbFamilyTouring"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:checked="true"
+                        android:text="Paket Family Touring (+Rp 150.000/hari)\nRoof Box 400L + Child Car Seat + E-Toll Card"
+                        android:textSize="12sp" />
+
+                    <!-- Add-on 2: Dashcam Dual-Cam + GPS IoT -->
+                    <CheckBox
+                        android:id="@+id/cbDashcamGps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Dashcam Dual-Cam + GPS IoT (Standar Armada Rp 0)\nPerekaman kabin 2K Cloud + Live Tracking 24/7"
+                        android:textSize="12sp" />
+
+                    <!-- Add-on 3: Cooler Box & Tire Pump -->
+                    <CheckBox
+                        android:id="@+id/cbCoolerBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="Cooler Box 12V &amp; Pompa Ban (+Rp 50.000/hari)\nKulkas mini portabel &amp; kompresor digital"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Section 3: Available Fleet List Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_directions_car"
+                    app:tint="@color/primary_navy" />
+
+                <TextView
+                    style="@style/TextAppearance.HeadingLG"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="Armada Tersedia" />
+
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TEKAN &amp; TAHAN UNTUK MENU QC" />
+            </LinearLayout>
+
+            <!-- Fleet ListView -->
+            <!-- Using custom non-scrollable list container inside ScrollView or dynamic layout -->
+            <LinearLayout
+                android:id="@+id/llVehicleContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar matching Stitch -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/surface_white"
+        android:elevation="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/navBeranda"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_directions_car"
+                app:tint="@color/primary_navy" />
+
+            <TextView
+                style="@style/TextAppearance.LabelCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Beranda"
+                android:textColor="@color/primary_navy" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navReservasi"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_calendar_month"
+                app:tint="@color/text_slate_400" />
+
+            <TextView
+                style="@style/TextAppearance.LabelCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Reservasi" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navInspeksi"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_assignment_turned_in"
+                app:tint="@color/text_slate_400" />
+
+            <TextView
+                style="@style/TextAppearance.LabelCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Inspeksi" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navBengkel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_build_circle"
+                app:tint="@color/text_slate_400" />
+
+            <TextView
+                style="@style/TextAppearance.LabelCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Bengkel" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+

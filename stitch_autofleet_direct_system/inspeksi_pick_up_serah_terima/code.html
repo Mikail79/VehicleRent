@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#fe932c","on-surface":"#131b2e","surface-tint":"#4059aa","on-secondary-container":"#663500","on-primary-fixed-variant":"#264191","on-secondary-fixed-variant":"#6e3900","primary-fixed-dim":"#b6c4ff","on-primary-container":"#90a8ff","tertiary":"#4b1c00","inverse-primary":"#b6c4ff","inverse-surface":"#283044","secondary":"#904d00","surface-container":"#eaedff","surface-variant":"#dae2fd","surface-container-low":"#f2f3ff","outline":"#757682","primary":"#00236f","on-tertiary-container":"#f39461","surface-container-lowest":"#ffffff","inverse-on-surface":"#eef0ff","surface-container-highest":"#dae2fd","background":"#faf8ff","primary-fixed":"#dce1ff","tertiary-fixed-dim":"#ffb691","on-tertiary-fixed-variant":"#773205","on-primary-fixed":"#00164e","primary-container":"#1e3a8a","on-secondary-fixed":"#2f1500","on-error":"#ffffff","tertiary-fixed":"#ffdbcb","tertiary-container":"#6e2c00","surface":"#faf8ff","on-error-container":"#93000a","surface-container-high":"#e2e7ff","on-tertiary-fixed":"#341100","secondary-fixed":"#ffdcc3","on-primary":"#ffffff","secondary-fixed-dim":"#ffb77d","on-surface-variant":"#444651","on-tertiary":"#ffffff","error":"#ba1a1a","error-container":"#ffdad6","surface-bright":"#faf8ff","on-secondary":"#ffffff","outline-variant":"#c5c5d3","on-background":"#131b2e","surface-dim":"#d2d9f4"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-lg":"1.5rem","gutter-tablet":"1.5rem","margin-tablet":"2rem","space-xs":"0.25rem","space-sm":"0.5rem","margin":"1rem","gutter":"1rem","space-xl":"2rem","space-md":"1rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"mono-data-md":["JetBrains Mono"],"label-caps":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"mono-data-lg":["JetBrains Mono"],"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"mono-data-sm":["JetBrains Mono"]},fontSize:{"headline-sm":["16px",{lineHeight:"24px",fontWeight:"600"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"mono-data-md":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"500"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"700"}],"headline-xl-mobile":["26px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"700"}],"headline-xl":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}],"mono-data-lg":["18px",{lineHeight:"24px",letterSpacing:"0.04em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"mono-data-sm":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}]}}}};</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-6 px-margin flex items-center justify-between text-on-surface select-none"><span class="font-mono-data-sm text-mono-data-sm font-semibold tracking-tight">09:41</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">network_cell</span><span class="material-symbols-outlined text-[16px]">wifi</span><span class="material-symbols-outlined text-[18px]">battery_full</span></div></div><div class="h-14 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="AutoFleet Direct Brand Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1W8b5u0rwv5ovrohIB4KaJXxCc1FP3YrxIGkcbB32elgvFo2B2jWrN--fLjhyioGP5eXfB8bYkAn8EhvDU7LCKjEUQ7wuu-29lmBIkcdVj3dcoghUSW8LDagQQC8lQmjlPAvHT9LT-ep30JZUXBBIDNX3Fi06uDYcHYnDz8-aaZfaKXNPVll9ZDSAoZS0G44gwC5uPFBUJceGjZRF7nlzRB8WBBES-P46YHjj-LzIc93nbUjeV2M0yIo-c"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-primary leading-none tracking-tight truncate">AutoFleet Direct</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider truncate">Inspeksi Kendaraan</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Menu opsi" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container active:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-20 bg-surface"><div class="flex flex-col w-full pb-6 space-y-5 px-margin select-none">
+<!-- Top App Sub-Bar & Fleet Unit Spec -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-space-sm min-w-0">
+<button aria-label="Kembali" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-surface-container text-on-surface hover:bg-surface-variant active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex flex-col min-w-0">
+<h1 class="font-headline-sm text-headline-sm text-on-surface truncate tracking-tight">Inspeksi Pick-up</h1>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-mono-data-sm text-mono-data-sm font-bold text-primary bg-primary-fixed px-1.5 py-0.5 rounded">B 1842 KZR</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Innova Zenix Hybrid</span>
+</div>
+</div>
+</div>
+<div class="flex items-center">
+<span class="inline-flex items-center gap-1 font-label-caps text-label-caps px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold tracking-wider">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+        TAHAP 1/2
+      </span>
+</div>
+</div>
+<!-- Operational Alert Banner: Walkaround Guidance -->
+<div class="flex items-start gap-3 p-3.5 rounded-xl bg-surface-container-low shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-variant flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">360</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-headline-sm text-[13px] text-on-surface leading-snug">Pemeriksaan Keliling 4 Sisi (360° Walkaround)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Pastikan pencahayaan cukup dan nomor pelat atau bodi mobil terlihat jelas tanpa pantulan silau.</p>
+</div>
+</div>
+<!-- Section 1: 2x2 Photo Upload Grid for 4-Sided Car Body Check -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">grid_view</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Foto Fisik Kendaraan</h2>
+</div>
+<span class="font-mono-data-sm text-mono-data-sm font-semibold text-primary">3 / 4 Selesai</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Slot 1: Sisi Depan (Verified) -->
+<div class="relative flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm group">
+<div class="relative w-full aspect-[4/3] bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High contrast, sharp daylight inspection photo of the front bumper and hood of a sleek modern pearl white Toyota Innova Zenix SUV parked at an auto fleet lot, crisp automotive details, professional vehicle handover inspection photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTx9r9rziPAryaNoKQ38wqjos8WvdBUf6auZqmirJBqK_aAdCHZDws4YfNQMF5gLcEl_prfYhn6-EGzGQAprY00nIHkpg6qKDqZ8Ja4oO4f2xxSPtytA-zUO697dJoZG1rrlzAZnGapZ2LKlq08m8UQ0IfvCspa4820mgn4WXXCqAp-AHbmD-ADOgMy7iWMO3BDQV1ZySdyIBdAJPj_6lPyTQTmdBcZqORfupZA5Vw9o3_S25I6m3L"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<span class="absolute top-2 right-2 inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-600 text-surface-container-lowest shadow-md">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</span>
+<span class="absolute bottom-2 left-2 right-2 font-mono-data-sm text-[10px] text-white tracking-wide truncate">
+            IMG_FRONT_24120.JPG
+          </span>
+</div>
+<div class="p-2.5 flex flex-col">
+<span class="font-headline-sm text-[13px] text-on-surface truncate">Sisi Depan</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant truncate">Bumper &amp; Kap Mesin</span>
+<div class="mt-1 flex items-center gap-1 text-emerald-700">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="font-label-caps text-[10px] uppercase font-bold tracking-tight">Foto Terverifikasi</span>
+</div>
+</div>
+</div>
+<!-- Slot 2: Sisi Belakang (Verified) -->
+<div class="relative flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm group">
+<div class="relative w-full aspect-[4/3] bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Detailed outdoor automotive inspection photograph showing the rear trunk tailgate and rear bumper of a pearl white Innova Zenix hybrid with visible license plate B 1842 KZR, pristine condition under daylight fleet hangar lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOvPV9ro9YHhCYmhgNMBZ65v9fmJmr_fAldjJjYTMZQM0aE_7tbjug_5jM3-UnJbsVXgzA21u_fxk84ZfZAz-R1XxkCYIaY29RQoARvsswbFa4cGrMm92vcNCFbjqzQHbypmLtacheu34TBAmzqUtgwAEw6EAVXSMFbuce9Yfwo0k80LgvcoWgyMZshfa7sLWnqAh155i7tN86d-Jz1Pxsr9u49oKXzSwWzhjmUF0fOxEfFsRiAKX2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<span class="absolute top-2 right-2 inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-600 text-surface-container-lowest shadow-md">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</span>
+<span class="absolute bottom-2 left-2 right-2 font-mono-data-sm text-[10px] text-white tracking-wide truncate">
+            IMG_REAR_24120.JPG
+          </span>
+</div>
+<div class="p-2.5 flex flex-col">
+<span class="font-headline-sm text-[13px] text-on-surface truncate">Sisi Belakang</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant truncate">Pintu Bagasi &amp; Lampu</span>
+<div class="mt-1 flex items-center gap-1 text-emerald-700">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="font-label-caps text-[10px] uppercase font-bold tracking-tight">Foto Terverifikasi</span>
+</div>
+</div>
+</div>
+<!-- Slot 3: Sisi Kiri (Verified) -->
+<div class="relative flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm group">
+<div class="relative w-full aspect-[4/3] bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Automotive fleet inspection side profile photo displaying the left driver passenger doors, rear quarter fender and alloy wheels of a clean modern white family crossover car parked in a staging area." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLS64wuqryBpUYNZ8IVvQ_zrOJyvkgVzy5uhcvh0DhofiDoNy4Ke_0H6CvIqMoOUIeVQ2_rZpBfm5pfx2D394GOnQ63bMFagHZfC9HeA1X462xt5vs3YvdGNCvnl4AzZioVCXfwg2HpcDvglT2VTAheJIZWtVM2TX9oLdL2koS0b7Yv8ma6sLn_UG3oyFUad2RnJGmxaQ4n5p8AvBCOKEvz60ejV-yqkgx3UYkGWlBvHw2TyD6dtJJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<span class="absolute top-2 right-2 inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-600 text-surface-container-lowest shadow-md">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</span>
+<span class="absolute bottom-2 left-2 right-2 font-mono-data-sm text-[10px] text-white tracking-wide truncate">
+            IMG_LEFT_24120.JPG
+          </span>
+</div>
+<div class="p-2.5 flex flex-col">
+<span class="font-headline-sm text-[13px] text-on-surface truncate">Sisi Kiri</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant truncate">Pintu &amp; Fender Kiri</span>
+<div class="mt-1 flex items-center gap-1 text-emerald-700">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="font-label-caps text-[10px] uppercase font-bold tracking-tight">Foto Terverifikasi</span>
+</div>
+</div>
+</div>
+<!-- Slot 4: Sisi Kanan (Action Needed: Upload) -->
+<div class="relative flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm">
+<button class="relative w-full aspect-[4/3] flex flex-col items-center justify-center bg-surface-container-high hover:bg-surface-variant active:scale-[0.98] transition-all text-primary p-3 group" type="button">
+<div class="w-11 h-11 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center mb-1.5 group-hover:bg-primary group-hover:text-surface-container-lowest transition-colors">
+<span class="material-symbols-outlined text-[24px]">photo_camera</span>
+</div>
+<span class="font-headline-sm text-[12px] font-bold text-center leading-tight">Ambil Foto</span>
+<span class="font-mono-data-sm text-[10px] text-on-surface-variant">Sisi Kanan</span>
+<div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary-container"></div>
+</button>
+<div class="p-2.5 flex flex-col">
+<span class="font-headline-sm text-[13px] text-on-surface truncate">Sisi Kanan</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant truncate">Pintu &amp; Spion Kanan</span>
+<div class="mt-1 flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]">pending</span>
+<span class="font-label-caps text-[10px] uppercase font-bold tracking-tight">Belum Diambil</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Technical Instrument Inputs -->
+<section class="p-4 rounded-xl bg-surface-container-lowest shadow-sm space-y-4">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">speed</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Telemetri &amp; Odometer</h2>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">OBD-II Sync</span>
+</div>
+<!-- Odometer Input Field -->
+<div class="space-y-1.5">
+<label class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold tracking-wider">
+        Odometer Awal (km)
+      </label>
+<div class="flex items-center gap-2">
+<div class="relative flex-1 flex items-center bg-surface-container-low rounded-lg px-3 h-12 shadow-inner">
+<span class="material-symbols-outlined text-outline mr-2 text-[20px]">pin</span>
+<input class="w-full bg-transparent font-mono-data-lg text-mono-data-lg font-bold text-on-surface tracking-wider outline-none cursor-default" readonly="" type="text" value="24120"/>
+<span class="font-mono-data-sm text-mono-data-sm font-semibold text-on-surface-variant ml-1">KM</span>
+</div>
+<button aria-label="Ambil foto odometer" class="h-12 w-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg bg-surface-container text-primary hover:bg-surface-variant active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">photo_camera</span>
+</button>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-emerald-600">check_circle</span>
+        Tervalidasi sesuai rekaman servis bengkel terakhir (24,115 km)
+      </p>
+</div>
+<!-- Fuel / Battery Level Horizontal Selector -->
+<div class="space-y-2 pt-1">
+<div class="flex items-center justify-between">
+<label class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold tracking-wider">
+          Level Bahan Bakar / Baterai
+        </label>
+<span class="font-mono-data-sm text-mono-data-sm font-bold text-emerald-700">100% (Optimum)</span>
+</div>
+<!-- Segmented Pill Group -->
+<div aria-label="Level Bahan Bakar" class="grid grid-cols-4 gap-1.5 p-1 rounded-xl bg-surface-container-low" role="radiogroup">
+<button aria-checked="false" class="h-11 flex flex-col items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container transition-all" role="radio" type="button">
+<span class="font-mono-data-sm text-mono-data-sm font-bold">25%</span>
+<span class="font-label-caps text-[9px] uppercase">1/4</span>
+</button>
+<button aria-checked="false" class="h-11 flex flex-col items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container transition-all" role="radio" type="button">
+<span class="font-mono-data-sm text-mono-data-sm font-bold">50%</span>
+<span class="font-label-caps text-[9px] uppercase">1/2</span>
+</button>
+<button aria-checked="false" class="h-11 flex flex-col items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container transition-all" role="radio" type="button">
+<span class="font-mono-data-sm text-mono-data-sm font-bold">75%</span>
+<span class="font-label-caps text-[9px] uppercase">3/4</span>
+</button>
+<button aria-checked="true" class="h-11 flex flex-col items-center justify-center rounded-lg bg-primary-container text-surface-container-lowest shadow-md transition-all" role="radio" type="button">
+<span class="font-mono-data-sm text-mono-data-sm font-bold">100%</span>
+<span class="font-label-caps text-[9px] uppercase font-bold text-on-primary-container">Full Tank</span>
+</button>
+</div>
+<!-- Fuel Gauge Visual Indicator Bar -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden flex">
+<div class="w-full h-full bg-emerald-600 rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Section 3: Mandatory Car Kit Checklist -->
+<section class="p-4 rounded-xl bg-surface-container-lowest shadow-sm space-y-3">
+<div class="flex items-center justify-between pb-0.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Kelengkapan Kit Armada</h2>
+</div>
+<span class="font-mono-data-sm text-mono-data-sm font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">4/4 Siap</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Centang kelengkapan darurat dan dokumen legalitas kendaraan sebelum serah terima.</p>
+<div class="space-y-2 pt-1">
+<!-- Item 1 -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors min-h-[52px]">
+<div class="w-6 h-6 rounded-md bg-primary-container flex items-center justify-center flex-shrink-0 text-white shadow-xs">
+<span class="material-symbols-outlined text-[18px] font-bold">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md font-semibold text-on-surface leading-tight">STNK Asli &amp; Kunci Kontak Utama</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Termasuk kunci remote cadangan &amp; cover dompet STNK</p>
+</div>
+</label>
+<!-- Item 2 -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors min-h-[52px]">
+<div class="w-6 h-6 rounded-md bg-primary-container flex items-center justify-center flex-shrink-0 text-white shadow-xs">
+<span class="material-symbols-outlined text-[18px] font-bold">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Ban Serep, Dongkrak Hidrolik &amp; Kunci Roda</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Tekanan angin serep 34 PSI terkalibrasi aman</p>
+</div>
+</label>
+<!-- Item 3 -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors min-h-[52px]">
+<div class="w-6 h-6 rounded-md bg-primary-container flex items-center justify-center flex-shrink-0 text-white shadow-xs">
+<span class="material-symbols-outlined text-[18px] font-bold">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Segitiga Pengaman &amp; Kotak P3K Lengkap</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Segel utuh, kasa steril, perban &amp; antiseptik belum expired</p>
+</div>
+</label>
+<!-- Item 4 -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors min-h-[52px]">
+<div class="w-6 h-6 rounded-md bg-primary-container flex items-center justify-center flex-shrink-0 text-white shadow-xs">
+<span class="material-symbols-outlined text-[18px] font-bold">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Aksesoris Smart Bundle Lengkap</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Roof Box 400L terpasang kokoh &amp; ISOFIX Child Seat terpasang</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Section 4: Digital Signature Pad Preview -->
+<section class="p-4 rounded-xl bg-surface-container-lowest shadow-sm space-y-3">
+<div class="flex items-center justify-between pb-0.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">draw</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Validasi Tanda Tangan Digital</h2>
+</div>
+<span class="font-label-caps text-label-caps text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">E-Materai Ready</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Kedua pihak telah memeriksa dan menyetujui kondisi fisik serta kelengkapan dokumen unit.</p>
+<div class="grid grid-cols-2 gap-3 pt-1">
+<!-- Petugas Signature Pad -->
+<div class="flex flex-col space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-[10px] uppercase font-bold text-on-surface-variant">Petugas Fleet</span>
+<span class="font-label-caps text-[9px] text-emerald-600 font-semibold">Tervalidasi</span>
+</div>
+<div class="relative w-full h-24 rounded-lg bg-surface-container-low flex flex-col items-center justify-center overflow-hidden p-2">
+<!-- Signature SVG Simulated Graphic -->
+<svg class="w-32 h-14 text-primary opacity-80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 160 60">
+<path d="M10 40 Q 30 10, 50 35 T 80 20 T 110 45 Q 130 15, 145 30"></path>
+<path d="M35 48 C 60 52, 100 48, 130 50"></path>
+</svg>
+<span class="absolute bottom-1 font-mono-data-sm text-[9px] text-on-surface-variant">ID: AFD-88219 (Budi S.)</span>
+</div>
+</div>
+<!-- Penyewa Signature Pad -->
+<div class="flex flex-col space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-[10px] uppercase font-bold text-on-surface-variant">Penyewa / Driver</span>
+<button class="font-label-caps text-[9px] text-primary underline" type="button">Ulangi</button>
+</div>
+<div class="relative w-full h-24 rounded-lg bg-surface-container-low flex flex-col items-center justify-center overflow-hidden p-2">
+<!-- Signature SVG Simulated Graphic -->
+<svg class="w-32 h-14 text-primary-container" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 160 60">
+<path d="M15 25 Q 40 5, 55 45 T 75 15 T 105 38 T 135 20 Q 148 40, 150 48"></path>
+<path d="M40 38 L 120 38"></path>
+</svg>
+<span class="absolute bottom-1 font-mono-data-sm text-[9px] text-on-surface-variant">Rian Danuarta</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky Bottom Primary Action Container -->
+<div class="sticky bottom-2 inset-x-0 z-30 pt-2 pb-1">
+<div class="p-2 rounded-2xl bg-surface/95 backdrop-blur-md shadow-xl flex flex-col gap-2">
+<button class="w-full h-12 min-h-[48px] rounded-xl bg-primary-container text-surface-container-lowest font-headline-sm text-headline-sm font-bold flex items-center justify-center gap-2 shadow-md hover:bg-primary active:scale-[0.99] transition-all" id="submit-handover-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+<span>Sahkan Serah-Terima &amp; Mulai Sewa</span>
+</button>
+<div class="flex items-center justify-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">lock</span>
+<span class="font-mono-data-sm text-[11px]">Audit Hash SHA-256 Terenkripsi di FleetCloud</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for checklist toggling and submit confirmation
+  document.addEventListener('DOMContentLoaded', () => {
+    const submitBtn = document.getElementById('submit-handover-btn');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => {
+        submitBtn.classList.add('opacity-80', 'scale-[0.98]');
+        submitBtn.innerHTML = `
+          <span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span>
+          <span>Memproses Serah Terima...</span>
+        `;
+        setTimeout(() => {
+          submitBtn.classList.remove('opacity-80', 'scale-[0.98]');
+          submitBtn.classList.remove('bg-primary-container');
+          submitBtn.classList.add('bg-emerald-700');
+          submitBtn.innerHTML = `
+            <span class="material-symbols-outlined text-[20px]">verified</span>
+            <span>Kendaraan Resmi Diserahkan!</span>
+          `;
+        }, 1000);
+      });
+    }
+  });
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_16px_rgba(15,23,42,0.06)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] px-2 py-1 rounded-lg text-on-surface-variant hover:text-on-surface active:bg-surface-container transition-all" data-path="beranda-fleet" href="#"><span class="material-symbols-outlined text-[24px]">directions_car</span><span class="font-label-caps text-label-caps tracking-tight truncate">Beranda</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] px-2 py-1 rounded-lg text-on-surface-variant hover:text-on-surface active:bg-surface-container transition-all" data-path="reservasi" href="#"><span class="material-symbols-outlined text-[24px]">calendar_month</span><span class="font-label-caps text-label-caps tracking-tight truncate">Reservasi</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] px-2 py-1 rounded-lg active:bg-surface-container transition-all text-primary font-bold" data-path="inspeksi-kendaraan" href="#"><span class="material-symbols-outlined text-[24px]">fact_check</span><span class="font-label-caps text-label-caps tracking-tight truncate">Inspeksi</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] px-2 py-1 rounded-lg text-on-surface-variant hover:text-on-surface active:bg-surface-container transition-all" data-path="bengkel-internal" href="#"><span class="material-symbols-outlined text-[24px]">build_circle</span><span class="font-label-caps text-label-caps tracking-tight truncate">Bengkel</span></a></div></nav></body></html>

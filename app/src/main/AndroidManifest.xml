@@ -11,16 +11,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VehicleRent">
+
+        <!-- Screen 1: Beranda Fleet (Launcher) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".BerandaFleetActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Screen 2: Form Pemesanan Mobil -->
+        <activity
+            android:name=".FormPemesananActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Screen 3: Detail Reservasi & Implicit Intent -->
+        <activity
+            android:name=".DetailReservasiActivity"
+            android:exported="false" />
+
+        <!-- Screen 4: Inspeksi Pick-up / Serah Terima -->
+        <activity
+            android:name=".InspeksiPickUpActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Screen 5: Inspeksi Return & Estimasi Bengkel Internal -->
+        <activity
+            android:name=".InspeksiReturnActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Backward Compatibility Entry -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

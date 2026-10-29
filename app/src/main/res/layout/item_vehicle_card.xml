@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_card_surface"
+    android:clipToPadding="false"
+    android:elevation="1dp"
+    android:orientation="vertical">
+
+    <!-- Car Media Header with Badges -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+
+        <ImageView
+            android:id="@+id/ivVehicleImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_car_zenix" />
+
+        <!-- Status Badge Top Left -->
+        <LinearLayout
+            android:id="@+id/llStatusBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_badge_ready"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp">
+
+            <View
+                android:id="@+id/vStatusDot"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:background="@color/status_ready_dot" />
+
+            <TextView
+                android:id="@+id/tvStatusText"
+                style="@style/TextAppearance.LabelCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Siap Sewa (Lulus QC)"
+                android:textColor="@color/status_ready_text" />
+        </LinearLayout>
+
+        <!-- Fuel Badge Bottom Right -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="10dp"
+            android:background="#CC0F172A"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_local_gas_station"
+                app:tint="@color/workshop_amber" />
+
+            <TextView
+                android:id="@+id/tvVehicleFuel"
+                style="@style/TextAppearance.MonoDataSM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="BBM: 100%"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Card Body Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- Title & License Plate Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvVehicleName"
+                    style="@style/TextAppearance.HeadingLG"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toyota Kijang Innova Zenix 2.0 G CVT" />
+
+                <TextView
+                    android:id="@+id/tvVehicleSpecs"
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Automatic • 7 Penumpang • Bensin" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPlateNumber"
+                    style="@style/TextAppearance.MonoDataMD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_plate"
+                    android:letterSpacing="0.08"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="B 1842 KZR" />
+
+                <TextView
+                    android:id="@+id/tvStagingBay"
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Staging: Bay B-04" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Internal Workshop Inspection Telemetry Well -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_card_container_low"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_verified"
+                    app:tint="@color/primary_navy" />
+
+                <TextView
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:text="Cek Bengkel Internal Terakhir"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLastOdometer"
+                    style="@style/TextAppearance.MonoDataSM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="24.120 km"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvCheckNotes"
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rem, Oli Sintetik &amp; Ban Baru (Tekanan 33 PSI)"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tvReadyBadge"
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Siap Jalan"
+                    android:textColor="@color/status_ready_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Rate & Action Button Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TARIF HARIAN" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvBaseRate"
+                        style="@style/TextAppearance.MonoDataLG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 650.000"
+                        android:textColor="@color/text_slate_900" />
+
+                    <TextView
+                        style="@style/TextAppearance.BodySM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="/ hari" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Action Button -->
+            <Button
+                android:id="@+id/btnBookVehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_button_primary"
+                android:minWidth="120dp"
+                android:paddingHorizontal="16dp"
+                android:text="Pilih &amp; Pesan"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

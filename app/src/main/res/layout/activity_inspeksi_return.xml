@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_slate_50"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- Top App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/surface_white"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_slate_900" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.HeadingLG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inspeksi Pengembalian &amp; Estimasi"
+                android:textColor="@color/text_slate_900" />
+
+            <TextView
+                android:id="@+id/tvReturnCarPlate"
+                style="@style/TextAppearance.MonoDataSM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toyota Innova Zenix • B 1842 KZR"
+                android:textColor="@color/primary_navy" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextAppearance.LabelCaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_warning"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="RETURN CHECK"
+            android:textColor="@color/workshop_amber_dark" />
+
+        <FrameLayout
+            android:id="@+id/btnToolbarProfile"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_card_navy"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_person"
+                app:tint="@color/white" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Scrollable Body -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="36dp">
+
+            <!-- Section 1: Telemetry & Photo Comparison Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.HeadingLG"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Komparasi Foto (Awal vs Kembali)" />
+
+                    <TextView
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4 SUDUT PANDANG" />
+                </LinearLayout>
+
+                <!-- Comparison Well: Sisi Depan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_card_container_low"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextAppearance.HeadingMD"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Sisi Depan (Deteksi AI Bumper)"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_workshop"
+                            android:paddingHorizontal="6dp"
+                            android:paddingVertical="2dp"
+                            android:text="1 Anomali Baru"
+                            android:textColor="@color/status_workshop_text" />
+                    </LinearLayout>
+
+                    <!-- Side-by-side Photos -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <!-- Photo Pick-up -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextAppearance.LabelCaps"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SAAT PICK-UP (100% BERSIH)" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/bg_card_surface"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_insp_front" />
+                        </LinearLayout>
+
+                        <!-- Photo Return with Scratch -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextAppearance.LabelCaps"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SAAT RETURN (BARET DETEKSI)"
+                                android:textColor="@color/status_workshop_text" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="4dp"
+                                android:background="@drawable/bg_card_surface"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_insp_scratch" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Anomaly Banner -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_badge_workshop"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_report_problem"
+                            app:tint="@color/status_workshop_text" />
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="Baret Terdeteksi (Panjang 12 cm) di Panel Bumper Depan Kiri"
+                            android:textColor="@color/status_workshop_text"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 3 Other Side Thumbnails -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <!-- Belakang -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_container_low"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_insp_rear" />
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="BELAKANG: OK"
+                            android:textColor="@color/status_ready_text" />
+                    </LinearLayout>
+
+                    <!-- Kiri -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_container_low"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_insp_left" />
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="SISI KIRI: OK"
+                            android:textColor="@color/status_ready_text" />
+                    </LinearLayout>
+
+                    <!-- Kanan -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_container_low"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_insp_right" />
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="SISI KANAN: OK"
+                            android:textColor="@color/status_ready_text" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Automatic Odometer & Fuel Calculation Grid -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <!-- Odometer Akhir & Trip Auto -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_container_low"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ODOMETER AKHIR (KM)" />
+
+                        <EditText
+                            android:id="@+id/etReturnOdometer"
+                            style="@style/TextAppearance.MonoDataLG"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bg_input_field"
+                            android:inputType="number"
+                            android:paddingHorizontal="8dp"
+                            android:text="24850" />
+
+                        <TextView
+                            android:id="@+id/tvAutoTripCalculated"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Trip: 730 km (Auto)"
+                            android:textColor="@color/workshop_amber_dark"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Return Fuel Level & Penalty -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_container_low"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="LEVEL BBM KEMBALI" />
+
+                        <Spinner
+                            android:id="@+id/spinnerReturnFuel"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bg_input_field"
+                            android:paddingHorizontal="6dp" />
+
+                        <TextView
+                            android:id="@+id/tvFuelPenaltyCalculated"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Minus 25% (Rp 180.000)"
+                            android:textColor="@color/status_workshop_text"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Section 2: Workshop Diagnostic & Damage Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.HeadingLG"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Diagnostik Bengkel Internal" />
+
+                    <TextView
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_ready"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="3dp"
+                        android:text="SISTEM AKTIF"
+                        android:textColor="@color/status_ready_text" />
+                </LinearLayout>
+
+                <!-- Kategori Pemeriksaan Utama Spinner -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="KATEGORI PEMERIKSAAN UTAMA" />
+
+                <Spinner
+                    android:id="@+id/spinnerWorkshopCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingHorizontal="10dp" />
+
+                <!-- OBD-II Diagnostic Code Input -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="KODE DIAGNOSTIK OBD-II (OPTIONAL)" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_terminal"
+                        app:tint="@color/workshop_amber" />
+
+                    <EditText
+                        android:id="@+id/etObdCode"
+                        style="@style/TextAppearance.MonoDataMD"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:hint="Contoh: P0300 / C0035"
+                        android:inputType="textCapCharacters"
+                        android:text="P0300" />
+
+                    <TextView
+                        android:id="@+id/tvObdBadge"
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_warning"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="2dp"
+                        android:text="MISFIRE (+2 Jam / Rp 450k)"
+                        android:textColor="@color/workshop_amber_dark" />
+                </LinearLayout>
+
+                <!-- Checkbox Checklist Temuan Saat Kembali -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="CHECKLIST TEMUAN SAAT KEMBALI" />
+
+                <!-- Checkbox 1: Baret Panel Bumper -->
+                <CheckBox
+                    android:id="@+id/cbFindingBumper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:checked="true"
+                    android:text="Baret Panel Bumper Depan Kiri (+3.5 Jam / Rp 600.000)\nEstimasi: Re-paint 1 Panel Flat-Rate"
+                    android:textSize="12sp" />
+
+                <!-- Checkbox 2: Kampas Rem Tipis -->
+                <CheckBox
+                    android:id="@+id/cbFindingBrake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Kampas Rem Depan Tipis / Berdecit (+2.0 Jam / Rp 350.000)\nTerdengar bunyi friksi metal saat pengereman"
+                    android:textSize="12sp" />
+
+                <!-- Checkbox 3: Check Engine -->
+                <CheckBox
+                    android:id="@+id/cbFindingEngine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Indikator Check Engine Menyala (+2.5 Jam / Rp 500.000)\nLampu instrumen ECU menyala permanen"
+                    android:textSize="12sp" />
+
+                <!-- Checkbox 4: Batas Servis Berkala / Ganti Oli -->
+                <CheckBox
+                    android:id="@+id/cbFindingOilService"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Kilometer Batas Servis Berkala / Ganti Oli (+1.5 Jam / Rp 450.000)\nAuto-centang jika trip > 500 km atau odo >= 24.800 km"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Section 3: Amber Real-Time Two-Way Estimation Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card_amber"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_badge_warning"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_sync_alt"
+                        app:tint="@color/workshop_amber" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HASIL ESTIMASI DUA ARAH SISTEM BENGKEL"
+                            android:textColor="@color/workshop_amber_dark" />
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sinkronisasi armada otomatis ke antrean teknisi &amp; Beranda"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Automatic Direction Status Box -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_card_surface"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STATUS ARAH OTOMATIS"
+                        android:textColor="@color/workshop_amber_dark" />
+
+                    <TextView
+                        android:id="@+id/tvWorkshopAutoStatusTitle"
+                        style="@style/TextAppearance.HeadingLG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="MASUK ANTREAN BENGKEL INTERNAL"
+                        android:textColor="@color/status_workshop_text"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tvWorkshopAutoStatusSubtitle"
+                        style="@style/TextAppearance.BodySM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Unit otomatis DIKUNCI dari katalog sewa publik hingga selesai perbaikan." />
+                </LinearLayout>
+
+                <!-- Duration & Target Grid -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_card_surface"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Estimasi Durasi Pengerjaan" />
+
+                        <TextView
+                            android:id="@+id/tvWorkshopEstHours"
+                            style="@style/TextAppearance.MonoDataMD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5.5 Jam Pengerjaan" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Target Siap Sewa Kembali" />
+
+                        <TextView
+                            android:id="@+id/tvWorkshopTargetReady"
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Besok 14:00 WIB (Stall #03)"
+                            android:textColor="@color/workshop_amber_dark"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Financial Total / Claim -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_card_surface"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ESTIMASI BIAYA / KLAIM"
+                            android:textColor="@color/workshop_amber_dark" />
+
+                        <TextView
+                            android:id="@+id/tvClaimItemsSummary"
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Flat-Rate Panel + Brake Pad + Penalti BBM"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvWorkshopTotalClaimCost"
+                        style="@style/TextAppearance.MonoDataLG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 1.130.000"
+                        android:textColor="@color/workshop_amber_dark"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Dual Action Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical">
+
+                <!-- Primary: Kirim ke Bengkel Internal -->
+                <Button
+                    android:id="@+id/btnSubmitToWorkshop"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_button_amber"
+                    android:drawableStart="@drawable/ic_precision_manufacturing"
+                    android:paddingHorizontal="16dp"
+                    android:text="Kirim ke Bengkel Internal (Buka Tiket Servis)"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Secondary: Kirim Laporan Klaim ke Penyewa -->
+                <Button
+                    android:id="@+id/btnShareClaimReport"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:drawableStart="@drawable/ic_send_money"
+                    android:paddingHorizontal="16dp"
+                    android:text="Kirim Laporan Klaim &amp; Tagihan ke Penyewa"
+                    android:textColor="@color/primary_navy"
+                    app:strokeColor="@color/primary_navy" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+

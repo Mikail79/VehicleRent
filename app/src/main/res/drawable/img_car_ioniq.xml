@@ -1,0 +1,40 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="180dp"
+    android:viewportWidth="360"
+    android:viewportHeight="180">
+  <path
+      android:fillColor="#E2E8F0"
+      android:pathData="M0,0h360v180H0z"/>
+  <path
+      android:fillColor="#CBD5E1"
+      android:pathData="M30,150h300v12H30z"/>
+  <!-- EV Fastback Hatch Silhouette -->
+  <path
+      android:fillColor="#0284C7"
+      android:pathData="M50,126L80,74h100l65,36 50,5c10,2 15,10 15,18v12H50v-19z"/>
+  <path
+      android:fillColor="#BAE6FD"
+      android:pathData="M90,80h85l50,30H90V80z"/>
+  <!-- Parametric LED lights -->
+  <path
+      android:fillColor="#38BDF8"
+      android:pathData="M280,120h22v8h-22z"/>
+  <path
+      android:fillColor="#F43F5E"
+      android:pathData="M50,124h15v8H50z"/>
+  <!-- EV Aero Wheels -->
+  <path
+      android:fillColor="#0F172A"
+      android:pathData="M245,145m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0"/>
+  <path
+      android:fillColor="#38BDF8"
+      android:pathData="M245,145m-14,0a14,14 0,1 1,28 0a14,14 0,1 1,-28 0"/>
+  <path
+      android:fillColor="#0F172A"
+      android:pathData="M95,145m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0"/>
+  <path
+      android:fillColor="#38BDF8"
+      android:pathData="M95,145m-14,0a14,14 0,1 1,28 0a14,14 0,1 1,-28 0"/>
+</vector>
+

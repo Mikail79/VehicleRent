@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_slate_50"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- Top App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/surface_white"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_slate_900" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.HeadingLG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail Reservasi"
+                android:textColor="@color/text_slate_900" />
+
+            <TextView
+                android:id="@+id/tvSubtitleBookingCode"
+                style="@style/TextAppearance.MonoDataSM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#AF-2026-089"
+                android:textColor="@color/primary_navy"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnToolbarMore"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Menu opsi"
+            android:src="@drawable/ic_more_vert"
+            app:tint="@color/text_slate_900" />
+
+        <FrameLayout
+            android:id="@+id/btnToolbarProfile"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_card_navy"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_person"
+                app:tint="@color/white" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Scrollable Receipt Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="32dp">
+
+            <!-- Operational Status Banner (Emerald Green) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge_ready"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_card_navy"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_verified"
+                    app:tint="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextAppearance.HeadingMD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status Unit: Siap Serah-Terima"
+                        android:textColor="@color/status_ready_text" />
+
+                    <TextView
+                        android:id="@+id/tvPoolLocation"
+                        style="@style/TextAppearance.BodySM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Pool Rental Soekarno-Hatta (Staging Bay B-04)"
+                        android:textColor="@color/text_slate_900" />
+
+                    <TextView
+                        android:id="@+id/tvQcPassStaff"
+                        style="@style/TextAppearance.MonoDataSM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="#3315803D"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="2dp"
+                        android:text="QC Pass: 24/10 07:30 oleh Mekanik Hendra"
+                        android:textColor="@color/status_ready_text" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Structured Digital Booking Receipt Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Receipt Ticket Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_container_low"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="KODE BOOKING FLEET" />
+
+                        <TextView
+                            android:id="@+id/tvTicketBookingCode"
+                            style="@style/TextAppearance.MonoDataLG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AF-2026-089"
+                            android:textColor="@color/primary_navy" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_card_surface"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_qr_code"
+                            app:tint="@color/text_slate_900" />
+
+                        <TextView
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="BARCODE OK"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Vehicle Details -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="UNIT KENDARAAN FLEET" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDetailVehicleName"
+                            style="@style/TextAppearance.HeadingMD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Toyota Innova Zenix 2.0 G CVT" />
+
+                        <TextView
+                            android:id="@+id/tvDetailVehicleSpecs"
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MPV Premium • Dark Platinum Gray • Bensin" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvDetailPlateNumber"
+                        style="@style/TextAppearance.MonoDataMD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_plate"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:text="B 1842 KZR" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@color/card_border" />
+
+                <!-- Renter Profile & License -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DATA PENYEWA &amp; LISENSI" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvAvatarInitials"
+                        style="@style/TextAppearance.HeadingMD"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_badge_rented"
+                        android:gravity="center"
+                        android:text="BS"
+                        android:textColor="@color/primary_navy" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDetailRenterName"
+                            style="@style/TextAppearance.HeadingMD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Budi Santoso, S.T." />
+
+                        <TextView
+                            android:id="@+id/tvDetailRenterPhone"
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+62 812-9876-5432 • Verified ID" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NOMOR SIM A" />
+
+                        <TextView
+                            android:id="@+id/tvDetailSimNumber"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="910812345678" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@color/card_border" />
+
+                <!-- Package & Addons Specs -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PAKET LAYANAN &amp; PERLENGKAPAN" />
+
+                <TextView
+                    android:id="@+id/tvDetailPackageTitle"
+                    style="@style/TextAppearance.HeadingMD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Lepas Kunci + Smart Bundle Family Touring"
+                    android:textColor="@color/primary_navy" />
+
+                <TextView
+                    android:id="@+id/tvDetailPackageBadges"
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_card_container_low"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="Roof Box 400L • Child Seat Isofix • E-Toll Card Fleet" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@color/card_border" />
+
+                <!-- Duration & Schedule -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DURASI &amp; WAKTU SEWA" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_container_low"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MULAI (PICK-UP)" />
+
+                        <TextView
+                            android:id="@+id/tvDetailPickupDate"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="24 Okt 2026"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="09:00 WIB" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_container_low"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SELESAI (DROP-OFF)" />
+
+                        <TextView
+                            android:id="@+id/tvDetailDropoffDate"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="27 Okt 2026"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDetailDropoffDuration"
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="09:00 WIB (3 Hari)" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@color/card_border" />
+
+                <!-- Payment Breakdown -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RINCIAN PEMBAYARAN" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvReceiptCarRental"
+                        style="@style/TextAppearance.BodySM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sewa Mobil (3 x Rp 650.000)" />
+
+                    <TextView
+                        android:id="@+id/tvReceiptCarRentalCost"
+                        style="@style/TextAppearance.MonoDataSM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 1.950.000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llReceiptDriverRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.BodySM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Biaya Sopir Profesional" />
+
+                    <TextView
+                        android:id="@+id/tvReceiptDriverCost"
+                        style="@style/TextAppearance.MonoDataSM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 750.000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llReceiptBundleRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.BodySM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Smart Fleet Add-on" />
+
+                    <TextView
+                        android:id="@+id/tvReceiptBundleCost"
+                        style="@style/TextAppearance.MonoDataSM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 150.000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.BodySM"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Deposit Garansi (PRE-AUTH)" />
+
+                    <TextView
+                        style="@style/TextAppearance.MonoDataSM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 500.000" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@color/card_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.HeadingLG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Bayar" />
+
+                        <TextView
+                            android:id="@+id/tvReceiptPaymentStatus"
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lunas via Virtual Account"
+                            android:textColor="@color/status_ready_text"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvReceiptTotalAmount"
+                        style="@style/TextAppearance.MonoDataLG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 2.100.000"
+                        android:textColor="@color/text_slate_900"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Bottom Action Trigger Controls -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <!-- Primary Action: Mulai Inspeksi Pick-up -->
+                <Button
+                    android:id="@+id/btnStartPickupInspection"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:drawableStart="@drawable/ic_assignment_turned_in"
+                    android:paddingHorizontal="16dp"
+                    android:text="Mulai Inspeksi Pick-up (Serah-Terima)"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Secondary Action: Aksi Cepat & Komunikasi Layanan -->
+                <Button
+                    android:id="@+id/btnToggleIntentSheet"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:drawableStart="@drawable/ic_open_in_new"
+                    android:drawableEnd="@drawable/ic_expand_more"
+                    android:paddingHorizontal="16dp"
+                    android:text="Aksi Cepat &amp; Komunikasi Layanan"
+                    android:textColor="@color/text_slate_900"
+                    app:strokeColor="@color/card_border" />
+            </LinearLayout>
+
+            <!-- Implicit Intent Launcher Card (Expandable / Native Context) -->
+            <LinearLayout
+                android:id="@+id/llIntentSheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_container_high"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp">
+
+                    <TextView
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="IMPLICIT INTENT LAUNCHER (PERTEMUAN 3)"
+                        android:textColor="@color/primary_navy" />
+
+                    <TextView
+                        style="@style/TextAppearance.MonoDataSM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Android Bridge Ready"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- 1. Kirim Bukti via WhatsApp -->
+                    <LinearLayout
+                        android:id="@+id/btnIntentWhatsApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:background="@drawable/bg_button_secondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="12dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_badge_ready"
+                            android:padding="6dp"
+                            android:src="@drawable/ic_chat"
+                            app:tint="@color/status_ready_text" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextAppearance.HeadingMD"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kirim Bukti via WhatsApp"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                style="@style/TextAppearance.BodySM"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Intent: Intent.ACTION_SEND (Teks Struk)"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="@color/text_slate_400" />
+                    </LinearLayout>
+
+                    <!-- 2. Telepon Penyewa (Dialer) -->
+                    <LinearLayout
+                        android:id="@+id/btnIntentDialer"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_button_secondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="12dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_badge_rented"
+                            android:padding="6dp"
+                            android:src="@drawable/ic_call"
+                            app:tint="@color/primary_navy" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextAppearance.HeadingMD"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Telepon Penyewa (Dialer)"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvIntentDialerPhone"
+                                style="@style/TextAppearance.BodySM"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Intent: ACTION_DIAL (tel:081298765432)"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="@color/text_slate_400" />
+                    </LinearLayout>
+
+                    <!-- 3. Buka Lokasi Pool di Maps -->
+                    <LinearLayout
+                        android:id="@+id/btnIntentMaps"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_button_secondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="12dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_badge_warning"
+                            android:padding="6dp"
+                            android:src="@drawable/ic_directions"
+                            app:tint="@color/workshop_amber_dark" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextAppearance.HeadingMD"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Buka Lokasi Pool di Maps"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                style="@style/TextAppearance.BodySM"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Intent: ACTION_VIEW (geo:0,0?q=Pool+Rental)"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="@color/text_slate_400" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+

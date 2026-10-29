@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_slate_50"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- Top App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/surface_white"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_slate_900" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.HeadingLG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inspeksi Pick-up"
+                android:textColor="@color/text_slate_900" />
+
+            <TextView
+                android:id="@+id/tvPickupVehicleInfo"
+                style="@style/TextAppearance.MonoDataSM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="B 1842 KZR • Innova Zenix"
+                android:textColor="@color/primary_navy" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextAppearance.LabelCaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_warning"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="TAHAP 1/2"
+            android:textColor="@color/workshop_amber_dark" />
+
+        <FrameLayout
+            android:id="@+id/btnToolbarProfile"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_card_navy"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_person"
+                app:tint="@color/white" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Scrollable Inspection Form -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="32dp">
+
+            <!-- Operational Alert Banner: 360 Walkaround -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_container_low"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_badge_rented"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_speed"
+                    app:tint="@color/primary_navy" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextAppearance.HeadingMD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pemeriksaan Keliling 4 Sisi (360° Walkaround)"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        style="@style/TextAppearance.BodySM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pastikan bodi mobil terlihat jelas tanpa pantulan silau sebelum serah terima."
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Section 1: 2x2 Photo Grid -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextAppearance.HeadingLG"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Foto Fisik Kendaraan" />
+
+                <TextView
+                    android:id="@+id/tvPhotoProgressStatus"
+                    style="@style/TextAppearance.MonoDataSM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3 / 4 Selesai"
+                    android:textColor="@color/primary_navy"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- 2x2 Grid -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <!-- Row 1: Depan & Belakang -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Slot 1: Sisi Depan -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_surface"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_insp_front" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/bg_badge_ready"
+                                android:padding="3dp"
+                                android:src="@drawable/ic_check"
+                                app:tint="@color/status_ready_text" />
+                        </FrameLayout>
+
+                        <TextView
+                            style="@style/TextAppearance.HeadingMD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Sisi Depan"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FOTO TERVERIFIKASI"
+                            android:textColor="@color/status_ready_text" />
+                    </LinearLayout>
+
+                    <!-- Slot 2: Sisi Belakang -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_surface"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_insp_rear" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/bg_badge_ready"
+                                android:padding="3dp"
+                                android:src="@drawable/ic_check"
+                                app:tint="@color/status_ready_text" />
+                        </FrameLayout>
+
+                        <TextView
+                            style="@style/TextAppearance.HeadingMD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Sisi Belakang"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FOTO TERVERIFIKASI"
+                            android:textColor="@color/status_ready_text" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Row 2: Kiri & Kanan (Interactive Slot) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <!-- Slot 3: Sisi Kiri -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_surface"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_insp_left" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/bg_badge_ready"
+                                android:padding="3dp"
+                                android:src="@drawable/ic_check"
+                                app:tint="@color/status_ready_text" />
+                        </FrameLayout>
+
+                        <TextView
+                            style="@style/TextAppearance.HeadingMD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Sisi Kiri"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FOTO TERVERIFIKASI"
+                            android:textColor="@color/status_ready_text" />
+                    </LinearLayout>
+
+                    <!-- Slot 4: Sisi Kanan (INTERACTIVE ACTION NEEDED) -->
+                    <LinearLayout
+                        android:id="@+id/slotRightSidePhoto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_surface"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <FrameLayout
+                            android:id="@+id/flRightSideContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp"
+                            android:background="@drawable/bg_card_container_high">
+
+                            <ImageView
+                                android:id="@+id/ivRightSidePreview"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_insp_right"
+                                android:visibility="gone" />
+
+                            <!-- Placeholder when not taken -->
+                            <LinearLayout
+                                android:id="@+id/llRightSidePlaceholder"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="28dp"
+                                    android:layout_height="28dp"
+                                    android:src="@drawable/ic_photo_camera"
+                                    app:tint="@color/primary_navy" />
+
+                                <TextView
+                                    style="@style/TextAppearance.LabelCaps"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="AMBIL FOTO"
+                                    android:textColor="@color/primary_navy" />
+                            </LinearLayout>
+
+                            <!-- Check Icon when taken -->
+                            <ImageView
+                                android:id="@+id/ivRightSideCheck"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/bg_badge_ready"
+                                android:padding="3dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="gone"
+                                app:tint="@color/status_ready_text" />
+                        </FrameLayout>
+
+                        <TextView
+                            style="@style/TextAppearance.HeadingMD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Sisi Kanan"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvRightSideStatus"
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BELUM DIAMBIL (KLIK DISINI)"
+                            android:textColor="@color/workshop_amber_dark" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Section 2: Telemetri & Odometer -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.HeadingLG"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Telemetri &amp; Odometer" />
+
+                    <TextView
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OBD-II SYNC"
+                        android:textColor="@color/primary_navy" />
+                </LinearLayout>
+
+                <!-- Odometer Input Field -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="ODOMETER AWAL (KM)" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_speed"
+                        app:tint="@color/text_slate_400" />
+
+                    <EditText
+                        android:id="@+id/etInitialOdometer"
+                        style="@style/TextAppearance.MonoDataLG"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:inputType="number"
+                        android:text="24120"
+                        android:textColor="@color/text_slate_900" />
+
+                    <TextView
+                        style="@style/TextAppearance.MonoDataSM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="KM"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Fuel Level RadioGroup -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="LEVEL BAHAN BAKAR / BATERAI" />
+
+                <RadioGroup
+                    android:id="@+id/rgInitialFuel"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbFuel25"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="25%"
+                        android:textSize="12sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbFuel50"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="50%"
+                        android:textSize="12sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbFuel75"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="75%"
+                        android:textSize="12sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbFuel100"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="100%"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RadioGroup>
+
+                <!-- Fuel visual bar -->
+                <ProgressBar
+                    android:id="@+id/pbFuelGauge"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="4dp"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressTint="@color/status_ready_text" />
+            </LinearLayout>
+
+            <!-- Section 3: Mandatory Fleet Kit Checklist -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.HeadingLG"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Kelengkapan Kit Armada" />
+
+                    <TextView
+                        android:id="@+id/tvKitChecklistCount"
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_ready"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="3dp"
+                        android:text="4/4 SIAP"
+                        android:textColor="@color/status_ready_text" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Centang kelengkapan darurat dan dokumen legalitas kendaraan sebelum serah terima." />
+
+                <CheckBox
+                    android:id="@+id/cbKitStnk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:checked="true"
+                    android:text="STNK Asli &amp; Kunci Utama\nTermasuk kunci remote cadangan"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbKitSpareTire"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Ban Serep, Dongkrak Hidrolik &amp; Kunci Roda\nTekanan angin serep 34 PSI"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbKitEmergencyKit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Segitiga Pengaman &amp; Kotak P3K Lengkap\nSegel utuh dan steril"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/cbKitSmartBundle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Aksesoris Smart Bundle Lengkap\nRoof Box 400L &amp; Child Seat terpasang"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Section 4: Digital Signature Pad Preview -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.HeadingLG"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Validasi Tanda Tangan Digital" />
+
+                    <TextView
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="E-MATERAI READY"
+                        android:textColor="@color/status_ready_text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <!-- Signature 1: Petugas Fleet (From SharedPreferences) -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_container_low"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PETUGAS FLEET" />
+
+                        <!-- Signature Doodle representation -->
+                        <TextView
+                            style="@style/TextAppearance.HeadingLG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:text="~ Hendra W. ~"
+                            android:textColor="@color/primary_navy"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/tvSignatureStaffName"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ID: AFD-88219 (Hendra W.)"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <!-- Signature 2: Penyewa (From Reservation Data) -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_container_low"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PENYEWA / DRIVER" />
+
+                        <!-- Signature Doodle representation -->
+                        <TextView
+                            style="@style/TextAppearance.HeadingLG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            android:text="~ Budi S. ~"
+                            android:textColor="@color/primary_navy"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/tvSignatureRenterName"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Budi Santoso, S.T."
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Bottom Primary Action: Sahkan Serah-Terima & Mulai Sewa -->
+            <Button
+                android:id="@+id/btnSubmitHandover"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_primary"
+                android:drawableStart="@drawable/ic_assignment_turned_in"
+                android:paddingHorizontal="16dp"
+                android:text="Sahkan Serah-Terima &amp; Mulai Sewa"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/TextAppearance.BodySM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="Audit Hash SHA-256 Terenkripsi di FleetCloud"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+

@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_slate_50"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- Top App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/surface_white"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_slate_900" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.HeadingLG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Form Pemesanan Mobil"
+                android:textColor="@color/text_slate_900" />
+
+            <TextView
+                style="@style/TextAppearance.LabelCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VERIFIKASI &amp; PERHITUNGAN BIAYA SEWA" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnToolbarMore"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Menu opsi"
+            android:src="@drawable/ic_more_vert"
+            app:tint="@color/text_slate_900" />
+
+        <FrameLayout
+            android:id="@+id/btnToolbarProfile"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_card_navy"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_person"
+                app:tint="@color/white" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="32dp">
+
+            <!-- Navy Selected Vehicle Banner Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_navy"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="UNIT TERPILIH (STAGING READY)"
+                            android:textColor="@color/workshop_amber_light" />
+
+                        <TextView
+                            android:id="@+id/tvOrderVehicleName"
+                            style="@style/TextAppearance.HeadingLG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Toyota Innova Zenix 2.0 G CVT"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvOrderPlateNumber"
+                        style="@style/TextAppearance.MonoDataMD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_ready"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:text="B 1842 KZR"
+                        android:textColor="@color/status_ready_text" />
+                </LinearLayout>
+
+                <!-- Well Inside Banner -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="#26FFFFFF"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/tvOrderBundleSummary"
+                        style="@style/TextAppearance.BodySM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Paket Family Touring (Roof Box + Child Seat + E-Toll)"
+                        android:textColor="#E0E7FF" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Base Rate Harian"
+                            android:textColor="#C7D2FE" />
+
+                        <TextView
+                            android:id="@+id/tvOrderDailyRate"
+                            style="@style/TextAppearance.MonoDataMD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rp 650.000 / hari"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Form: Identitas Penyewa Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.HeadingMD"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Identitas Penyewa" />
+
+                    <TextView
+                        style="@style/TextAppearance.LabelCaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VERIFIKASI CEPAT"
+                        android:textColor="@color/status_ready_text" />
+                </LinearLayout>
+
+                <!-- Nama Lengkap Sesuai KTP -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="NAMA LENGKAP PENYEWA (SESUAI KTP)" />
+
+                <EditText
+                    android:id="@+id/etRenterName"
+                    style="@style/TextAppearance.HeadingMD"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="Contoh: Budi Santoso, S.T."
+                    android:inputType="textPersonName|textCapWords"
+                    android:paddingHorizontal="12dp" />
+
+                <!-- WhatsApp Aktif -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="NOMOR WHATSAPP AKTIF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.MonoDataMD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_card_container_high"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:text="+62" />
+
+                    <EditText
+                        android:id="@+id/etRenterPhone"
+                        style="@style/TextAppearance.MonoDataMD"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:hint="812-9876-5432"
+                        android:inputType="phone"
+                        android:paddingHorizontal="12dp" />
+                </LinearLayout>
+
+                <!-- SIM A & NIK KTP -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="NOMOR SIM A &amp; NIK KTP" />
+
+                <EditText
+                    android:id="@+id/etRenterId"
+                    style="@style/TextAppearance.MonoDataSM"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="NIK / No. SIM A"
+                    android:inputType="text"
+                    android:paddingHorizontal="12dp" />
+
+                <TextView
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="* Data otomatis tersimpan sebagai draft di SharedPreferences"
+                    android:textColor="@color/workshop_amber_dark"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Jadwal & Durasi Sewa Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/TextAppearance.HeadingMD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jadwal Pengambilan &amp; Durasi" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <!-- Durasi Stepper -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DURASI SEWA" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_input_field"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="4dp">
+
+                            <ImageButton
+                                android:id="@+id/btnDecrementDuration"
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_card_container_low"
+                                android:contentDescription="Kurangi durasi"
+                                android:src="@drawable/ic_remove"
+                                app:tint="@color/text_slate_900" />
+
+                            <TextView
+                                android:id="@+id/tvDurationDisplay"
+                                style="@style/TextAppearance.HeadingLG"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="3 Hari"
+                                android:textColor="@color/primary_navy" />
+
+                            <ImageButton
+                                android:id="@+id/btnIncrementDuration"
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_card_container_low"
+                                android:contentDescription="Tambah durasi"
+                                android:src="@drawable/ic_add"
+                                app:tint="@color/text_slate_900" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Tanggal Pengambilan Picker -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PENGAMBILAN UNIT" />
+
+                        <LinearLayout
+                            android:id="@+id/btnPickDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_input_field"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvSelectedDate"
+                                    style="@style/TextAppearance.MonoDataSM"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="24 Okt 2026"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    style="@style/TextAppearance.BodySM"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="09:00 WIB"
+                                    android:textSize="9sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_calendar_month"
+                                app:tint="@color/primary_navy" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Payment Method Spinner -->
+                <TextView
+                    style="@style/TextAppearance.LabelCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="METODE PEMBAYARAN" />
+
+                <Spinner
+                    android:id="@+id/spinnerPaymentMethod"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingHorizontal="10dp" />
+            </LinearLayout>
+
+            <!-- Pricing Breakdown Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card_surface"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/TextAppearance.HeadingMD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rincian Estimasi Biaya" />
+
+                <!-- Row 1: Sewa Mobil -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLabelCarRental"
+                        style="@style/TextAppearance.BodyMD"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total Sewa Unit (3 Hari x Rp 650.000)" />
+
+                    <TextView
+                        android:id="@+id/tvCostCarRental"
+                        style="@style/TextAppearance.MonoDataMD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 1.950.000" />
+                </LinearLayout>
+
+                <!-- Row 2: Biaya Sopir -->
+                <LinearLayout
+                    android:id="@+id/llRowDriver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLabelDriver"
+                        style="@style/TextAppearance.BodyMD"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Biaya Sopir Profesional (3 Hari)" />
+
+                    <TextView
+                        android:id="@+id/tvCostDriver"
+                        style="@style/TextAppearance.MonoDataMD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 750.000" />
+                </LinearLayout>
+
+                <!-- Row 3: Biaya Smart Bundle -->
+                <LinearLayout
+                    android:id="@+id/llRowBundle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLabelBundle"
+                        style="@style/TextAppearance.BodyMD"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Smart Fleet Bundle Add-ons" />
+
+                    <TextView
+                        android:id="@+id/tvCostBundle"
+                        style="@style/TextAppearance.MonoDataMD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 150.000" />
+                </LinearLayout>
+
+                <!-- Row 4: Deposit Garansi -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextAppearance.BodyMD"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Deposit Garansi (Refundable saat Return)" />
+
+                    <TextView
+                        style="@style/TextAppearance.MonoDataMD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 500.000" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@color/card_border" />
+
+                <!-- Grand Total -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.HeadingLG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Pembayaran" />
+
+                        <TextView
+                            android:id="@+id/tvPaymentMethodSummary"
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BAYAR DI KANTOR CABANG"
+                            android:textColor="@color/status_ready_text" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvGrandTotal"
+                        style="@style/TextAppearance.MonoDataLG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 2.600.000"
+                        android:textColor="@color/primary_navy"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Confirm & Create Reservation Button -->
+            <Button
+                android:id="@+id/btnConfirmReservation"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_primary"
+                android:drawableStart="@drawable/ic_assignment_turned_in"
+                android:paddingHorizontal="16dp"
+                android:text="Konfirmasi &amp; Buat Reservasi"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+

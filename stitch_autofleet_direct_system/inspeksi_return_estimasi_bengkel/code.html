@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#fe932c","on-surface":"#131b2e","surface-tint":"#4059aa","on-secondary-container":"#663500","on-primary-fixed-variant":"#264191","on-secondary-fixed-variant":"#6e3900","primary-fixed-dim":"#b6c4ff","on-primary-container":"#90a8ff","tertiary":"#4b1c00","inverse-primary":"#b6c4ff","inverse-surface":"#283044","secondary":"#904d00","surface-container":"#eaedff","surface-variant":"#dae2fd","surface-container-low":"#f2f3ff","outline":"#757682","primary":"#00236f","on-tertiary-container":"#f39461","surface-container-lowest":"#ffffff","inverse-on-surface":"#eef0ff","surface-container-highest":"#dae2fd","background":"#faf8ff","primary-fixed":"#dce1ff","tertiary-fixed-dim":"#ffb691","on-tertiary-fixed-variant":"#773205","on-primary-fixed":"#00164e","primary-container":"#1e3a8a","on-secondary-fixed":"#2f1500","on-error":"#ffffff","tertiary-fixed":"#ffdbcb","tertiary-container":"#6e2c00","surface":"#faf8ff","on-error-container":"#93000a","surface-container-high":"#e2e7ff","on-tertiary-fixed":"#341100","secondary-fixed":"#ffdcc3","on-primary":"#ffffff","secondary-fixed-dim":"#ffb77d","on-surface-variant":"#444651","on-tertiary":"#ffffff","error":"#ba1a1a","error-container":"#ffdad6","surface-bright":"#faf8ff","on-secondary":"#ffffff","outline-variant":"#c5c5d3","on-background":"#131b2e","surface-dim":"#d2d9f4"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-lg":"1.5rem","gutter-tablet":"1.5rem","margin-tablet":"2rem","space-xs":"0.25rem","space-sm":"0.5rem","margin":"1rem","gutter":"1rem","space-xl":"2rem","space-md":"1rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"mono-data-md":["JetBrains Mono"],"label-caps":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"mono-data-lg":["JetBrains Mono"],"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"mono-data-sm":["JetBrains Mono"]},fontSize:{"headline-sm":["16px",{lineHeight:"24px",fontWeight:"600"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"mono-data-md":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"500"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"700"}],"headline-xl-mobile":["26px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"700"}],"headline-xl":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}],"mono-data-lg":["18px",{lineHeight:"24px",letterSpacing:"0.04em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"mono-data-sm":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}]}}}};</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-6 px-margin flex items-center justify-between text-on-surface select-none"><span class="font-mono-data-sm text-mono-data-sm font-semibold tracking-tight">09:41</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">network_cell</span><span class="material-symbols-outlined text-[16px]">wifi</span><span class="material-symbols-outlined text-[18px]">battery_full</span></div></div><div class="h-14 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="AutoFleet Direct Brand Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1W8b5u0rwv5ovrohIB4KaJXxCc1FP3YrxIGkcbB32elgvFo2B2jWrN--fLjhyioGP5eXfB8bYkAn8EhvDU7LCKjEUQ7wuu-29lmBIkcdVj3dcoghUSW8LDagQQC8lQmjlPAvHT9LT-ep30JZUXBBIDNX3Fi06uDYcHYnDz8-aaZfaKXNPVll9ZDSAoZS0G44gwC5uPFBUJceGjZRF7nlzRB8WBBES-P46YHjj-LzIc93nbUjeV2M0yIo-c"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-primary leading-none tracking-tight truncate">AutoFleet Direct</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider truncate">Bengkel Internal</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Menu opsi" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container active:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-20 bg-surface"><div class="flex flex-col w-full pb-8">
+<!-- Sub-Header contextual navigation -->
+<div class="px-margin pt-2 pb-3 flex items-center justify-between bg-surface">
+<div class="flex items-center gap-space-sm min-w-0">
+<button aria-label="Kembali ke inspeksi" class="min-w-[48px] min-h-[48px] w-12 h-12 flex items-center justify-center rounded-lg bg-surface-container hover:bg-surface-variant active:scale-95 transition-transform text-on-surface" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex flex-col min-w-0">
+<h1 class="font-headline-sm text-headline-sm text-on-surface leading-tight truncate">Inspeksi Pengembalian &amp; Estimasi</h1>
+<div class="flex items-center gap-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Toyota Innova Zenix</span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-mono-data-sm text-mono-data-sm font-semibold text-primary">B 1842 KZR</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-caps text-label-caps whitespace-nowrap">
+      RETURN CHECK
+    </span>
+</div>
+<div class="px-margin flex flex-col gap-space-md mt-1">
+<!-- SECTION 1: Telemetry & Photo Comparison -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">compare</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Komparasi Foto (Awal vs Kembali)</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">4 SUDUT PANDANG</span>
+</div>
+<!-- Comparison Active Card (Depan) -->
+<div class="bg-surface-container-low rounded-lg p-space-sm mb-space-sm">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface text-[14px]">Sisi Depan (Deteksi AI)</span>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-caps text-label-caps">1 Anomali Baru</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<!-- Awal -->
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Saat Pick-up (100% Bersih)</span>
+<div class="relative w-full h-28 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="High angle clean front bumper view of a metallic gray Toyota Innova Zenix parked in an automotive delivery staging lot under soft morning sunlight, no scratches or dents, pristine clear condition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBypkK3nqzD3oSVJj6STq5pNRv-RLIZfak9V-GuJuoI9lIFaSxdJKeB0ZIC_XQ3gbOQKWqKNJPQVk40C7oVi-RDkLWHorTd4Tcmq7CfdPnXwVbfLxS8-Dg0p0XB8iIYoAYZlDU4pvH05sLK-pUvy1B1wjvDlqaxT8PMsg7C2bQOfAmeuLSVCb35qv0S-qNCva5ceVGoUYWJ9cnkieDjunqkaRW1tjzWZZXqkuLXOBsAI9F-oGrKpba6"/>
+<span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-mono-data-sm text-[10px]">TGL 12/03</span>
+</div>
+</div>
+<!-- Kembali (Scratch detected) -->
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-error font-bold">Saat Pengembalian (Return)</span>
+<div class="relative w-full h-28 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close up view of front bumper of modern passenger car Toyota Innova Zenix showing a prominent 12cm scratch with slight abrasion on the lower left bumper curve under overcast inspection light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWzWcflo0U_-E4Pb5jaHcMoIvXTcBVEzXH5osBsxiozdvHEDcPHPjY-9b3KgfaFCNh0evqatq_MHuzJplbgrvtj9Xsh6D9VQ3fEUD6q_GV1zpDJ1cAS071FTEIES5ge4GOLIzxkpVIEC9HcSlkQLmHFkK8uQyMFKpzqbQE9yEtUSGFKoO_AzPk52VFJO_2E22UaOpMKwYJDTE6wlRR16thnEWiJj1lhPdx3--Vonir741AWu4pRjkb"/>
+<!-- Detection HUD overlay -->
+<div class="absolute inset-0 flex items-center justify-center p-2 pointer-events-none">
+<div class="w-20 h-14 rounded-full border-2 border-dashed border-error bg-error/15 flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-error text-[18px]">emergency</span>
+</div>
+</div>
+<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-error text-on-error font-mono-data-sm text-[10px] font-semibold">BARU</span>
+</div>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-space-xs bg-error-container/40 p-2 rounded-lg">
+<span class="material-symbols-outlined text-error text-[18px]">report_problem</span>
+<span class="font-body-sm text-body-sm text-on-error-container font-medium">Baret Terdeteksi (Panjang 12 cm) di Panel Bumper Depan Kiri</span>
+</div>
+</div>
+<!-- 3 Other Side Thumbnails -->
+<div class="grid grid-cols-3 gap-space-xs mb-space-md">
+<!-- Belakang -->
+<div class="flex flex-col gap-1 p-1.5 rounded-lg bg-surface-container-low">
+<div class="relative w-full h-16 rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Rear tailgate view of Toyota Innova Zenix parked squarely in rental return inspection stall with tail lights and bumper clearly visible, clean condition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl5AgnobZFR-slVFEAb1mwOLEieZNhR-YMDQUikvGxRKpqOju3P2qRtzF5tFGMdDMQjrjshgSgA0-wjZ7RgaUdG0uZzajtK5yBA8QJq_3_hHOKSCxjel0De4LgJVcLSTsYP3-12LTOWNUgCxndGbN-kEwOlF0SDOaTi5qLvCjJlSMBlUNStmNgCPxK8RHa9rhqnU5v9ozR8uqF7Lxo9o8ANZP6hu_TcfkERAijRQgBu4FFtua5IIs9"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 px-1 rounded font-label-caps text-[9px] text-on-surface">BELAKANG</span>
+<span class="absolute bottom-1 right-1 bg-surface-container text-on-surface px-1 rounded font-mono-data-sm text-[9px]">OK</span>
+</div>
+</div>
+<!-- Kiri -->
+<div class="flex flex-col gap-1 p-1.5 rounded-lg bg-surface-container-low">
+<div class="relative w-full h-16 rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Side profile view left flank of metallic gray Toyota Innova Zenix van parked cleanly in fleet bay garage, automotive paint reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYN2tmRg2Vqz_IQ002gznUZxOUIGXP9R-FsUJWxWSZfR-DKk_xyT-ILLE0UB4Ubyeb5BbwRcCtRDPfZSx1nt6AwY1Szxla6IB2MeU8rjuO5os60eyFzQLJKPYpaj3f5Gv5r2ptCuI-sFhDEgABaUXGMWlp5lhpFTrDM_W0Az8xvch-jEDa5_LTQnt_57zTBF0YeovpxaWiM5tLVC1FoEdbFDIUPdsbxLNuv3essnSIhzduRsWphDRR"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 px-1 rounded font-label-caps text-[9px] text-on-surface">SISI KIRI</span>
+<span class="absolute bottom-1 right-1 bg-surface-container text-on-surface px-1 rounded font-mono-data-sm text-[9px]">OK</span>
+</div>
+</div>
+<!-- Kanan -->
+<div class="flex flex-col gap-1 p-1.5 rounded-lg bg-surface-container-low">
+<div class="relative w-full h-16 rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Right side door panels and wheels of modern Toyota Innova passenger vehicle examined closely on flat shop floor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKyiIbeXpjnwxNMX6R9grCZ5pl63-tQteLFBXDDxyvDKs76dZAYjSypqz1_GBHpapRv8oPihNgyvA7dCroLL6hj-ICjiQe4zMoSjcvgE_1OFYU5MLpa1ImFOtL9Ow_C3ZWtI6fTD6xocOxuV_TSGhRgCxOq5Dtv5hMKTB3zej8c164osM9TWK0lCAOqqBYxonBfDq9kwipI0mC4k58Nx0tl2gtG27G8xLcR6cqKxO6M39GsIp_whxL"/>
+<span class="absolute top-1 left-1 bg-surface-container-lowest/90 px-1 rounded font-label-caps text-[9px] text-on-surface">SISI KANAN</span>
+<span class="absolute bottom-1 right-1 bg-surface-container text-on-surface px-1 rounded font-mono-data-sm text-[9px]">OK</span>
+</div>
+</div>
+</div>
+<!-- Telemetry: Odometer & Fuel readout -->
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps">ODOMETER AKHIR</span>
+<span class="material-symbols-outlined text-[18px]">speed</span>
+</div>
+<div class="mt-2">
+<span class="font-mono-data-lg text-mono-data-lg text-on-surface font-bold">24850</span>
+<span class="font-mono-data-sm text-mono-data-sm text-on-surface-variant">km</span>
+</div>
+<div class="mt-1 flex items-center gap-1 font-mono-data-sm text-[11px] text-secondary font-semibold">
+<span class="material-symbols-outlined text-[14px]">route</span>
+<span>Trip: 730 km (Auto)</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps">LEVEL BBM KEMBALI</span>
+<span class="material-symbols-outlined text-[18px]">local_gas_station</span>
+</div>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="font-mono-data-lg text-mono-data-lg text-error font-bold">75%</span>
+<span class="font-mono-data-sm text-mono-data-sm text-on-surface-variant">/ 100%</span>
+</div>
+<div class="mt-1 flex items-center gap-1 font-mono-data-sm text-[11px] text-error">
+<span class="material-symbols-outlined text-[14px]">trending_down</span>
+<span>Minus 25% (Rp 180k)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Workshop Diagnostic & Damage Section -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">build_circle</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Diagnostik Bengkel Internal</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-caps text-label-caps">SISTEM AKTIF</span>
+</div>
+<!-- Spinner / Category Select -->
+<div class="flex flex-col gap-1 mb-space-md">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="category-select">KATEGORI PEMERIKSAAN UTAMA</label>
+<div class="relative">
+<select class="w-full min-h-[48px] h-12 bg-surface-container-low text-on-surface font-headline-sm text-[15px] px-3.5 pr-10 rounded-lg appearance-none focus:outline-none focus:bg-surface-container transition-colors" id="category-select">
+<option selected="" value="body">Bodi &amp; Cat (Body Repair)</option>
+<option value="engine">Mesin &amp; OBD-II</option>
+<option value="brakes">Rem &amp; Kaki-Kaki</option>
+<option value="ac">AC &amp; Kelistrikan</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[22px]">arrow_drop_down</span>
+</div>
+</div>
+<!-- OBD-II Code Display -->
+<div class="flex flex-col gap-1 mb-space-md">
+<div class="flex items-center justify-between">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="obd-input">KODE DIAGNOSTIK OBD-II (OPTIONAL)</label>
+<span class="font-mono-data-sm text-[11px] text-secondary font-medium">ECU Auto-Sync</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-secondary text-[20px]">terminal</span>
+<input class="w-full min-h-[48px] h-12 pl-11 pr-24 bg-surface-container-low rounded-lg font-mono-data-md text-mono-data-md text-on-surface font-semibold focus:outline-none focus:bg-surface-container" id="obd-input" placeholder="e.g. P0300" type="text" value="P0300"/>
+<span class="absolute right-3 px-2 py-1 rounded bg-secondary-container/20 text-secondary font-label-caps text-[10px] uppercase">MISFIRE / O2</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Sensor mendeteksi peringatan fluktuasi bahan bakar ringan saat idle.</span>
+</div>
+<!-- Checkboxes Temuan Fisik -->
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">CHECKLIST TEMUAN SAAT KEMBALI</span>
+<!-- Checked item 1 -->
+<label class="min-h-[48px] flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<input checked="" class="w-5 h-5 rounded accent-primary text-on-primary flex-shrink-0 cursor-pointer" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[14px] text-on-surface leading-snug">Baret Panel Bumper Depan Kiri</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Estimasi standard: Re-paint 1 Panel Flat-Rate</span>
+</div>
+</label>
+<!-- Checked item 2 -->
+<label class="min-h-[48px] flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<input checked="" class="w-5 h-5 rounded accent-primary text-on-primary flex-shrink-0 cursor-pointer" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[14px] text-on-surface leading-snug">Kampas Rem Depan Tipis / Berdecit</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Terdengar bunyi friksi metal saat deselerasi keras</span>
+</div>
+</label>
+<!-- Unchecked item 3 -->
+<label class="min-h-[48px] flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-colors">
+<input class="w-5 h-5 rounded accent-primary text-on-primary flex-shrink-0 cursor-pointer" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[14px] text-on-surface leading-snug">Indikator Check Engine Menyala Permanen</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Status lampu instrumen dashboard normal</span>
+</div>
+</label>
+<!-- Unchecked item 4 -->
+<label class="min-h-[48px] flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-colors">
+<input class="w-5 h-5 rounded accent-primary text-on-primary flex-shrink-0 cursor-pointer" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[14px] text-on-surface leading-snug">Kilometer Batas Servis Berkala (Ganti Oli)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tersisa 2.150 km hingga jadwal penggantian berikutnya</span>
+</div>
+</label>
+</div>
+</div>
+<!-- SECTION 3: Real-Time Two-Way Estimation Card -->
+<!-- Crisp card using warm amber surface and amber highlight tokens -->
+<div class="bg-secondary-fixed/30 rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<!-- Top amber accent header bar -->
+<div class="flex items-center gap-space-xs text-secondary mb-3">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">sync_alt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-secondary font-bold tracking-wider">HASIL ESTIMASI DUA ARAH SISTEM BENGKEL</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sinkronisasi armada otomatis ke antrean kerja teknisi</span>
+</div>
+</div>
+<!-- Operational Dispatch Info Box -->
+<div class="bg-surface-container-lowest/90 backdrop-blur rounded-lg p-space-sm mb-3">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px] flex-shrink-0 mt-0.5">lock_clock</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-label-caps text-secondary">STATUS ARAH OTOMATIS</span>
+<p class="font-headline-sm text-[14px] text-on-surface mt-0.5 leading-snug">
+              MASUK ANTREAN BENGKEL INTERNAL
+            </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Unit otomatis <strong class="text-error font-semibold">DIKUNCI</strong> dari katalog reservasi publik hingga inspeksi akhir lulus.
+            </p>
+</div>
+</div>
+</div>
+<!-- Workshop Metrics Grid -->
+<div class="grid grid-cols-1 gap-2 bg-surface-container-lowest/80 rounded-lg p-space-sm mb-3">
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">timelapse</span>
+<span class="font-body-sm text-body-sm">Estimasi Durasi</span>
+</div>
+<span class="font-mono-data-md text-mono-data-md font-bold text-on-surface">5.5 Jam Pengerjaan</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">event_available</span>
+<span class="font-body-sm text-body-sm">Target Siap Sewa</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-secondary">Besok 14:00 WIB (Stall #03)</span>
+</div>
+</div>
+<!-- Financial Total -->
+<div class="bg-secondary-container/20 rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-secondary-container">ESTIMASI BIAYA / KLAIM</span>
+<span class="font-body-sm text-body-sm text-on-secondary-container">Flat-Rate Panel + Brake Pad Kit</span>
+</div>
+<div class="text-right">
+<span class="font-mono-data-lg text-mono-data-lg font-bold text-on-secondary-container">Rp 950.000</span>
+<span class="block font-label-caps text-[10px] text-secondary">TERMASUK JASA TEKNISI</span>
+</div>
+</div>
+</div>
+<!-- SECTION 4: Dual Action Buttons -->
+<div class="flex flex-col gap-space-sm pt-2">
+<!-- Primary Workshop Action Button -->
+<button class="w-full min-h-[48px] h-13 px-space-md bg-secondary hover:bg-secondary/90 active:scale-[0.99] rounded-lg text-on-secondary flex items-center justify-center gap-space-sm shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">precision_manufacturing</span>
+<span class="font-headline-sm text-headline-sm tracking-wide">Kirim ke Bengkel Internal (Buka Tiket Servis)</span>
+</button>
+<!-- Secondary Tenant Action Button -->
+<button class="w-full min-h-[48px] h-12 px-space-md bg-transparent hover:bg-surface-container active:scale-[0.99] rounded-lg text-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">send_money</span>
+<span>Kirim Laporan Klaim &amp; Tagihan ke Penyewa</span>
+</button>
+</div>
+</div>
+</div></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_16px_rgba(15,23,42,0.06)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] px-2 py-1 rounded-lg text-on-surface-variant hover:text-on-surface active:bg-surface-container transition-all" data-path="beranda-fleet" href="#"><span class="material-symbols-outlined text-[24px]">directions_car</span><span class="font-label-caps text-label-caps tracking-tight truncate">Beranda</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] px-2 py-1 rounded-lg text-on-surface-variant hover:text-on-surface active:bg-surface-container transition-all" data-path="reservasi" href="#"><span class="material-symbols-outlined text-[24px]">calendar_month</span><span class="font-label-caps text-label-caps tracking-tight truncate">Reservasi</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] px-2 py-1 rounded-lg text-on-surface-variant hover:text-on-surface active:bg-surface-container transition-all" data-path="inspeksi-kendaraan" href="#"><span class="material-symbols-outlined text-[24px]">fact_check</span><span class="font-label-caps text-label-caps tracking-tight truncate">Inspeksi</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] px-2 py-1 rounded-lg active:bg-surface-container transition-all text-primary font-bold" data-path="bengkel-internal" href="#"><span class="material-symbols-outlined text-[24px]">build_circle</span><span class="font-label-caps text-label-caps tracking-tight truncate">Bengkel</span></a></div></nav></body></html>

@@ -1,0 +1,37 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+  <path
+      android:fillColor="#E2E8F0"
+      android:pathData="M0,0h200v150H0z"/>
+  <!-- Front View -->
+  <path
+      android:fillColor="#F1F5F9"
+      android:pathData="M30,130h140c8,0 15,-6 15,-14l-8,-60c-2,-14 -12,-24 -26,-26H49c-14,2 -24,12 -26,26l-8,60c0,8 7,14 15,14z"/>
+  <path
+      android:fillColor="#93C5FD"
+      android:pathData="M52,38h96l-6,34H58z"/>
+  <path
+      android:fillColor="#1E293B"
+      android:pathData="M65,82h70v24H65z"/>
+  <path
+      android:fillColor="#FEF08A"
+      android:pathData="M35,80l22,2 -4,14h-18zM165,80l-22,2 4,14h18z"/>
+  <path
+      android:fillColor="#FFFFFF"
+      android:pathData="M78,112h44v12H78z"/>
+  <!-- Scratch Highlight & Bumper Damage HUD -->
+  <path
+      android:fillColor="#33EF4444"
+      android:strokeColor="#EF4444"
+      android:strokeWidth="2"
+      android:pathData="M46,118m-18,0a18,18 0,1 1,36 0a18,18 0,1 1,-36 0"/>
+  <!-- Scratch Line -->
+  <path
+      android:strokeColor="#DC2626"
+      android:strokeWidth="3"
+      android:pathData="M36,114L54,122M40,112L50,124"/>
+</vector>
+

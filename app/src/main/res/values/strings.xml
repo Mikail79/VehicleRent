@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">VehicleRent</string>
+    <string name="app_name">AutoFleet Direct</string>
+    <string name="beranda_title">Beranda Fleet</string>
+    <string name="form_pemesanan_title">Form Pemesanan Mobil</string>
+    <string name="detail_reservasi_title">Detail Reservasi</string>
+    <string name="inspeksi_pickup_title">Inspeksi Pick-up</string>
+    <string name="inspeksi_return_title">Inspeksi Pengembalian &amp; Estimasi</string>
+    <string name="bengkel_internal_title">Bengkel Internal</string>
 </resources>
