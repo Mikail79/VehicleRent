@@ -153,16 +153,21 @@
                 android:textColor="@color/text_slate_900" />
         </LinearLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnQuickRelease"
+            style="@style/Widget.Material3.Button.UnelevatedButton"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_button_primary"
-            android:paddingHorizontal="14dp"
-            android:text="Selesai &amp; Buka Sewa"
+            android:layout_height="36dp"
+            android:backgroundTint="@color/primary_navy"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="12dp"
+            android:text="Selesai &amp; Buka Sewa ↗"
             android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:cornerRadius="4dp" />
     </LinearLayout>
 
 </LinearLayout>

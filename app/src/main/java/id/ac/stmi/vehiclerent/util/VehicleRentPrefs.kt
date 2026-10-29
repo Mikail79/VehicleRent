@@ -139,28 +139,28 @@ class VehicleRentPrefs private constructor(context: Context) {
         list.add(VehicleModel("AF-05", "Honda Brio RS 1.2 CVT Urban", "City Car & EV (Ioniq 5 / Brio)", "B 1455 BRI", "Automatic CVT • 5 Penumpang • Bensin", "Bay C-01", 15200, 100, 350000L, VehicleStatus.READY, 0.0, "-", "Lulus Uji Emisi & AC Dingin 16°C", "photo_car_brio"))
         list.add(VehicleModel("AF-06", "Toyota Kijang Innova Zenix Q Hybrid", "MPV Keluarga (Zenix / Xpander)", "B 1923 ZNX", "e-CVT • 7 Penumpang • Hybrid", "Bay B-05", 21400, 100, 800000L, VehicleStatus.READY, 0.0, "-", "Hybrid Battery Check OK", "photo_car_zenix"))
         list.add(VehicleModel("AF-10", "Mitsubishi Pajero Sport Dakar 4x2", "Premium SUV (Fortuner / Pajero)", "B 1788 MTC", "Automatic 8-Speed • 7 Penumpang • Diesel", "Bay A-02", 28900, 100, 1050000L, VehicleStatus.READY, 0.0, "-", "Brake Pad Baru & Oli Gardan Sintetik", "photo_car_pajero"))
-        list.add(VehicleModel("AF-11", "Toyota Kijang Innova Reborn 2.4 V AT", "MPV Keluarga (Zenix / Xpander)", "B 2650 RBN", "Automatic 6-Speed • 7 Penumpang • Diesel", "Bay B-06", 39100, 100, 550000L, VehicleStatus.READY, 0.0, "-", "Engine Clean & Timing Belt OK", "photo_car_zenix"))
+        list.add(VehicleModel("AF-11", "Toyota Kijang Innova Reborn 2.4 V AT", "MPV Keluarga (Zenix / Xpander)", "B 2650 RBN", "Automatic 6-Speed • 7 Penumpang • Diesel", "Bay B-06", 39100, 100, 550000L, VehicleStatus.READY, 0.0, "-", "Engine Clean & Timing Belt OK", "photo_car_reborn"))
         list.add(VehicleModel("AF-12", "Hyundai Ioniq 5 Prime Electric", "City Car & EV (Ioniq 5 / Brio)", "B 2999 EVB", "Single-Speed EV • 5 Penumpang • Electric", "Bay E-02", 8400, 100, 900000L, VehicleStatus.READY, 0.0, "-", "Battery Pack Sealed & Inspected", "photo_car_ioniq"))
         list.add(VehicleModel("AF-13", "Honda HR-V SE 1.5 CVT", "Premium SUV (Fortuner / Pajero)", "B 1320 HRV", "Automatic CVT • 5 Penumpang • Bensin", "Bay A-03", 22100, 100, 650000L, VehicleStatus.READY, 0.0, "-", "Honda Sensing Radar Calibrated", "photo_car_hrv"))
         list.add(VehicleModel("AF-14", "Toyota All New Avanza 1.5 G CVT", "MPV Keluarga (Zenix / Xpander)", "B 2140 AVZ", "Automatic CVT • 7 Penumpang • Bensin", "Bay B-07", 19800, 100, 400000L, VehicleStatus.READY, 0.0, "-", "Ban Baru Tekanan 34 PSI", "photo_car_avanza"))
-        list.add(VehicleModel("AF-15", "Toyota Veloz 1.5 Q CVT TSS", "MPV Keluarga (Zenix / Xpander)", "B 2277 XNA", "Automatic CVT • 7 Penumpang • Bensin", "Bay B-08", 17900, 100, 480000L, VehicleStatus.READY, 0.0, "-", "AC Servis & Spooring Lurus", "photo_car_avanza"))
+        list.add(VehicleModel("AF-15", "Toyota Veloz 1.5 Q CVT TSS", "MPV Keluarga (Zenix / Xpander)", "B 2277 XNA", "Automatic CVT • 7 Penumpang • Bensin", "Bay B-08", 17900, 100, 480000L, VehicleStatus.READY, 0.0, "-", "AC Servis & Spooring Lurus", "photo_car_veloz"))
         list.add(VehicleModel("AF-16", "Toyota Fortuner 2.8 VRZ AT", "Premium SUV (Fortuner / Pajero)", "B 1560 YRS", "Automatic 6-Speed • 7 Penumpang • Diesel", "Bay A-04", 14500, 100, 1000000L, VehicleStatus.READY, 0.0, "-", "Eco-Mode Diagnostic Pass", "photo_car_fortuner"))
         list.add(VehicleModel("AF-17", "Honda Brio Satya 1.2 E Urban", "City Car & EV (Ioniq 5 / Brio)", "B 1870 BLN", "Automatic CVT • 5 Penumpang • Bensin", "Bay C-02", 16300, 100, 320000L, VehicleStatus.READY, 0.0, "-", "QC Full Inspeksi 32 Titik Lulus", "photo_car_brio"))
 
         // 8 SEDANG DISEWA (ON_RENT)
         list.add(VehicleModel("AF-18", "Toyota Kijang Innova Zenix 2.0 V", "MPV Keluarga (Zenix / Xpander)", "B 1123 ZNX", "Automatic • 7 Penumpang • Bensin", "Bay B-09", 26300, 85, 650000L, VehicleStatus.ON_RENT, 0.0, "-", "Rute: Bandung - Jakarta (Family Touring)", "photo_car_zenix"))
-        list.add(VehicleModel("AF-19", "Mitsubishi Xpander Cross 1.5 AT", "MPV Keluarga (Zenix / Xpander)", "B 2780 XPC", "Automatic • 7 Penumpang • Bensin", "Bay B-10", 21900, 75, 500000L, VehicleStatus.ON_RENT, 0.0, "-", "Sewa 5 Hari (Lepas Kunci)", "photo_car_xpander"))
+        list.add(VehicleModel("AF-19", "Mitsubishi Xpander Cross 1.5 AT", "MPV Keluarga (Zenix / Xpander)", "B 2780 XPC", "Automatic • 7 Penumpang • Bensin", "Bay B-10", 21900, 75, 500000L, VehicleStatus.ON_RENT, 0.0, "-", "Sewa 5 Hari (Lepas Kunci)", "photo_car_xpander_cross"))
         list.add(VehicleModel("AF-20", "Toyota Fortuner 2.4 VRZ AT", "Premium SUV (Fortuner / Pajero)", "B 1490 FTN", "Automatic • 7 Penumpang • Diesel", "Bay A-05", 34500, 90, 950000L, VehicleStatus.ON_RENT, 0.0, "-", "Rental Korporat + Sopir", "photo_car_fortuner"))
         list.add(VehicleModel("AF-21", "Hyundai Ioniq 5 Prime Standard", "City Car & EV (Ioniq 5 / Brio)", "B 2311 EVH", "Single-Speed EV • 5 Penumpang • Electric", "Bay E-03", 16700, 60, 850000L, VehicleStatus.ON_RENT, 0.0, "-", "City Tour Jabodetabek", "photo_car_ioniq"))
         list.add(VehicleModel("AF-22", "Honda Brio Satya 1.2 E CVT", "City Car & EV (Ioniq 5 / Brio)", "B 2844 BRS", "Automatic • 5 Penumpang • Bensin", "Bay C-03", 22100, 80, 320000L, VehicleStatus.ON_RENT, 0.0, "-", "Drop-off Bandara Soetta", "photo_car_brio"))
-        list.add(VehicleModel("AF-23", "Toyota Veloz 1.5 Q CVT TSS", "MPV Keluarga (Zenix / Xpander)", "B 1677 VLZ", "Automatic • 7 Penumpang • Bensin", "Bay B-11", 19300, 70, 480000L, VehicleStatus.ON_RENT, 0.0, "-", "Rute Anyer Carita", "photo_car_avanza"))
+        list.add(VehicleModel("AF-23", "Toyota Veloz 1.5 Q CVT TSS", "MPV Keluarga (Zenix / Xpander)", "B 1677 VLZ", "Automatic • 7 Penumpang • Bensin", "Bay B-11", 19300, 70, 480000L, VehicleStatus.ON_RENT, 0.0, "-", "Rute Anyer Carita", "photo_car_veloz"))
         list.add(VehicleModel("AF-24", "Mitsubishi Pajero Sport Exceed", "Premium SUV (Fortuner / Pajero)", "B 1880 PJS", "Automatic • 7 Penumpang • Diesel", "Bay A-06", 41200, 85, 900000L, VehicleStatus.ON_RENT, 0.0, "-", "Sewa Mingguan + Driver", "photo_car_pajero"))
         list.add(VehicleModel("AF-25", "Hyundai Ioniq 5 Long Range AWD", "City Car & EV (Ioniq 5 / Brio)", "B 2600 AEV", "Single-Speed EV • 5 Penumpang • Electric", "Bay E-04", 11200, 70, 950000L, VehicleStatus.ON_RENT, 0.0, "-", "Komuter Dalam Kota Jakarta", "photo_car_ioniq"))
 
         // 3 DI BENGKEL INTERNAL (IN_WORKSHOP)
         list.add(VehicleModel("AF-07", "Mitsubishi Pajero Sport Dakar 4x4", "Premium SUV (Fortuner / Pajero)", "B 1734 SBG", "Automatic • 7 Penumpang • Diesel", "Bay A-07", 45100, 45, 1100000L, VehicleStatus.IN_WORKSHOP, 1.5, "Besok 11:30 WIB (Stall #02)", "Sensor Kecepatan Roda ABS C0035", "photo_car_pajero"))
         list.add(VehicleModel("AF-08", "Hyundai Ioniq 5 Signature AWD", "City Car & EV (Ioniq 5 / Brio)", "B 1144 EVN", "Electric • 5 Penumpang • Electric", "Bay E-05", 29800, 60, 950000L, VehicleStatus.IN_WORKSHOP, 2.5, "Besok 14:00 WIB (Stall #05)", "Komunikasi Modul CAN-Bus U0100", "photo_car_ioniq"))
-        list.add(VehicleModel("AF-09", "Toyota Kijang Innova Venturer 2.4", "MPV Keluarga (Zenix / Xpander)", "B 2309 KZD", "Automatic • 7 Penumpang • Diesel", "Bay B-12", 52400, 50, 600000L, VehicleStatus.IN_WORKSHOP, 2.0, "Besok 15:30 WIB (Stall #03)", "Misfire Pengapian Silinder P0300", "photo_car_zenix"))
+        list.add(VehicleModel("AF-09", "Toyota Kijang Innova Venturer 2.4", "MPV Keluarga (Zenix / Xpander)", "B 2309 KZD", "Automatic • 7 Penumpang • Diesel", "Bay B-12", 52400, 50, 600000L, VehicleStatus.IN_WORKSHOP, 2.0, "Besok 15:30 WIB (Stall #03)", "Misfire Pengapian Silinder P0300", "photo_car_reborn"))
 
         saveFleetList(list)
     }
@@ -214,9 +214,12 @@ class VehicleRentPrefs private constructor(context: Context) {
     }
 
     fun getFleetList(): MutableList<VehicleModel> {
+        val schemaVer = prefs.getInt("KEY_FLEET_SCHEMA_VERSION", 0)
         val jsonStr = prefs.getString(KEY_FLEET_STATE_JSON, null)
-        if (jsonStr == null) {
+        if (jsonStr == null || schemaVer < 3) {
             initDefaultFleet()
+            initDefaultWorkshopTickets()
+            prefs.edit().putInt("KEY_FLEET_SCHEMA_VERSION", 3).apply()
             return getFleetList()
         }
         val list = mutableListOf<VehicleModel>()
@@ -230,7 +233,7 @@ class VehicleRentPrefs private constructor(context: Context) {
             e.printStackTrace()
         }
         // Auto-upgrade if less than 25 units or outdated generic photo assignments
-        if (list.size < 25 || list.any { it.name.contains("Brio") && it.imageDrawableName != "photo_car_brio" }) {
+        if (list.size < 25 || list.any { (it.name.contains("Veloz") && it.imageDrawableName != "photo_car_veloz") || (it.name.contains("Reborn") && it.imageDrawableName != "photo_car_reborn") }) {
             initDefaultFleet()
             return getFleetList()
         }

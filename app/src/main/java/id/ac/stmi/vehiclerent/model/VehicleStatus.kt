@@ -1,7 +1,7 @@
 package id.ac.stmi.vehiclerent.model
 
 enum class VehicleStatus(val code: String, val label: String) {
-    READY("READY", "Siap Sewa (Lulus QC)"),
+    READY("READY", "Siap Operasi"),
     ON_RENT("ON_RENT", "Sedang Disewa"),
     IN_WORKSHOP("IN_WORKSHOP", "Di Bengkel Internal");
 
