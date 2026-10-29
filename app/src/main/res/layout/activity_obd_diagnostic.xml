@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_slate_50"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <!-- Top App Bar -->
@@ -229,67 +230,90 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Filter Buttons: P, C, B, U -->
+            <!-- Filter Segmented Tabs: P, C, B, U -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="38dp"
                 android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                android:background="@drawable/bg_segmented_track"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="3dp">
 
-                <Button
+                <TextView
                     android:id="@+id/btnFilterAll"
-                    style="@style/Widget.Material3.Button.TextButton"
+                    style="@style/TextAppearance.LabelCaps"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/bg_button_primary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="Semua"
                     android:textColor="@color/white"
-                    android:textSize="11sp" />
+                    android:textSize="10.5sp" />
 
-                <Button
+                <TextView
                     android:id="@+id/btnFilterP"
-                    style="@style/Widget.Material3.Button.TextButton"
+                    style="@style/TextAppearance.LabelCaps"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="P (Mesin)"
                     android:textColor="@color/text_slate_600"
-                    android:textSize="11sp" />
+                    android:textSize="10.5sp" />
 
-                <Button
+                <TextView
                     android:id="@+id/btnFilterC"
-                    style="@style/Widget.Material3.Button.TextButton"
+                    style="@style/TextAppearance.LabelCaps"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/transparent"
-                    android:text="C (Chassis)"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="C (Sasis)"
                     android:textColor="@color/text_slate_600"
-                    android:textSize="11sp" />
+                    android:textSize="10.5sp" />
 
-                <Button
+                <TextView
                     android:id="@+id/btnFilterB"
-                    style="@style/Widget.Material3.Button.TextButton"
+                    style="@style/TextAppearance.LabelCaps"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="B (Bodi)"
                     android:textColor="@color/text_slate_600"
-                    android:textSize="11sp" />
+                    android:textSize="10.5sp" />
 
-                <Button
+                <TextView
                     android:id="@+id/btnFilterU"
-                    style="@style/Widget.Material3.Button.TextButton"
+                    style="@style/TextAppearance.LabelCaps"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/transparent"
-                    android:text="U (CAN-Bus)"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="U (Jaringan)"
                     android:textColor="@color/text_slate_600"
-                    android:textSize="11sp" />
+                    android:textSize="10.5sp" />
             </LinearLayout>
 
             <!-- DTC Codes List -->

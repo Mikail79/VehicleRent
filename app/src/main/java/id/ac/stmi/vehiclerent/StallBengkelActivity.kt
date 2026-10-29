@@ -36,6 +36,9 @@ class StallBengkelActivity : AppCompatActivity() {
     private lateinit var tvTotalStallCost: TextView
     private lateinit var llTicketsContainer: LinearLayout
 
+    private var previousHours: Double = 0.0
+    private var previousCost: Long = 0L
+
     private var selectedTicket: WorkshopTicketModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -117,8 +120,10 @@ class StallBengkelActivity : AppCompatActivity() {
         val totalHours = tickets.sumOf { it.estimatedHours }
         val totalCost = tickets.sumOf { it.totalCost }
 
-        tvTotalStallHours.text = String.format(Locale.US, "%.1f Jam", totalHours)
-        tvTotalStallCost.text = "Rp ${currencyFormat.format(totalCost)}"
+        MotionUtils.animateDoubleRolling(tvTotalStallHours, previousHours, totalHours, suffix = " Jam")
+        MotionUtils.animateNumberRolling(tvTotalStallCost, previousCost, totalCost)
+        previousHours = totalHours
+        previousCost = totalCost
 
         if (tickets.isEmpty()) {
             val emptyCard = LinearLayout(this).apply {
@@ -159,6 +164,7 @@ class StallBengkelActivity : AppCompatActivity() {
             return
         }
 
+        val viewsToAnimate = mutableListOf<View>()
         for (ticket in tickets) {
             val view = layoutInflater.inflate(R.layout.item_stall_ticket, llTicketsContainer, false)
 
@@ -188,7 +194,9 @@ class StallBengkelActivity : AppCompatActivity() {
             }
 
             llTicketsContainer.addView(view)
+            viewsToAnimate.add(view)
         }
+        MotionUtils.staggeredCascade(viewsToAnimate)
     }
 
     private fun showTicketContextMenu(anchor: View, ticket: WorkshopTicketModel) {

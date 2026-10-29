@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_slate_50"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <!-- Top App Bar -->
@@ -181,13 +182,189 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <!-- 6-Stall Capacity Matrix Grid -->
                 <TextView
-                    style="@style/TextAppearance.BodySM"
+                    style="@style/TextAppearance.LabelCaps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="* Tekan tahan kartu mobil untuk membuka Context Menu pelepasan unit kembali ke katalog."
-                    android:textSize="10sp" />
+                    android:layout_marginTop="12dp"
+                    android:text="MATRIKS KETERSEDIAAN 6 STALL BENGKEL"
+                    android:textSize="9sp" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:columnCount="3">
+
+                    <!-- Stall 01 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/bg_card_container_low"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STALL #01"
+                            android:textColor="@color/text_slate_400"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Quick (Siap)"
+                            android:textColor="@color/text_slate_600"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Stall 02 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/bg_badge_workshop"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STALL #02"
+                            android:textColor="@color/status_workshop_text"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sasis (Pajero)"
+                            android:textColor="@color/status_workshop_text"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Stall 03 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/bg_badge_workshop"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STALL #03"
+                            android:textColor="@color/status_workshop_text"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mesin (Venturer)"
+                            android:textColor="@color/status_workshop_text"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Stall 04 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/bg_card_container_low"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STALL #04"
+                            android:textColor="@color/text_slate_400"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Listrik (Siap)"
+                            android:textColor="@color/text_slate_600"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Stall 05 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/bg_badge_workshop"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STALL #05"
+                            android:textColor="@color/status_workshop_text"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EV (Ioniq 5)"
+                            android:textColor="@color/status_workshop_text"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Stall 06 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/bg_card_container_low"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+
+                        <TextView
+                            style="@style/TextAppearance.LabelCaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STALL #06"
+                            android:textColor="@color/text_slate_400"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            style="@style/TextAppearance.BodySM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bodi/Cat (Siap)"
+                            android:textColor="@color/text_slate_600"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </GridLayout>
             </LinearLayout>
 
             <!-- Section Title -->
@@ -209,8 +386,12 @@
                     style="@style/TextAppearance.LabelCaps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TEKAN LAMA UNTUK QC"
-                    android:textColor="@color/text_slate_400" />
+                    android:background="@drawable/bg_badge_plate"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="2dp"
+                    android:text="OPSI: TEKAN LAMA"
+                    android:textColor="@color/text_slate_600"
+                    android:textSize="9sp" />
             </LinearLayout>
 
             <!-- Dynamic Tickets Container -->

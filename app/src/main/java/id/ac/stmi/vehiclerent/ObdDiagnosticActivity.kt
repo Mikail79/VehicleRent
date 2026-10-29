@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.Button
+import android.view.View
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageButton
@@ -38,11 +38,11 @@ class ObdDiagnosticActivity : AppCompatActivity() {
     private lateinit var tvParsedHours: TextView
     private lateinit var tvParsedCost: TextView
 
-    private lateinit var btnFilterAll: Button
-    private lateinit var btnFilterP: Button
-    private lateinit var btnFilterC: Button
-    private lateinit var btnFilterB: Button
-    private lateinit var btnFilterU: Button
+    private lateinit var btnFilterAll: TextView
+    private lateinit var btnFilterP: TextView
+    private lateinit var btnFilterC: TextView
+    private lateinit var btnFilterB: TextView
+    private lateinit var btnFilterU: TextView
 
     private lateinit var tvDictionaryCount: TextView
     private lateinit var llDtcListContainer: LinearLayout
@@ -148,33 +148,38 @@ class ObdDiagnosticActivity : AppCompatActivity() {
         }
 
         btnFilterAll.setOnClickListener {
+            MotionUtils.pulseHighlight(it)
             activeFilterSystem = null
             highlightFilterButton(btnFilterAll)
             renderDtcList()
         }
         btnFilterP.setOnClickListener {
+            MotionUtils.pulseHighlight(it)
             activeFilterSystem = "Powertrain"
             highlightFilterButton(btnFilterP)
             renderDtcList()
         }
         btnFilterC.setOnClickListener {
+            MotionUtils.pulseHighlight(it)
             activeFilterSystem = "Chassis"
             highlightFilterButton(btnFilterC)
             renderDtcList()
         }
         btnFilterB.setOnClickListener {
+            MotionUtils.pulseHighlight(it)
             activeFilterSystem = "Body"
             highlightFilterButton(btnFilterB)
             renderDtcList()
         }
         btnFilterU.setOnClickListener {
+            MotionUtils.pulseHighlight(it)
             activeFilterSystem = "Network"
             highlightFilterButton(btnFilterU)
             renderDtcList()
         }
     }
 
-    private fun highlightFilterButton(selectedBtn: Button) {
+    private fun highlightFilterButton(selectedBtn: TextView) {
         val all = listOf(btnFilterAll, btnFilterP, btnFilterC, btnFilterB, btnFilterU)
         for (b in all) {
             if (b == selectedBtn) {
@@ -230,6 +235,7 @@ class ObdDiagnosticActivity : AppCompatActivity() {
 
     private fun populateDtcViews(items: List<DtcModel>) {
         llDtcListContainer.removeAllViews()
+        val viewsToAnimate = mutableListOf<View>()
         tvDictionaryCount.text = "DATASET STANDAR SAE J2012 (${items.size} KODE)"
 
         for (item in items) {
@@ -276,7 +282,9 @@ class ObdDiagnosticActivity : AppCompatActivity() {
             }
 
             llDtcListContainer.addView(view)
+            viewsToAnimate.add(view)
         }
+        MotionUtils.staggeredCascade(viewsToAnimate)
     }
 }
 
