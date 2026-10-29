@@ -51,6 +51,17 @@
             android:name=".MainActivity"
             android:exported="false" />
 
+        <!-- Dual-Role Workshop Admin: Antrean Stall Bengkel -->
+        <activity
+            android:name=".StallBengkelActivity"
+            android:exported="false" />
+
+        <!-- Dual-Role Workshop Admin: Kamus & Diagnostik OBD-II SAE J2012 -->
+        <activity
+            android:name=".ObdDiagnosticActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>

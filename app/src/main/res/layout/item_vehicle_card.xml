@@ -11,14 +11,14 @@
     <!-- Car Media Header with Badges -->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp">
+        android:layout_height="160dp">
 
         <ImageView
             android:id="@+id/ivVehicleImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_car_zenix" />
+            android:src="@drawable/photo_car_zenix" />
 
         <!-- Status Badge Top Left -->
         <LinearLayout

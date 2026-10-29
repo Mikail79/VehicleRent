@@ -77,6 +77,9 @@
         </FrameLayout>
     </LinearLayout>
 
+    <!-- Dual-Role Indicator Banner -->
+    <include layout="@layout/include_role_banner" />
+
     <!-- Scrollable Inspection Form -->
     <ScrollView
         android:layout_width="match_parent"
@@ -188,7 +191,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_insp_front" />
+                                android:src="@drawable/photo_insp_front" />
 
                             <ImageView
                                 android:layout_width="22dp"
@@ -235,7 +238,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_insp_rear" />
+                                android:src="@drawable/photo_insp_rear" />
 
                             <ImageView
                                 android:layout_width="22dp"
@@ -290,7 +293,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_insp_left" />
+                                android:src="@drawable/photo_insp_left" />
 
                             <ImageView
                                 android:layout_width="22dp"
@@ -343,7 +346,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_insp_right"
+                                android:src="@drawable/photo_insp_right"
                                 android:visibility="gone" />
 
                             <!-- Placeholder when not taken -->

@@ -80,6 +80,14 @@ class DetailReservasiActivity : AppCompatActivity() {
         setupListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        ProfileDialogHelper.setupRoleBanner(this) {
+            BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_RESERVASI)
+        }
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_RESERVASI)
+    }
+
     private fun loadReservationData() {
         val extra = intent.getSerializableExtra(FormPemesananActivity.EXTRA_RESERVATION) as? ReservationModel
         if (extra != null) {

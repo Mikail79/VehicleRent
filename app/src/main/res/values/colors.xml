@@ -24,6 +24,8 @@
     <color name="surface_container_high">#CBD5E1</color>
     <color name="card_border">#E2E8F0</color>
     <color name="card_border_focused">#94A3B8</color>
+    <color name="border_slate_200">#E2E8F0</color>
+    <color name="border_slate_300">#CBD5E1</color>
 
     <!-- Text & Ink Hierarchy -->
     <color name="text_slate_900">#0F172A</color>

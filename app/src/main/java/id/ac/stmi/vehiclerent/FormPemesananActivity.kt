@@ -92,6 +92,14 @@ class FormPemesananActivity : AppCompatActivity() {
         calculateAndRenderCosts()
     }
 
+    override fun onResume() {
+        super.onResume()
+        ProfileDialogHelper.setupRoleBanner(this) {
+            BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_BOOKING)
+        }
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_BOOKING)
+    }
+
     private fun extractIntentExtras() {
         val extraVehicle = intent.getSerializableExtra(BerandaFleetActivity.EXTRA_VEHICLE) as? VehicleModel
         selectedVehicle = extraVehicle ?: prefs.getFleetList().firstOrNull() ?: VehicleModel(

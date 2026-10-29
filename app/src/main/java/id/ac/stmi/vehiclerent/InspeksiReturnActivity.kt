@@ -73,6 +73,17 @@ class InspeksiReturnActivity : AppCompatActivity() {
     private var isWorkshopBranchingActive: Boolean? = null
     private var isUserManuallyToggledOil = false
 
+    private val obdLauncher = registerForActivityResult(
+        androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val code = result.data?.getStringExtra("SELECTED_DTC_CODE")
+            if (!code.isNullOrEmpty()) {
+                etObdCode.setText(code)
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         prefs = VehicleRentPrefs.getInstance(this)
         super.onCreate(savedInstanceState)
@@ -84,6 +95,14 @@ class InspeksiReturnActivity : AppCompatActivity() {
         setupWorkshopCategorySpinner()
         setupListeners()
         recalculateWorkshopEstimates()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ProfileDialogHelper.setupRoleBanner(this) {
+            BottomNavHelper.setup(this, BottomNavHelper.NavTab.ADMIN_RETURN)
+        }
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.ADMIN_RETURN)
     }
 
     private fun loadTargetVehicle() {
@@ -212,33 +231,31 @@ class InspeksiReturnActivity : AppCompatActivity() {
             }
         })
 
-        // OBD Code Listener
+        // OBD Code Listener with SAE J2012 Engine
         etObdCode.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable?) {
                 val code = s.toString().trim().uppercase()
-                when {
-                    code.contains("P0300") -> {
-                        tvObdBadge.text = "MISFIRE (+2.0 Jam / Rp 450k)"
-                        tvObdBadge.visibility = View.VISIBLE
-                    }
-                    code.contains("C0035") -> {
-                        tvObdBadge.text = "ABS SENSOR (+1.5 Jam / Rp 350k)"
-                        tvObdBadge.visibility = View.VISIBLE
-                    }
-                    code.isEmpty() -> {
-                        tvObdBadge.text = "NORMAL (Rp 0)"
-                        tvObdBadge.visibility = View.GONE
-                    }
-                    else -> {
-                        tvObdBadge.text = "FAULT (+1.0 Jam / Rp 250k)"
-                        tvObdBadge.visibility = View.VISIBLE
-                    }
+                if (code.isNotEmpty()) {
+                    val dtc = id.ac.stmi.vehiclerent.util.ObdParser.parseOrLookup(this@InspeksiReturnActivity, code)
+                    tvObdBadge.text = "${dtc.code} (+${dtc.flatRateHours} Jam / Rp ${currencyFormat.format(dtc.partCost)})"
+                    tvObdBadge.visibility = View.VISIBLE
+                } else {
+                    tvObdBadge.text = "NORMAL (Rp 0)"
+                    tvObdBadge.visibility = View.GONE
                 }
                 recalculateWorkshopEstimates()
             }
         })
+
+        val btnOpenObd = findViewById<View>(R.id.btnOpenObdDictionary)
+        btnOpenObd?.setOnClickListener {
+            val intent = Intent(this, ObdDiagnosticActivity::class.java).apply {
+                putExtra("SELECT_MODE", true)
+            }
+            obdLauncher.launch(intent)
+        }
 
         // Checkbox listeners
         val checkListener = View.OnClickListener {
@@ -269,22 +286,11 @@ class InspeksiReturnActivity : AppCompatActivity() {
         val activeItems = mutableListOf<String>()
 
         val obd = etObdCode.text.toString().trim().uppercase()
-        when {
-            obd.contains("P0300") -> {
-                hours += 2.0
-                repairCost += 450000L
-                activeItems.add("ECU Misfire P0300")
-            }
-            obd.contains("C0035") -> {
-                hours += 1.5
-                repairCost += 350000L
-                activeItems.add("ABS Sensor C0035")
-            }
-            obd.isNotEmpty() -> {
-                hours += 1.0
-                repairCost += 250000L
-                activeItems.add("Diagnostik $obd")
-            }
+        if (obd.isNotEmpty()) {
+            val dtc = id.ac.stmi.vehiclerent.util.ObdParser.parseOrLookup(this, obd)
+            hours += dtc.flatRateHours
+            repairCost += dtc.partCost
+            activeItems.add("${dtc.code}: ${dtc.category}")
         }
 
         if (cbFindingBumper.isChecked) {
@@ -402,6 +408,25 @@ class InspeksiReturnActivity : AppCompatActivity() {
                     workshopHours = totalEstHours,
                     targetTime = targetTime
                 )
+
+                if (isGoingToWorkshop) {
+                    val currentObd = etObdCode.text.toString().trim().uppercase()
+                    val ticket = id.ac.stmi.vehiclerent.model.WorkshopTicketModel(
+                        ticketId = "TCK-${System.currentTimeMillis() % 10000}",
+                        vehicleId = v.id,
+                        vehicleName = v.name,
+                        plateNumber = v.plateNumber,
+                        stallId = "Stall #03",
+                        dtcCode = if (currentObd.isNotEmpty()) currentObd else "VISUAL-QC",
+                        componentIssue = tvClaimItemsSummary.text.toString(),
+                        mechanicName = "Mekanik Rizky",
+                        estimatedHours = totalEstHours,
+                        totalCost = totalEstCost,
+                        targetReadyTime = targetTime,
+                        entryOdometer = returnOdo
+                    )
+                    prefs.addWorkshopTicket(ticket)
+                }
 
                 Toast.makeText(this, "Status armada berhasil diperbarui ke SharedPreferences!", Toast.LENGTH_LONG).show()
 

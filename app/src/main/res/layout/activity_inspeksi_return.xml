@@ -77,6 +77,9 @@
         </FrameLayout>
     </LinearLayout>
 
+    <!-- Dual-Role Indicator Banner -->
+    <include layout="@layout/include_role_banner" />
+
     <!-- Scrollable Body -->
     <ScrollView
         android:layout_width="match_parent"
@@ -181,7 +184,7 @@
                                 android:layout_marginTop="4dp"
                                 android:background="@drawable/bg_card_surface"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_insp_front" />
+                                android:src="@drawable/photo_insp_front" />
                         </LinearLayout>
 
                         <!-- Photo Return with Scratch -->
@@ -205,7 +208,7 @@
                                 android:layout_marginTop="4dp"
                                 android:background="@drawable/bg_card_surface"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_insp_scratch" />
+                                android:src="@drawable/photo_insp_scratch" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -258,7 +261,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/img_insp_rear" />
+                            android:src="@drawable/photo_insp_rear" />
 
                         <TextView
                             style="@style/TextAppearance.LabelCaps"
@@ -284,7 +287,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/img_insp_left" />
+                            android:src="@drawable/photo_insp_left" />
 
                         <TextView
                             style="@style/TextAppearance.LabelCaps"
@@ -310,7 +313,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/img_insp_right" />
+                            android:src="@drawable/photo_insp_right" />
 
                         <TextView
                             style="@style/TextAppearance.LabelCaps"
@@ -510,6 +513,16 @@
                         android:paddingVertical="2dp"
                         android:text="MISFIRE (+2 Jam / Rp 450k)"
                         android:textColor="@color/workshop_amber_dark" />
+
+                    <ImageButton
+                        android:id="@+id/btnOpenObdDictionary"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="4dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Buka Kamus OBD-II"
+                        android:src="@drawable/ic_open_in_new"
+                        app:tint="@color/workshop_amber" />
                 </LinearLayout>
 
                 <!-- Checkbox Checklist Temuan Saat Kembali -->

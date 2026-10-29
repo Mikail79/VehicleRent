@@ -68,6 +68,14 @@ class InspeksiPickUpActivity : AppCompatActivity() {
         setupListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        ProfileDialogHelper.setupRoleBanner(this) {
+            BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_PICKUP)
+        }
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_PICKUP)
+    }
+
     private fun loadReservationData() {
         val extra = intent.getSerializableExtra(DetailReservasiActivity.EXTRA_RESERVATION) as? ReservationModel
         if (extra != null) {

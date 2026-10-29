@@ -74,14 +74,31 @@ class VehicleAdapter(
         tvCheckNotes.text = vehicle.lastCheckNotes
         tvBaseRate.text = "Rp ${currencyFormat.format(vehicle.baseRatePerDay)}"
 
-        // Image Drawable Mapping
-        val imageRes = when (vehicle.imageDrawableName) {
-            "img_car_xpander" -> R.drawable.img_car_xpander
-            "img_car_fortuner" -> R.drawable.img_car_fortuner
-            "img_car_ioniq" -> R.drawable.img_car_ioniq
-            else -> R.drawable.img_car_zenix
+        // Image Drawable Mapping with authentic photos from Stitch
+        val imageRes = when {
+            vehicle.imageDrawableName.contains("xpander") ||
+            vehicle.name.contains("Xpander", ignoreCase = true) ||
+            vehicle.name.contains("Avanza", ignoreCase = true) ||
+            vehicle.name.contains("Xenia", ignoreCase = true) ||
+            vehicle.name.contains("Baleno", ignoreCase = true) ||
+            vehicle.name.contains("HR-V", ignoreCase = true) -> R.drawable.photo_car_xpander
+
+            vehicle.imageDrawableName.contains("fortuner") ||
+            vehicle.name.contains("Fortuner", ignoreCase = true) ||
+            vehicle.name.contains("Pajero", ignoreCase = true) ||
+            vehicle.name.contains("Yaris Cross", ignoreCase = true) -> R.drawable.photo_car_fortuner
+
+            vehicle.imageDrawableName.contains("ioniq") ||
+            vehicle.name.contains("Ioniq", ignoreCase = true) ||
+            vehicle.name.contains("EV", ignoreCase = true) ||
+            vehicle.name.contains("Brio", ignoreCase = true) -> R.drawable.photo_car_ioniq
+
+            else -> R.drawable.photo_car_zenix
         }
         ivImage.setImageResource(imageRes)
+
+        val prefs = id.ac.stmi.vehiclerent.util.VehicleRentPrefs.getInstance(context)
+        val isAdmin = prefs.isWorkshopAdmin
 
         // Status Styling
         when (vehicle.status) {
@@ -94,7 +111,7 @@ class VehicleAdapter(
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_ready_text))
 
                 btnBook.isEnabled = true
-                btnBook.text = "Pilih & Pesan"
+                btnBook.text = if (isAdmin) "Alokasi Sewa" else "Pilih & Pesan"
                 btnBook.setBackgroundResource(R.drawable.bg_button_primary)
             }
             VehicleStatus.ON_RENT -> {
@@ -106,7 +123,7 @@ class VehicleAdapter(
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_rented_text))
 
                 btnBook.isEnabled = true
-                btnBook.text = "Simulasi Return"
+                btnBook.text = if (isAdmin) "Inspeksi Return" else "Simulasi Return"
                 btnBook.setBackgroundResource(R.drawable.bg_button_secondary)
             }
             VehicleStatus.IN_WORKSHOP -> {
@@ -117,9 +134,15 @@ class VehicleAdapter(
                 tvReadyBadge.text = "Perlu Servis"
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_workshop_text))
 
-                btnBook.isEnabled = false
-                btnBook.text = "Terkunci (Bengkel)"
-                btnBook.setBackgroundColor(Color.LTGRAY)
+                if (isAdmin) {
+                    btnBook.isEnabled = true
+                    btnBook.text = "Kelola di Stall"
+                    btnBook.setBackgroundResource(R.drawable.bg_button_amber)
+                } else {
+                    btnBook.isEnabled = false
+                    btnBook.text = "Terkunci (Bengkel)"
+                    btnBook.setBackgroundColor(ContextCompat.getColor(context, R.color.border_slate_300))
+                }
             }
         }
 

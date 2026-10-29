@@ -1,6 +1,8 @@
 package id.ac.stmi.vehiclerent
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.ContextMenu
 import android.view.MenuItem
@@ -88,6 +90,11 @@ class BerandaFleetActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        ProfileDialogHelper.setupRoleBanner(this) {
+            refreshFleetData()
+            setupBottomNav()
+        }
+        setupBottomNav()
         refreshFleetData()
     }
 
@@ -157,18 +164,18 @@ class BerandaFleetActivity : AppCompatActivity() {
     private fun setupEventListeners() {
         btnToggleBundling.setOnClickListener {
             isBundlingMode = true
-            btnToggleBundling.setBackgroundResource(R.drawable.bg_button_primary)
+            btnToggleBundling.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.primary_navy))
             btnToggleBundling.setTextColor(ContextCompat.getColor(this, R.color.white))
-            btnToggleSingleCar.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent))
+            btnToggleSingleCar.backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
             btnToggleSingleCar.setTextColor(ContextCompat.getColor(this, R.color.text_slate_600))
             llBundleContainer.visibility = View.VISIBLE
         }
 
         btnToggleSingleCar.setOnClickListener {
             isBundlingMode = false
-            btnToggleSingleCar.setBackgroundResource(R.drawable.bg_button_primary)
+            btnToggleSingleCar.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.primary_navy))
             btnToggleSingleCar.setTextColor(ContextCompat.getColor(this, R.color.white))
-            btnToggleBundling.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent))
+            btnToggleBundling.backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
             btnToggleBundling.setTextColor(ContextCompat.getColor(this, R.color.text_slate_600))
             llBundleContainer.visibility = View.GONE
         }
@@ -341,7 +348,14 @@ class BerandaFleetActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             VehicleStatus.IN_WORKSHOP -> {
-                Toast.makeText(this, "Unit ${vehicle.plateNumber} sedang dalam pengerjaan bengkel internal.", Toast.LENGTH_SHORT).show()
+                if (prefs.isWorkshopAdmin) {
+                    val intent = Intent(this, StallBengkelActivity::class.java).apply {
+                        putExtra("EXTRA_VEHICLE_ID", vehicle.id)
+                    }
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this, "Unit ${vehicle.plateNumber} sedang dalam servis bengkel internal (${vehicle.workshopTargetTime}).", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

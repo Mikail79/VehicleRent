@@ -74,6 +74,9 @@
         </FrameLayout>
     </LinearLayout>
 
+    <!-- Dual-Role Indicator Banner -->
+    <include layout="@layout/include_role_banner" />
+
     <!-- Scrollable Content -->
     <ScrollView
         android:layout_width="match_parent"

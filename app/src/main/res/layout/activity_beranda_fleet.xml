@@ -76,6 +76,9 @@
         </FrameLayout>
     </LinearLayout>
 
+    <!-- Dual-Role Indicator Banner -->
+    <include layout="@layout/include_role_banner" />
+
     <!-- Main Scrollable Area -->
     <ScrollView
         android:layout_width="match_parent"
@@ -159,7 +162,8 @@
                 <LinearLayout
                     android:id="@+id/cardFilterReady"
                     android:layout_width="0dp"
-                    android:layout_height="88dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="96dp"
                     android:layout_marginEnd="6dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_card_surface"
@@ -211,7 +215,8 @@
                 <LinearLayout
                     android:id="@+id/cardFilterRented"
                     android:layout_width="0dp"
-                    android:layout_height="88dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="96dp"
                     android:layout_marginHorizontal="3dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_card_surface"
@@ -263,7 +268,8 @@
                 <LinearLayout
                     android:id="@+id/cardFilterWorkshop"
                     android:layout_width="0dp"
-                    android:layout_height="88dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="96dp"
                     android:layout_marginStart="6dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_card_surface"
@@ -331,26 +337,34 @@
                     android:orientation="horizontal"
                     android:padding="3dp">
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnToggleBundling"
-                        style="@style/Widget.Material3.Button.TextButton"
+                        style="@style/Widget.Material3.Button"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@drawable/bg_button_primary"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        app:backgroundTint="@color/primary_navy"
+                        app:cornerRadius="6dp"
                         android:text="Paket Bundling"
                         android:textColor="@color/white"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnToggleSingleCar"
                         style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@color/transparent"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        app:backgroundTint="@android:color/transparent"
+                        app:cornerRadius="6dp"
                         android:text="Unit Mobil Satuan"
-                        android:textColor="@color/text_slate_600" />
+                        android:textColor="@color/text_slate_600"
+                        android:textSize="13sp" />
                 </LinearLayout>
 
                 <!-- Category Spinner Filter -->
