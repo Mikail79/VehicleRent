@@ -74,14 +74,23 @@ class VehicleAdapter(
         tvCheckNotes.text = vehicle.lastCheckNotes
         tvBaseRate.text = "Rp ${currencyFormat.format(vehicle.baseRatePerDay)}"
 
-        // Specific 1-to-1 Image Mapping for each Car Type
+        // Specific 1-to-1 Verified Image Mapping for each Car Type
         val imageRes = when {
+            vehicle.imageDrawableName == "photo_car_veloz" ||
+            vehicle.name.contains("Veloz", ignoreCase = true) -> R.drawable.photo_car_veloz
+
+            vehicle.imageDrawableName == "photo_car_reborn" ||
+            vehicle.name.contains("Reborn", ignoreCase = true) ||
+            vehicle.name.contains("Venturer", ignoreCase = true) -> R.drawable.photo_car_reborn
+
+            vehicle.imageDrawableName == "photo_car_xpander_cross" ||
+            vehicle.name.contains("Xpander Cross", ignoreCase = true) -> R.drawable.photo_car_xpander_cross
+
             vehicle.imageDrawableName == "photo_car_brio" ||
             vehicle.name.contains("Brio", ignoreCase = true) -> R.drawable.photo_car_brio
 
             vehicle.imageDrawableName == "photo_car_avanza" ||
             vehicle.name.contains("Avanza", ignoreCase = true) ||
-            vehicle.name.contains("Veloz", ignoreCase = true) ||
             vehicle.name.contains("Xenia", ignoreCase = true) -> R.drawable.photo_car_avanza
 
             vehicle.imageDrawableName == "photo_car_pajero" ||
@@ -112,38 +121,38 @@ class VehicleAdapter(
             VehicleStatus.READY -> {
                 ivStatusIcon.setImageResource(R.drawable.ic_check_circle)
                 ivStatusIcon.imageTintList = ColorStateList.valueOf(Color.parseColor("#4ADE80"))
-                tvStatusText.text = "SIAP SEWA • LULUS QC"
+                tvStatusText.text = "SIAP OPERASI"
                 tvStatusText.setTextColor(Color.parseColor("#4ADE80"))
                 tvReadyBadge.text = "Siap Jalan"
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_ready_text))
 
                 btnBook.isEnabled = true
-                btnBook.text = if (isAdmin) "Alokasi Sewa" else "Pilih & Pesan"
+                btnBook.text = if (isAdmin) "Alokasi Sewa ↗" else "Pilih & Pesan ↗"
                 btnBook.setBackgroundResource(R.drawable.bg_button_primary)
             }
             VehicleStatus.ON_RENT -> {
                 ivStatusIcon.setImageResource(R.drawable.ic_commute)
                 ivStatusIcon.imageTintList = ColorStateList.valueOf(Color.parseColor("#38BDF8"))
-                tvStatusText.text = "DISEWA • DI JALAN"
+                tvStatusText.text = "DI JALAN"
                 tvStatusText.setTextColor(Color.parseColor("#38BDF8"))
                 tvReadyBadge.text = "Di Jalan"
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_rented_text))
 
                 btnBook.isEnabled = true
-                btnBook.text = if (isAdmin) "Inspeksi Return" else "Simulasi Return"
+                btnBook.text = if (isAdmin) "Inspeksi Return ↗" else "Simulasi Return ↗"
                 btnBook.setBackgroundResource(R.drawable.bg_button_secondary)
             }
             VehicleStatus.IN_WORKSHOP -> {
                 ivStatusIcon.setImageResource(R.drawable.ic_build_circle)
                 ivStatusIcon.imageTintList = ColorStateList.valueOf(Color.parseColor("#F87171"))
-                tvStatusText.text = "BENGKEL • STALL SERVICE"
+                tvStatusText.text = "BENGKEL"
                 tvStatusText.setTextColor(Color.parseColor("#F87171"))
                 tvReadyBadge.text = "Perlu Servis"
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_workshop_text))
 
                 if (isAdmin) {
                     btnBook.isEnabled = true
-                    btnBook.text = "Kelola di Stall"
+                    btnBook.text = "Kelola Stall ⚙"
                     btnBook.setBackgroundResource(R.drawable.bg_button_amber)
                 } else {
                     btnBook.isEnabled = false
