@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_card_surface"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:padding="14dp">
+
+    <!-- Header: Stall & Target Badge -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvTicketStallId"
+            style="@style/TextAppearance.LabelCaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_workshop"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:text="Stall #02"
+            android:textColor="@color/status_workshop_text" />
+
+        <TextView
+            android:id="@+id/tvTicketTargetTime"
+            style="@style/TextAppearance.MonoDataSM"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="Target: Besok 11:30 WIB"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tvTicketDtcBadge"
+            style="@style/TextAppearance.MonoDataSM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_plate"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="2dp"
+            android:text="C0035"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Car Name & Plate -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTicketVehicleName"
+                style="@style/TextAppearance.HeadingMD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mitsubishi Pajero Sport Dakar 4x4"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvTicketMechanic"
+                style="@style/TextAppearance.BodySM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Teknisi: Mekanik Rizky • Odometer: 45.100 km"
+                android:textSize="10.5sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTicketPlateNumber"
+            style="@style/TextAppearance.MonoDataMD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_badge_plate"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="B 1734 SBG" />
+    </LinearLayout>
+
+    <!-- Issue & Part Well -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_card_container_low"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            style="@style/TextAppearance.LabelCaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KOMPONEN &amp; TINDAKAN REKOMENDASI"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/tvTicketComponentIssue"
+            style="@style/TextAppearance.BodySM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Left Front Wheel Speed Sensor Module &amp; Alignment"
+            android:textColor="@color/text_slate_900"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Hours, Cost & Action Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTicketHours"
+                style="@style/TextAppearance.LabelCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DURASI: 1.2 JAM"
+                android:textColor="@color/workshop_amber_dark" />
+
+            <TextView
+                android:id="@+id/tvTicketCost"
+                style="@style/TextAppearance.MonoDataMD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="Rp 350.000"
+                android:textColor="@color/text_slate_900" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnQuickRelease"
+            style="@style/Widget.Material3.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:backgroundTint="@color/primary_navy"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="12dp"
+            android:text="Selesai &amp; Buka Sewa ↗"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:cornerRadius="4dp" />
+    </LinearLayout>
+
+</LinearLayout>
+
