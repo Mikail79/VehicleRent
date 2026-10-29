@@ -48,7 +48,7 @@ class VehicleAdapter(
 
         val ivImage = view.findViewById<ImageView>(R.id.ivVehicleImage)
         val llStatusBadge = view.findViewById<LinearLayout>(R.id.llStatusBadge)
-        val vStatusDot = view.findViewById<View>(R.id.vStatusDot)
+        val ivStatusIcon = view.findViewById<ImageView>(R.id.ivStatusIcon)
         val tvStatusText = view.findViewById<TextView>(R.id.tvStatusText)
         val tvVehicleFuel = view.findViewById<TextView>(R.id.tvVehicleFuel)
 
@@ -74,24 +74,31 @@ class VehicleAdapter(
         tvCheckNotes.text = vehicle.lastCheckNotes
         tvBaseRate.text = "Rp ${currencyFormat.format(vehicle.baseRatePerDay)}"
 
-        // Image Drawable Mapping with authentic photos from Stitch
+        // Specific 1-to-1 Image Mapping for each Car Type
         val imageRes = when {
-            vehicle.imageDrawableName.contains("xpander") ||
-            vehicle.name.contains("Xpander", ignoreCase = true) ||
+            vehicle.imageDrawableName == "photo_car_brio" ||
+            vehicle.name.contains("Brio", ignoreCase = true) -> R.drawable.photo_car_brio
+
+            vehicle.imageDrawableName == "photo_car_avanza" ||
             vehicle.name.contains("Avanza", ignoreCase = true) ||
-            vehicle.name.contains("Xenia", ignoreCase = true) ||
-            vehicle.name.contains("Baleno", ignoreCase = true) ||
-            vehicle.name.contains("HR-V", ignoreCase = true) -> R.drawable.photo_car_xpander
+            vehicle.name.contains("Veloz", ignoreCase = true) ||
+            vehicle.name.contains("Xenia", ignoreCase = true) -> R.drawable.photo_car_avanza
 
-            vehicle.imageDrawableName.contains("fortuner") ||
-            vehicle.name.contains("Fortuner", ignoreCase = true) ||
-            vehicle.name.contains("Pajero", ignoreCase = true) ||
-            vehicle.name.contains("Yaris Cross", ignoreCase = true) -> R.drawable.photo_car_fortuner
+            vehicle.imageDrawableName == "photo_car_pajero" ||
+            vehicle.name.contains("Pajero", ignoreCase = true) -> R.drawable.photo_car_pajero
 
-            vehicle.imageDrawableName.contains("ioniq") ||
+            vehicle.imageDrawableName == "photo_car_hrv" ||
+            vehicle.name.contains("HR-V", ignoreCase = true) -> R.drawable.photo_car_hrv
+
+            vehicle.imageDrawableName == "photo_car_fortuner" ||
+            vehicle.name.contains("Fortuner", ignoreCase = true) -> R.drawable.photo_car_fortuner
+
+            vehicle.imageDrawableName == "photo_car_ioniq" ||
             vehicle.name.contains("Ioniq", ignoreCase = true) ||
-            vehicle.name.contains("EV", ignoreCase = true) ||
-            vehicle.name.contains("Brio", ignoreCase = true) -> R.drawable.photo_car_ioniq
+            vehicle.name.contains("EV", ignoreCase = true) -> R.drawable.photo_car_ioniq
+
+            vehicle.imageDrawableName == "photo_car_xpander" ||
+            vehicle.name.contains("Xpander", ignoreCase = true) -> R.drawable.photo_car_xpander
 
             else -> R.drawable.photo_car_zenix
         }
@@ -100,13 +107,13 @@ class VehicleAdapter(
         val prefs = id.ac.stmi.vehiclerent.util.VehicleRentPrefs.getInstance(context)
         val isAdmin = prefs.isWorkshopAdmin
 
-        // Status Styling
+        // Precision Telemetry Tag Styling (High-Contrast Obsidian Glass Tag, No AI Slop Pill)
         when (vehicle.status) {
             VehicleStatus.READY -> {
-                llStatusBadge.setBackgroundResource(R.drawable.bg_badge_ready)
-                vStatusDot.setBackgroundColor(ContextCompat.getColor(context, R.color.status_ready_dot))
-                tvStatusText.text = "Siap Sewa (Lulus QC)"
-                tvStatusText.setTextColor(ContextCompat.getColor(context, R.color.status_ready_text))
+                ivStatusIcon.setImageResource(R.drawable.ic_check_circle)
+                ivStatusIcon.imageTintList = ColorStateList.valueOf(Color.parseColor("#4ADE80"))
+                tvStatusText.text = "SIAP SEWA • LULUS QC"
+                tvStatusText.setTextColor(Color.parseColor("#4ADE80"))
                 tvReadyBadge.text = "Siap Jalan"
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_ready_text))
 
@@ -115,10 +122,10 @@ class VehicleAdapter(
                 btnBook.setBackgroundResource(R.drawable.bg_button_primary)
             }
             VehicleStatus.ON_RENT -> {
-                llStatusBadge.setBackgroundResource(R.drawable.bg_badge_rented)
-                vStatusDot.setBackgroundColor(ContextCompat.getColor(context, R.color.status_rented_dot))
-                tvStatusText.text = "Sedang Disewa (Jalan)"
-                tvStatusText.setTextColor(ContextCompat.getColor(context, R.color.status_rented_text))
+                ivStatusIcon.setImageResource(R.drawable.ic_commute)
+                ivStatusIcon.imageTintList = ColorStateList.valueOf(Color.parseColor("#38BDF8"))
+                tvStatusText.text = "DISEWA • DI JALAN"
+                tvStatusText.setTextColor(Color.parseColor("#38BDF8"))
                 tvReadyBadge.text = "Di Jalan"
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_rented_text))
 
@@ -127,10 +134,10 @@ class VehicleAdapter(
                 btnBook.setBackgroundResource(R.drawable.bg_button_secondary)
             }
             VehicleStatus.IN_WORKSHOP -> {
-                llStatusBadge.setBackgroundResource(R.drawable.bg_badge_workshop)
-                vStatusDot.setBackgroundColor(ContextCompat.getColor(context, R.color.status_workshop_dot))
-                tvStatusText.text = "Di Bengkel (${vehicle.workshopTargetTime})"
-                tvStatusText.setTextColor(ContextCompat.getColor(context, R.color.status_workshop_text))
+                ivStatusIcon.setImageResource(R.drawable.ic_build_circle)
+                ivStatusIcon.imageTintList = ColorStateList.valueOf(Color.parseColor("#F87171"))
+                tvStatusText.text = "BENGKEL • STALL SERVICE"
+                tvStatusText.setTextColor(Color.parseColor("#F87171"))
                 tvReadyBadge.text = "Perlu Servis"
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_workshop_text))
 

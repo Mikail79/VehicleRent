@@ -539,6 +539,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="true"
                     android:text="Baret Panel Bumper Depan Kiri (+3.5 Jam / Rp 600.000)\nEstimasi: Re-paint 1 Panel Flat-Rate"
                     android:textSize="12sp" />
@@ -548,6 +549,7 @@
                     android:id="@+id/cbFindingBrake"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="true"
                     android:text="Kampas Rem Depan Tipis / Berdecit (+2.0 Jam / Rp 350.000)\nTerdengar bunyi friksi metal saat pengereman"
                     android:textSize="12sp" />
@@ -557,6 +559,7 @@
                     android:id="@+id/cbFindingEngine"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="false"
                     android:text="Indikator Check Engine Menyala (+2.5 Jam / Rp 500.000)\nLampu instrumen ECU menyala permanen"
                     android:textSize="12sp" />
@@ -566,6 +569,7 @@
                     android:id="@+id/cbFindingOilService"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="false"
                     android:text="Kilometer Batas Servis Berkala / Ganti Oli (+1.5 Jam / Rp 450.000)\nAuto-centang jika trip > 500 km atau odo >= 24.800 km"
                     android:textSize="12sp" />

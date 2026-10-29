@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Dark Mode Tactile Automotive Palette (Aura / 21st.dev / Skiper-UI) -->
-    <color name="primary_navy">#3B82F6</color>
-    <color name="primary_navy_dark">#1D4ED8</color>
+    <color name="primary_navy">#1E3A8A</color>
+    <color name="primary_navy_dark">#172554</color>
     <color name="primary_navy_light">#1E293B</color>
     <color name="primary_navy_container">#1E3A8A</color>
     <color name="on_primary">#FFFFFF</color>
@@ -50,9 +50,9 @@
     <color name="status_warning_bg">#451A03</color>
     <color name="status_warning_text">#FBBF24</color>
 
-    <!-- Active / Checked State -->
-    <color name="surface_selected_bg">#172554</color>
-    <color name="surface_selected_border">#60A5FA</color>
+    <!-- Active / Checked State (Refined, No Neon Ring) -->
+    <color name="surface_selected_bg">#18202F</color>
+    <color name="surface_selected_border">#2E4166</color>
 
     <!-- Functional Utilities -->
     <color name="black">#FF000000</color>

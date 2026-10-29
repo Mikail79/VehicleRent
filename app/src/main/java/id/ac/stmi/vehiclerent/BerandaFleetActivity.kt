@@ -182,18 +182,33 @@ class BerandaFleetActivity : AppCompatActivity() {
 
         cardFilterReady.setOnClickListener {
             activeStatusFilter = if (activeStatusFilter == VehicleStatus.READY) null else VehicleStatus.READY
+            updateFilterSectorHighlights()
             renderVehicleCards()
         }
 
         cardFilterRented.setOnClickListener {
             activeStatusFilter = if (activeStatusFilter == VehicleStatus.ON_RENT) null else VehicleStatus.ON_RENT
+            updateFilterSectorHighlights()
             renderVehicleCards()
         }
 
         cardFilterWorkshop.setOnClickListener {
             activeStatusFilter = if (activeStatusFilter == VehicleStatus.IN_WORKSHOP) null else VehicleStatus.IN_WORKSHOP
+            updateFilterSectorHighlights()
             renderVehicleCards()
         }
+    }
+
+    private fun updateFilterSectorHighlights() {
+        cardFilterReady.setBackgroundResource(
+            if (activeStatusFilter == VehicleStatus.READY) R.drawable.bg_card_container_low else 0
+        )
+        cardFilterRented.setBackgroundResource(
+            if (activeStatusFilter == VehicleStatus.ON_RENT) R.drawable.bg_card_container_low else 0
+        )
+        cardFilterWorkshop.setBackgroundResource(
+            if (activeStatusFilter == VehicleStatus.IN_WORKSHOP) R.drawable.bg_card_container_low else 0
+        )
     }
 
     private fun refreshFleetData() {
@@ -225,6 +240,22 @@ class BerandaFleetActivity : AppCompatActivity() {
             .take(2)
             .joinToString(",")
         tvMetricWorkshopSub.text = if (workshopBays.isNotEmpty()) "Bay $workshopBays" else "Bay 02,04"
+
+        // Dynamically adjust fleet capacity ratio bar weights
+        val vBarReady = findViewById<View>(R.id.vBarReady)
+        val vBarRented = findViewById<View>(R.id.vBarRented)
+        val vBarWorkshop = findViewById<View>(R.id.vBarWorkshop)
+        if (fleet.isNotEmpty() && vBarReady != null && vBarRented != null && vBarWorkshop != null) {
+            val lpReady = vBarReady.layoutParams as LinearLayout.LayoutParams
+            val lpRented = vBarRented.layoutParams as LinearLayout.LayoutParams
+            val lpWorkshop = vBarWorkshop.layoutParams as LinearLayout.LayoutParams
+            lpReady.weight = readyCount.coerceAtLeast(1).toFloat()
+            lpRented.weight = rentedCount.coerceAtLeast(1).toFloat()
+            lpWorkshop.weight = workshopCount.coerceAtLeast(1).toFloat()
+            vBarReady.layoutParams = lpReady
+            vBarRented.layoutParams = lpRented
+            vBarWorkshop.layoutParams = lpWorkshop
+        }
 
         renderVehicleCards()
     }

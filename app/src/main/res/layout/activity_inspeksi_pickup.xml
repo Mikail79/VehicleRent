@@ -513,6 +513,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:buttonTint="@color/control_tint_selector"
                         android:text="25%"
                         android:textSize="12sp" />
 
@@ -521,6 +522,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:buttonTint="@color/control_tint_selector"
                         android:text="50%"
                         android:textSize="12sp" />
 
@@ -529,6 +531,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:buttonTint="@color/control_tint_selector"
                         android:text="75%"
                         android:textSize="12sp" />
 
@@ -537,6 +540,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:buttonTint="@color/control_tint_selector"
                         android:checked="true"
                         android:text="100%"
                         android:textSize="12sp"
@@ -601,6 +605,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="true"
                     android:text="STNK Asli &amp; Kunci Utama\nTermasuk kunci remote cadangan"
                     android:textSize="13sp" />
@@ -609,6 +614,7 @@
                     android:id="@+id/cbKitSpareTire"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="true"
                     android:text="Ban Serep, Dongkrak Hidrolik &amp; Kunci Roda\nTekanan angin serep 34 PSI"
                     android:textSize="13sp" />
@@ -617,6 +623,7 @@
                     android:id="@+id/cbKitEmergencyKit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="true"
                     android:text="Segitiga Pengaman &amp; Kotak P3K Lengkap\nSegel utuh dan steril"
                     android:textSize="13sp" />
@@ -625,6 +632,7 @@
                     android:id="@+id/cbKitSmartBundle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="true"
                     android:text="Aksesoris Smart Bundle Lengkap\nRoof Box 400L &amp; Child Seat terpasang"
                     android:textSize="13sp" />
