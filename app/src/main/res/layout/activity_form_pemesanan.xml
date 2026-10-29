@@ -134,11 +134,11 @@
                         style="@style/TextAppearance.MonoDataMD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_badge_ready"
+                        android:background="@drawable/bg_badge_plate"
                         android:paddingHorizontal="10dp"
                         android:paddingVertical="4dp"
                         android:text="B 1842 KZR"
-                        android:textColor="@color/status_ready_text" />
+                        android:textColor="@color/text_slate_900" />
                 </LinearLayout>
 
                 <!-- Well Inside Banner -->

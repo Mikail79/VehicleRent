@@ -182,6 +182,11 @@ class InspeksiPickUpActivity : AppCompatActivity() {
                 tvPhotoProgressStatus.text = "4 / 4 Selesai"
                 tvPhotoProgressStatus.setTextColor(ContextCompat.getColor(this, R.color.status_ready_text))
 
+                findViewById<TextView>(R.id.tvStickyPickupStatus)?.apply {
+                    text = "QC Lengkap • Siap Sahkan"
+                    setTextColor(ContextCompat.getColor(this@InspeksiPickUpActivity, R.color.status_ready_text))
+                }
+
                 Toast.makeText(this, "Foto sisi kanan berhasil diverifikasi (4/4 Selesai)!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Foto sisi kanan sudah terverifikasi.", Toast.LENGTH_SHORT).show()
@@ -208,10 +213,15 @@ class InspeksiPickUpActivity : AppCompatActivity() {
             if (cbKitSmartBundle.isChecked) count++
 
             tvKitChecklistCount.text = "$count/4 SIAP"
+            val tvStickyStatus = findViewById<TextView>(R.id.tvStickyPickupStatus)
             if (count == 4) {
                 tvKitChecklistCount.setTextColor(ContextCompat.getColor(this, R.color.status_ready_text))
+                tvStickyStatus?.text = if (isRightPhotoTaken) "QC Lengkap • Siap Sahkan" else "Foto Belum Lengkap"
+                tvStickyStatus?.setTextColor(ContextCompat.getColor(this, if (isRightPhotoTaken) R.color.status_ready_text else R.color.workshop_amber))
             } else {
                 tvKitChecklistCount.setTextColor(ContextCompat.getColor(this, R.color.status_workshop_text))
+                tvStickyStatus?.text = "Kit: $count/4 Belum Lengkap"
+                tvStickyStatus?.setTextColor(ContextCompat.getColor(this, R.color.status_workshop_text))
             }
         }
         cbKitStnk.setOnClickListener(kitWatcher)
@@ -223,6 +233,12 @@ class InspeksiPickUpActivity : AppCompatActivity() {
         btnSubmitHandover.setOnClickListener {
             submitInspection()
         }
+
+        val btnStickyHandover = findViewById<Button>(R.id.btnStickyHandover)
+        btnStickyHandover?.setOnClickListener {
+            submitInspection()
+        }
+        btnStickyHandover?.let { MotionUtils.applyTactilePressFeedback(it) }
     }
 
     private fun submitInspection() {

@@ -180,14 +180,22 @@ object ProfileDialogHelper {
             }
         }
 
-        val clickListener = android.view.View.OnClickListener {
+        banner.setOnClickListener {
             showProfileDialog(activity) {
                 setupRoleBanner(activity, onRoleChanged)
                 onRoleChanged?.invoke()
             }
         }
-        banner.setOnClickListener(clickListener)
-        btnSwitch?.setOnClickListener(clickListener)
+
+        btnSwitch?.setOnClickListener {
+            val newRole = if (prefs.isWorkshopAdmin) VehicleRentPrefs.ROLE_RENTER else VehicleRentPrefs.ROLE_WORKSHOP_ADMIN
+            prefs.userRole = newRole
+            val label = if (newRole == VehicleRentPrefs.ROLE_WORKSHOP_ADMIN) "Mode Pemangku Usaha (Bengkel)" else "Mode Pelanggan (Penyewa)"
+            android.widget.Toast.makeText(activity, "Beralih ke $label", android.widget.Toast.LENGTH_SHORT).show()
+            setupRoleBanner(activity, onRoleChanged)
+            onRoleChanged?.invoke()
+            activity.recreate()
+        }
     }
 
     fun applyDarkMode(isDark: Boolean) {

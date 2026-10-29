@@ -274,6 +274,20 @@ class InspeksiReturnActivity : AppCompatActivity() {
             showConfirmationDialog()
         }
 
+        val btnStickySubmit = findViewById<Button>(R.id.btnStickySubmit)
+        btnStickySubmit?.setOnClickListener {
+            showConfirmationDialog()
+        }
+        btnStickySubmit?.let { MotionUtils.applyTactilePressFeedback(it) }
+
+        // Quick DTC One-Tap Chips Pad
+        findViewById<View>(R.id.chipDtcP0300)?.setOnClickListener { etObdCode.setText("P0300") }
+        findViewById<View>(R.id.chipDtcP0171)?.setOnClickListener { etObdCode.setText("P0171") }
+        findViewById<View>(R.id.chipDtcC0035)?.setOnClickListener { etObdCode.setText("C0035") }
+        findViewById<View>(R.id.chipDtcU0100)?.setOnClickListener { etObdCode.setText("U0100") }
+        findViewById<View>(R.id.chipDtcP0420)?.setOnClickListener { etObdCode.setText("P0420") }
+        findViewById<View>(R.id.chipDtcClear)?.setOnClickListener { etObdCode.setText("") }
+
         // Secondary Button: Kirim Laporan Klaim ke Penyewa via Intent
         btnShareClaimReport.setOnClickListener {
             shareClaimReport()
@@ -351,6 +365,12 @@ class InspeksiReturnActivity : AppCompatActivity() {
             isWorkshopBranchingActive = isCurrentlyWorkshop
         }
 
+        val tvStickyTotalCost = findViewById<TextView>(R.id.tvStickyTotalCost)
+        val btnStickySubmit = findViewById<Button>(R.id.btnStickySubmit)
+        if (tvStickyTotalCost != null) {
+            tvStickyTotalCost.text = "Rp ${currencyFormat.format(totalEstCost)} • ${String.format(Locale.US, "%.1f", totalEstHours)} Jam"
+        }
+
         if (isCurrentlyWorkshop) {
             tvWorkshopAutoStatusTitle.text = "MASUK ANTREAN BENGKEL INTERNAL"
             tvWorkshopAutoStatusTitle.setTextColor(ContextCompat.getColor(this, R.color.status_workshop_text))
@@ -358,6 +378,8 @@ class InspeksiReturnActivity : AppCompatActivity() {
             tvWorkshopTargetReady.text = "Besok 14:00 WIB (Stall #03)"
             btnSubmitToWorkshop.text = "Kirim ke Bengkel Internal (Buka Tiket Servis)"
             btnSubmitToWorkshop.setBackgroundResource(R.drawable.bg_button_amber)
+            btnStickySubmit?.text = "Kirim Bengkel"
+            btnStickySubmit?.setBackgroundResource(R.drawable.bg_button_amber)
         } else {
             tvWorkshopAutoStatusTitle.text = "LULUS INSPEKSI RETURN"
             tvWorkshopAutoStatusTitle.setTextColor(ContextCompat.getColor(this, R.color.status_ready_text))
@@ -365,6 +387,8 @@ class InspeksiReturnActivity : AppCompatActivity() {
             tvWorkshopTargetReady.text = "Hari ini (Langsung Siap)"
             btnSubmitToWorkshop.text = "Tandai Selesai & Lulus QC (Siap Sewa)"
             btnSubmitToWorkshop.setBackgroundResource(R.drawable.bg_button_primary)
+            btnStickySubmit?.text = "Lulus QC"
+            btnStickySubmit?.setBackgroundResource(R.drawable.bg_button_primary)
         }
     }
 

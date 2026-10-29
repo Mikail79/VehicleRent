@@ -445,11 +445,11 @@
                         style="@style/TextAppearance.LabelCaps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_badge_ready"
+                        android:background="@drawable/bg_badge_plate"
                         android:paddingHorizontal="8dp"
                         android:paddingVertical="3dp"
                         android:text="SISTEM AKTIF"
-                        android:textColor="@color/status_ready_text" />
+                        android:textColor="@color/text_slate_900" />
                 </LinearLayout>
 
                 <!-- Kategori Pemeriksaan Utama Spinner -->
@@ -524,6 +524,106 @@
                         android:src="@drawable/ic_open_in_new"
                         app:tint="@color/workshop_amber" />
                 </LinearLayout>
+
+                <!-- Quick DTC One-Tap Chips Pad for Field Mechanics -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:clipToPadding="false"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/chipDtcP0300"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:background="@drawable/bg_card_selectable"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:paddingHorizontal="8dp"
+                            android:text="P0300 Misfire"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/chipDtcP0171"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/bg_card_selectable"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:paddingHorizontal="8dp"
+                            android:text="P0171 MAF Lean"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/chipDtcC0035"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/bg_card_selectable"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:paddingHorizontal="8dp"
+                            android:text="C0035 Rem ABS"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/chipDtcU0100"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/bg_card_selectable"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:paddingHorizontal="8dp"
+                            android:text="U0100 CAN-Bus"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/chipDtcP0420"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/bg_card_selectable"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:paddingHorizontal="8dp"
+                            android:text="P0420 Katalitik"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/chipDtcClear"
+                            style="@style/TextAppearance.MonoDataSM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/bg_badge_plate"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:paddingHorizontal="8dp"
+                            android:text="Bersih (Tanpa DTC)"
+                            android:textColor="@color/text_slate_900"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </HorizontalScrollView>
 
                 <!-- Checkbox Checklist Temuan Saat Kembali -->
                 <TextView
@@ -792,6 +892,55 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- Sticky Field Action Dock (Always in Thumb Zone) -->
+    <LinearLayout
+        android:id="@+id/llStickyActionDock"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_card_surface"
+        android:elevation="6dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.LabelCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TOTAL KLAIM &amp; BENGKEL"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/tvStickyTotalCost"
+                style="@style/TextAppearance.MonoDataLG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 1.130.000"
+                android:textColor="@color/workshop_amber_dark"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnStickySubmit"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_button_amber"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingHorizontal="14dp"
+            android:text="Kirim Bengkel"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <!-- Bottom Navigation Bar matching Stitch -->
     <include layout="@layout/include_bottom_nav" />

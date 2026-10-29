@@ -239,6 +239,7 @@ class FormPemesananActivity : AppCompatActivity() {
             if (durationDays > 1) {
                 durationDays--
                 tvDurationDisplay.text = "$durationDays Hari"
+                MotionUtils.pulseHighlight(tvDurationDisplay)
                 calculateAndRenderCosts()
             }
         }
@@ -246,6 +247,7 @@ class FormPemesananActivity : AppCompatActivity() {
         btnIncrement.setOnClickListener {
             durationDays++
             tvDurationDisplay.text = "$durationDays Hari"
+            MotionUtils.pulseHighlight(tvDurationDisplay)
             calculateAndRenderCosts()
         }
 
@@ -312,12 +314,8 @@ class FormPemesananActivity : AppCompatActivity() {
             llRowBundle.visibility = View.GONE
         }
 
-        // Numeric rolling counter (300ms ease-out)
-        if (previousGrandTotal == 0L) {
-            tvGrandTotal.text = "Rp ${currencyFormat.format(grandTotal)}"
-        } else {
-            MotionUtils.animateNumberRolling(tvGrandTotal, previousGrandTotal, grandTotal)
-        }
+        // Numeric rolling counter (450ms ease-out)
+        MotionUtils.animateNumberRolling(tvGrandTotal, previousGrandTotal, grandTotal)
         previousGrandTotal = grandTotal
     }
 
