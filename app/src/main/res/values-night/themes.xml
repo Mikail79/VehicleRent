@@ -1,12 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme for Night / Dark Mode. -->
     <style name="Base.Theme.VehicleRent" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primary_navy_light</item>
-        <item name="colorPrimaryDark">@color/primary_navy</item>
+        <item name="colorPrimary">@color/primary_navy</item>
+        <item name="colorPrimaryDark">@color/primary_navy_dark</item>
         <item name="colorSecondary">@color/workshop_amber</item>
-        <item name="android:statusBarColor">@color/dark_bg</item>
+        <item name="android:statusBarColor">@color/bg_slate_50</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowBackground">@color/dark_bg</item>
+        <item name="android:windowBackground">@color/bg_slate_50</item>
         <item name="fontFamily">@font/font_plus_jakarta_sans</item>
     </style>
 </resources>

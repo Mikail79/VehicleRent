@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Mode Tactile Automotive Palette (Aura / 21st.dev / Skiper-UI) -->
+    <color name="primary_navy">#1E3A8A</color>
+    <color name="primary_navy_dark">#172554</color>
+    <color name="primary_navy_light">#1E293B</color>
+    <color name="primary_navy_container">#1E3A8A</color>
+    <color name="on_primary">#FFFFFF</color>
+
+    <!-- Operational Accent: Workshop Amber (Dark) -->
+    <color name="workshop_amber">#F59E0B</color>
+    <color name="workshop_amber_dark">#B45309</color>
+    <color name="workshop_amber_light">#78350F</color>
+    <color name="workshop_amber_surface">#261908</color>
+    <color name="workshop_amber_border">#78350F</color>
+    <color name="on_workshop_amber">#FFFFFF</color>
+
+    <!-- Surfaces & Canvas (Crisp Hairline Surface Layering) -->
+    <color name="bg_slate_50">#0B0D11</color>
+    <color name="surface_white">#13161C</color>
+    <color name="surface_card">#13161C</color>
+    <color name="surface_container_low">#1C2029</color>
+    <color name="surface_container">#262930</color>
+    <color name="surface_container_high">#333742</color>
+    <color name="card_border">#262930</color>
+    <color name="card_border_focused">#64748B</color>
+
+    <!-- Text & Ink Hierarchy (Dark) -->
+    <color name="text_slate_900">#F8FAFC</color>
+    <color name="text_slate_600">#94A3B8</color>
+    <color name="text_slate_400">#64748B</color>
+
+    <!-- Semantic Status Badges (Dark Mode High Contrast) -->
+    <!-- Ready / Available (Emerald) -->
+    <color name="status_ready_bg">#052E16</color>
+    <color name="status_ready_text">#4ADE80</color>
+    <color name="status_ready_dot">#22C55E</color>
+
+    <!-- In-Transit / Disewa (Sky/Blue) -->
+    <color name="status_rented_bg">#082F49</color>
+    <color name="status_rented_text">#38BDF8</color>
+    <color name="status_rented_dot">#38BDF8</color>
+
+    <!-- In-Workshop (Red) -->
+    <color name="status_workshop_bg">#450A0A</color>
+    <color name="status_workshop_text">#F87171</color>
+    <color name="status_workshop_dot">#EF4444</color>
+
+    <!-- Pending / Warning (Amber) -->
+    <color name="status_warning_bg">#451A03</color>
+    <color name="status_warning_text">#FBBF24</color>
+
+    <!-- Active / Checked State (Refined, No Neon Ring) -->
+    <color name="surface_selected_bg">#18202F</color>
+    <color name="surface_selected_border">#2E4166</color>
+
+    <!-- Functional Utilities -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="divider_line">#262930</color>
+
+    <!-- Legacy / Direct Dark References -->
+    <color name="dark_bg">#0B0D11</color>
+    <color name="dark_surface">#13161C</color>
+    <color name="dark_card_border">#262930</color>
+    <color name="dark_text_primary">#F8FAFC</color>
+    <color name="dark_text_secondary">#94A3B8</color>
+</resources>
+

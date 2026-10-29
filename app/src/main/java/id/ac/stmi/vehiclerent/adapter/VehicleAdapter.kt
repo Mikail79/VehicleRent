@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import id.ac.stmi.vehiclerent.R
 import id.ac.stmi.vehiclerent.model.VehicleModel
 import id.ac.stmi.vehiclerent.model.VehicleStatus
+import id.ac.stmi.vehiclerent.util.MotionUtils
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -47,7 +48,7 @@ class VehicleAdapter(
 
         val ivImage = view.findViewById<ImageView>(R.id.ivVehicleImage)
         val llStatusBadge = view.findViewById<LinearLayout>(R.id.llStatusBadge)
-        val vStatusDot = view.findViewById<View>(R.id.vStatusDot)
+        val ivStatusIcon = view.findViewById<ImageView>(R.id.ivStatusIcon)
         val tvStatusText = view.findViewById<TextView>(R.id.tvStatusText)
         val tvVehicleFuel = view.findViewById<TextView>(R.id.tvVehicleFuel)
 
@@ -73,55 +74,86 @@ class VehicleAdapter(
         tvCheckNotes.text = vehicle.lastCheckNotes
         tvBaseRate.text = "Rp ${currencyFormat.format(vehicle.baseRatePerDay)}"
 
-        // Image Drawable Mapping
-        val imageRes = when (vehicle.imageDrawableName) {
-            "img_car_xpander" -> R.drawable.img_car_xpander
-            "img_car_fortuner" -> R.drawable.img_car_fortuner
-            "img_car_ioniq" -> R.drawable.img_car_ioniq
-            else -> R.drawable.img_car_zenix
+        // Specific 1-to-1 Image Mapping for each Car Type
+        val imageRes = when {
+            vehicle.imageDrawableName == "photo_car_brio" ||
+            vehicle.name.contains("Brio", ignoreCase = true) -> R.drawable.photo_car_brio
+
+            vehicle.imageDrawableName == "photo_car_avanza" ||
+            vehicle.name.contains("Avanza", ignoreCase = true) ||
+            vehicle.name.contains("Veloz", ignoreCase = true) ||
+            vehicle.name.contains("Xenia", ignoreCase = true) -> R.drawable.photo_car_avanza
+
+            vehicle.imageDrawableName == "photo_car_pajero" ||
+            vehicle.name.contains("Pajero", ignoreCase = true) -> R.drawable.photo_car_pajero
+
+            vehicle.imageDrawableName == "photo_car_hrv" ||
+            vehicle.name.contains("HR-V", ignoreCase = true) -> R.drawable.photo_car_hrv
+
+            vehicle.imageDrawableName == "photo_car_fortuner" ||
+            vehicle.name.contains("Fortuner", ignoreCase = true) -> R.drawable.photo_car_fortuner
+
+            vehicle.imageDrawableName == "photo_car_ioniq" ||
+            vehicle.name.contains("Ioniq", ignoreCase = true) ||
+            vehicle.name.contains("EV", ignoreCase = true) -> R.drawable.photo_car_ioniq
+
+            vehicle.imageDrawableName == "photo_car_xpander" ||
+            vehicle.name.contains("Xpander", ignoreCase = true) -> R.drawable.photo_car_xpander
+
+            else -> R.drawable.photo_car_zenix
         }
         ivImage.setImageResource(imageRes)
 
-        // Status Styling
+        val prefs = id.ac.stmi.vehiclerent.util.VehicleRentPrefs.getInstance(context)
+        val isAdmin = prefs.isWorkshopAdmin
+
+        // Precision Telemetry Tag Styling (High-Contrast Obsidian Glass Tag, No AI Slop Pill)
         when (vehicle.status) {
             VehicleStatus.READY -> {
-                llStatusBadge.setBackgroundResource(R.drawable.bg_badge_ready)
-                vStatusDot.setBackgroundColor(ContextCompat.getColor(context, R.color.status_ready_dot))
-                tvStatusText.text = "Siap Sewa (Lulus QC)"
-                tvStatusText.setTextColor(ContextCompat.getColor(context, R.color.status_ready_text))
+                ivStatusIcon.setImageResource(R.drawable.ic_check_circle)
+                ivStatusIcon.imageTintList = ColorStateList.valueOf(Color.parseColor("#4ADE80"))
+                tvStatusText.text = "SIAP SEWA • LULUS QC"
+                tvStatusText.setTextColor(Color.parseColor("#4ADE80"))
                 tvReadyBadge.text = "Siap Jalan"
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_ready_text))
 
                 btnBook.isEnabled = true
-                btnBook.text = "Pilih & Pesan"
+                btnBook.text = if (isAdmin) "Alokasi Sewa" else "Pilih & Pesan"
                 btnBook.setBackgroundResource(R.drawable.bg_button_primary)
             }
             VehicleStatus.ON_RENT -> {
-                llStatusBadge.setBackgroundResource(R.drawable.bg_badge_rented)
-                vStatusDot.setBackgroundColor(ContextCompat.getColor(context, R.color.status_rented_dot))
-                tvStatusText.text = "Sedang Disewa (Jalan)"
-                tvStatusText.setTextColor(ContextCompat.getColor(context, R.color.status_rented_text))
+                ivStatusIcon.setImageResource(R.drawable.ic_commute)
+                ivStatusIcon.imageTintList = ColorStateList.valueOf(Color.parseColor("#38BDF8"))
+                tvStatusText.text = "DISEWA • DI JALAN"
+                tvStatusText.setTextColor(Color.parseColor("#38BDF8"))
                 tvReadyBadge.text = "Di Jalan"
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_rented_text))
 
                 btnBook.isEnabled = true
-                btnBook.text = "Simulasi Return"
+                btnBook.text = if (isAdmin) "Inspeksi Return" else "Simulasi Return"
                 btnBook.setBackgroundResource(R.drawable.bg_button_secondary)
             }
             VehicleStatus.IN_WORKSHOP -> {
-                llStatusBadge.setBackgroundResource(R.drawable.bg_badge_workshop)
-                vStatusDot.setBackgroundColor(ContextCompat.getColor(context, R.color.status_workshop_dot))
-                tvStatusText.text = "Di Bengkel (${vehicle.workshopTargetTime})"
-                tvStatusText.setTextColor(ContextCompat.getColor(context, R.color.status_workshop_text))
+                ivStatusIcon.setImageResource(R.drawable.ic_build_circle)
+                ivStatusIcon.imageTintList = ColorStateList.valueOf(Color.parseColor("#F87171"))
+                tvStatusText.text = "BENGKEL • STALL SERVICE"
+                tvStatusText.setTextColor(Color.parseColor("#F87171"))
                 tvReadyBadge.text = "Perlu Servis"
                 tvReadyBadge.setTextColor(ContextCompat.getColor(context, R.color.status_workshop_text))
 
-                btnBook.isEnabled = false
-                btnBook.text = "Terkunci (Bengkel)"
-                btnBook.setBackgroundColor(Color.LTGRAY)
+                if (isAdmin) {
+                    btnBook.isEnabled = true
+                    btnBook.text = "Kelola di Stall"
+                    btnBook.setBackgroundResource(R.drawable.bg_button_amber)
+                } else {
+                    btnBook.isEnabled = false
+                    btnBook.text = "Terkunci (Bengkel)"
+                    btnBook.setBackgroundColor(ContextCompat.getColor(context, R.color.border_slate_300))
+                }
             }
         }
 
+        MotionUtils.applyTactilePressFeedback(btnBook)
         btnBook.setOnClickListener {
             onBookClicked(vehicle)
         }

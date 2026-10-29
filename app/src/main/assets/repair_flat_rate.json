@@ -1,0 +1,21 @@
+{
+  "workshop_name": "AutoFleet Direct - Internal Technical Bay",
+  "base_mechanic_hourly_rate": 150000,
+  "inspection_cert_fee": 50000,
+  "fuel_penalty_per_quarter": 180000,
+  "stalls": [
+    { "stall_id": "Stall #01", "specialty": "Quick Service & Oil Change", "lead_mechanic": "Mekanik Hendra Wijaya" },
+    { "stall_id": "Stall #02", "specialty": "Chassis, Brake & Alignment", "lead_mechanic": "Mekanik Rizky" },
+    { "stall_id": "Stall #03", "specialty": "Engine & Powertrain Overhaul", "lead_mechanic": "Mekanik Dimas" },
+    { "stall_id": "Stall #04", "specialty": "Bodi, Panel Repair & Paint", "lead_mechanic": "Mekanik Agus" },
+    { "stall_id": "Stall #05", "specialty": "Electrical, OBD-II & CAN-Bus", "lead_mechanic": "Mekanik Wahyu" },
+    { "stall_id": "Stall #06", "specialty": "Final QC & Ready Release", "lead_mechanic": "Supervisor Fleet" }
+  ],
+  "physical_defects": [
+    { "id": "bumper", "title": "Baret Panel Bumper Depan Kiri", "hours": 3.5, "cost": 600000 },
+    { "id": "brake", "title": "Kampas Rem Depan Tipis", "hours": 2.0, "cost": 350000 },
+    { "id": "engine", "title": "Indikator Check Engine Permanen", "hours": 2.5, "cost": 500000 },
+    { "id": "oil_service", "title": "Servis Berkala & Ganti Oli Sintetik", "hours": 1.5, "cost": 450000 }
+  ]
+}
+

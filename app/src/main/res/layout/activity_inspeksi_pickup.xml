@@ -77,6 +77,9 @@
         </FrameLayout>
     </LinearLayout>
 
+    <!-- Dual-Role Indicator Banner -->
+    <include layout="@layout/include_role_banner" />
+
     <!-- Scrollable Inspection Form -->
     <ScrollView
         android:layout_width="match_parent"
@@ -188,7 +191,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_insp_front" />
+                                android:src="@drawable/photo_insp_front" />
 
                             <ImageView
                                 android:layout_width="22dp"
@@ -235,7 +238,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_insp_rear" />
+                                android:src="@drawable/photo_insp_rear" />
 
                             <ImageView
                                 android:layout_width="22dp"
@@ -290,7 +293,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_insp_left" />
+                                android:src="@drawable/photo_insp_left" />
 
                             <ImageView
                                 android:layout_width="22dp"
@@ -343,7 +346,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_insp_right"
+                                android:src="@drawable/photo_insp_right"
                                 android:visibility="gone" />
 
                             <!-- Placeholder when not taken -->
@@ -400,6 +403,21 @@
                             android:textColor="@color/workshop_amber_dark" />
                     </LinearLayout>
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvErrorSlotPhoto"
+                    style="@style/TextAppearance.BodySM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_badge_workshop"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:text="Wajib lengkapi foto Sisi Kanan (Slot 4) sebelum serah-terima fisik"
+                    android:textColor="@color/status_workshop_text"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <!-- Section 2: Telemetri & Odometer -->
@@ -428,7 +446,7 @@
                         style="@style/TextAppearance.LabelCaps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="OBD-II SYNC"
+                        android:text="Input Kode DTC Scanner"
                         android:textColor="@color/primary_navy" />
                 </LinearLayout>
 
@@ -495,6 +513,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:buttonTint="@color/control_tint_selector"
                         android:text="25%"
                         android:textSize="12sp" />
 
@@ -503,6 +522,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:buttonTint="@color/control_tint_selector"
                         android:text="50%"
                         android:textSize="12sp" />
 
@@ -511,6 +531,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:buttonTint="@color/control_tint_selector"
                         android:text="75%"
                         android:textSize="12sp" />
 
@@ -519,6 +540,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:buttonTint="@color/control_tint_selector"
                         android:checked="true"
                         android:text="100%"
                         android:textSize="12sp"
@@ -583,6 +605,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="true"
                     android:text="STNK Asli &amp; Kunci Utama\nTermasuk kunci remote cadangan"
                     android:textSize="13sp" />
@@ -591,6 +614,7 @@
                     android:id="@+id/cbKitSpareTire"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="true"
                     android:text="Ban Serep, Dongkrak Hidrolik &amp; Kunci Roda\nTekanan angin serep 34 PSI"
                     android:textSize="13sp" />
@@ -599,6 +623,7 @@
                     android:id="@+id/cbKitEmergencyKit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="true"
                     android:text="Segitiga Pengaman &amp; Kotak P3K Lengkap\nSegel utuh dan steril"
                     android:textSize="13sp" />
@@ -607,6 +632,7 @@
                     android:id="@+id/cbKitSmartBundle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/control_tint_selector"
                     android:checked="true"
                     android:text="Aksesoris Smart Bundle Lengkap\nRoof Box 400L &amp; Child Seat terpasang"
                     android:textSize="13sp" />
@@ -638,7 +664,7 @@
                         style="@style/TextAppearance.LabelCaps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="E-MATERAI READY"
+                        android:text="Wajib Tanda Tangan Kedua Pihak"
                         android:textColor="@color/status_ready_text" />
                 </LinearLayout>
 
@@ -742,11 +768,63 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
-                android:text="Audit Hash SHA-256 Terenkripsi di FleetCloud"
+                android:text="Data Serah-Terima Tersimpan di SharedPreferences Lokal"
                 android:textSize="11sp" />
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- Sticky Field Action Dock (Always in Thumb Zone) -->
+    <LinearLayout
+        android:id="@+id/llStickyPickupDock"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_card_surface"
+        android:elevation="6dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.LabelCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STATUS SERAH-TERIMA"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/tvStickyPickupStatus"
+                style="@style/TextAppearance.HeadingMD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="QC Siap • Serah Kunci"
+                android:textColor="@color/status_ready_text"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnStickyHandover"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_button_primary"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingHorizontal="14dp"
+            android:text="Sahkan Sewa"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Bottom Navigation Bar matching Stitch -->
+    <include layout="@layout/include_bottom_nav" />
 
 </LinearLayout>
 

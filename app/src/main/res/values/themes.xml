@@ -8,7 +8,15 @@
         <item name="android:statusBarColor">@color/bg_slate_50</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowBackground">@color/bg_slate_50</item>
+        <item name="android:fitsSystemWindows">true</item>
         <item name="fontFamily">@font/font_plus_jakarta_sans</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.VehicleRent.MicroRadius</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.VehicleRent.MicroRadius</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.VehicleRent.MicroRadius</item>
+    </style>
+
+    <style name="ShapeAppearance.VehicleRent.MicroRadius" parent="ShapeAppearance.Material3.Corner.None">
+        <item name="cornerSize">4dp</item>
     </style>
 
     <style name="Theme.VehicleRent" parent="Base.Theme.VehicleRent" />
@@ -55,12 +63,13 @@
         <item name="android:letterSpacing">0.05</item>
     </style>
 
-    <!-- JetBrains Mono Technical Telemetry Styles -->
+    <!-- JetBrains Mono Technical Telemetry Styles (Tabular Numerals for Fixed-Width Metrics) -->
     <style name="TextAppearance.MonoDataLG" parent="android:TextAppearance">
         <item name="fontFamily">@font/font_jetbrains_mono</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/text_slate_900</item>
+        <item name="android:fontFeatureSettings">tnum</item>
     </style>
 
     <style name="TextAppearance.MonoDataMD" parent="android:TextAppearance">
@@ -68,11 +77,14 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/text_slate_900</item>
+        <item name="android:fontFeatureSettings">tnum</item>
     </style>
 
     <style name="TextAppearance.MonoDataSM" parent="android:TextAppearance">
         <item name="fontFamily">@font/font_jetbrains_mono</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">11sp</item>
         <item name="android:textColor">@color/text_slate_600</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+        <item name="android:lineSpacingExtra">2dp</item>
     </style>
 </resources>

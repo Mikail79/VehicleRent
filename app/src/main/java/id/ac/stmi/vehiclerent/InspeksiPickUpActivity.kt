@@ -21,6 +21,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import id.ac.stmi.vehiclerent.model.ReservationModel
 import id.ac.stmi.vehiclerent.model.VehicleModel
 import id.ac.stmi.vehiclerent.model.VehicleStatus
+import id.ac.stmi.vehiclerent.util.BottomNavHelper
+import id.ac.stmi.vehiclerent.util.MotionUtils
 import id.ac.stmi.vehiclerent.util.ProfileDialogHelper
 import id.ac.stmi.vehiclerent.util.VehicleRentPrefs
 
@@ -37,6 +39,7 @@ class InspeksiPickUpActivity : AppCompatActivity() {
     private lateinit var ivRightSidePreview: ImageView
     private lateinit var ivRightSideCheck: ImageView
     private lateinit var tvRightSideStatus: TextView
+    private lateinit var tvErrorSlotPhoto: TextView
 
     private lateinit var etInitialOdometer: EditText
     private lateinit var rgInitialFuel: RadioGroup
@@ -63,6 +66,14 @@ class InspeksiPickUpActivity : AppCompatActivity() {
         loadReservationData()
         initViews()
         setupListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ProfileDialogHelper.setupRoleBanner(this) {
+            BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_PICKUP)
+        }
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.RENTER_PICKUP)
     }
 
     private fun loadReservationData() {
@@ -139,7 +150,13 @@ class InspeksiPickUpActivity : AppCompatActivity() {
 
         tvSignatureStaffName = findViewById(R.id.tvSignatureStaffName)
         tvSignatureRenterName = findViewById(R.id.tvSignatureRenterName)
+        tvErrorSlotPhoto = findViewById(R.id.tvErrorSlotPhoto)
         btnSubmitHandover = findViewById(R.id.btnSubmitHandover)
+
+        // Setup Bottom Nav and Tactile Feedback
+        BottomNavHelper.setup(this, BottomNavHelper.NavTab.INSPEKSI)
+        MotionUtils.applyTactilePressFeedback(slotRightSidePhoto)
+        MotionUtils.applyTactilePressFeedback(btnSubmitHandover)
 
         // Bind data
         val v = reservation.vehicle
@@ -158,11 +175,17 @@ class InspeksiPickUpActivity : AppCompatActivity() {
                 llRightSidePlaceholder.visibility = View.GONE
                 ivRightSidePreview.visibility = View.VISIBLE
                 ivRightSideCheck.visibility = View.VISIBLE
+                tvErrorSlotPhoto.visibility = View.GONE
 
                 tvRightSideStatus.text = "FOTO TERVERIFIKASI"
                 tvRightSideStatus.setTextColor(ContextCompat.getColor(this, R.color.status_ready_text))
                 tvPhotoProgressStatus.text = "4 / 4 Selesai"
                 tvPhotoProgressStatus.setTextColor(ContextCompat.getColor(this, R.color.status_ready_text))
+
+                findViewById<TextView>(R.id.tvStickyPickupStatus)?.apply {
+                    text = "QC Lengkap • Siap Sahkan"
+                    setTextColor(ContextCompat.getColor(this@InspeksiPickUpActivity, R.color.status_ready_text))
+                }
 
                 Toast.makeText(this, "Foto sisi kanan berhasil diverifikasi (4/4 Selesai)!", Toast.LENGTH_SHORT).show()
             } else {
@@ -190,10 +213,15 @@ class InspeksiPickUpActivity : AppCompatActivity() {
             if (cbKitSmartBundle.isChecked) count++
 
             tvKitChecklistCount.text = "$count/4 SIAP"
+            val tvStickyStatus = findViewById<TextView>(R.id.tvStickyPickupStatus)
             if (count == 4) {
                 tvKitChecklistCount.setTextColor(ContextCompat.getColor(this, R.color.status_ready_text))
+                tvStickyStatus?.text = if (isRightPhotoTaken) "QC Lengkap • Siap Sahkan" else "Foto Belum Lengkap"
+                tvStickyStatus?.setTextColor(ContextCompat.getColor(this, if (isRightPhotoTaken) R.color.status_ready_text else R.color.workshop_amber))
             } else {
                 tvKitChecklistCount.setTextColor(ContextCompat.getColor(this, R.color.status_workshop_text))
+                tvStickyStatus?.text = "Kit: $count/4 Belum Lengkap"
+                tvStickyStatus?.setTextColor(ContextCompat.getColor(this, R.color.status_workshop_text))
             }
         }
         cbKitStnk.setOnClickListener(kitWatcher)
@@ -205,10 +233,23 @@ class InspeksiPickUpActivity : AppCompatActivity() {
         btnSubmitHandover.setOnClickListener {
             submitInspection()
         }
+
+        val btnStickyHandover = findViewById<Button>(R.id.btnStickyHandover)
+        btnStickyHandover?.setOnClickListener {
+            submitInspection()
+        }
+        btnStickyHandover?.let { MotionUtils.applyTactilePressFeedback(it) }
     }
 
     private fun submitInspection() {
         if (!isRightPhotoTaken) {
+            tvErrorSlotPhoto.visibility = View.VISIBLE
+            slotRightSidePhoto.animate().translationX(-12f).setDuration(50).withEndAction {
+                slotRightSidePhoto.animate().translationX(12f).setDuration(50).withEndAction {
+                    slotRightSidePhoto.animate().translationX(0f).setDuration(50).start()
+                }.start()
+            }.start()
+
             MaterialAlertDialogBuilder(this)
                 .setTitle("Foto Fisik Belum Lengkap")
                 .setMessage("Silakan klik kotak 'Sisi Kanan' untuk mengambil foto kendaraan sebelum serah-terima.")
